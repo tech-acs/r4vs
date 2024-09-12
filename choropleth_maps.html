@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>R for Vital Statistics - 5&nbsp; Choropleth maps</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./resources.html" rel="next">
+<link href="./styling_tables.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+</head>
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./choropleth_maps.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Choropleth maps</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Vital Statistics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/tech-acs/r4vs" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data cleaning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./styling_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Styling tables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./choropleth_maps.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Choropleth maps</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">5.2</span> Getting started</a></li>
+  <li>
+<a href="#sourcing-geospatial-data" id="toc-sourcing-geospatial-data" class="nav-link" data-scroll-target="#sourcing-geospatial-data"><span class="header-section-number">5.3</span> Sourcing geospatial data</a>
+  <ul class="collapse">
+<li><a href="#gadm" id="toc-gadm" class="nav-link" data-scroll-target="#gadm"><span class="header-section-number">5.3.1</span> GADM</a></li>
+  <li><a href="#natural-earth" id="toc-natural-earth" class="nav-link" data-scroll-target="#natural-earth"><span class="header-section-number">5.3.2</span> Natural Earth</a></li>
+  </ul>
+</li>
+  <li><a href="#loading-geospatial-data" id="toc-loading-geospatial-data" class="nav-link" data-scroll-target="#loading-geospatial-data"><span class="header-section-number">5.4</span> Loading geospatial data</a></li>
+  <li>
+<a href="#plotting-in-tmap" id="toc-plotting-in-tmap" class="nav-link" data-scroll-target="#plotting-in-tmap"><span class="header-section-number">5.5</span> Plotting in tmap</a>
+  <ul class="collapse">
+<li><a href="#style-borders" id="toc-style-borders" class="nav-link" data-scroll-target="#style-borders"><span class="header-section-number">5.5.1</span> Style borders</a></li>
+  <li><a href="#labelling" id="toc-labelling" class="nav-link" data-scroll-target="#labelling"><span class="header-section-number">5.5.2</span> Labelling</a></li>
+  </ul>
+</li>
+  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data"><span class="header-section-number">5.6</span> Joining data</a></li>
+  <li><a href="#basic-choropleth" id="toc-basic-choropleth" class="nav-link" data-scroll-target="#basic-choropleth"><span class="header-section-number">5.7</span> Basic choropleth</a></li>
+  <li><a href="#colour-palettes" id="toc-colour-palettes" class="nav-link" data-scroll-target="#colour-palettes"><span class="header-section-number">5.8</span> Colour palettes</a></li>
+  <li>
+<a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes"><span class="header-section-number">5.9</span> Classes</a>
+  <ul class="collapse">
+<li><a href="#equal-interval" id="toc-equal-interval" class="nav-link" data-scroll-target="#equal-interval"><span class="header-section-number">5.9.1</span> Equal interval</a></li>
+  <li><a href="#quantile" id="toc-quantile" class="nav-link" data-scroll-target="#quantile"><span class="header-section-number">5.9.2</span> Quantile</a></li>
+  <li><a href="#natural-breaks-jenks" id="toc-natural-breaks-jenks" class="nav-link" data-scroll-target="#natural-breaks-jenks"><span class="header-section-number">5.9.3</span> Natural breaks (jenks)</a></li>
+  <li><a href="#custom-breaks" id="toc-custom-breaks" class="nav-link" data-scroll-target="#custom-breaks"><span class="header-section-number">5.9.4</span> Custom breaks</a></li>
+  </ul>
+</li>
+  <li><a href="#customisation" id="toc-customisation" class="nav-link" data-scroll-target="#customisation"><span class="header-section-number">5.10</span> Customisation</a></li>
+  <li><a href="#interactivity" id="toc-interactivity" class="nav-link" data-scroll-target="#interactivity"><span class="header-section-number">5.11</span> Interactivity</a></li>
+  <li><a href="#exporting-maps" id="toc-exporting-maps" class="nav-link" data-scroll-target="#exporting-maps"><span class="header-section-number">5.12</span> Exporting maps</a></li>
+  <li><a href="#further-resources" id="toc-further-resources" class="nav-link" data-scroll-target="#further-resources"><span class="header-section-number">5.13</span> Further resources</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tech-acs/r4vs/edit/main/choropleth_maps.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tech-acs/r4vs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Choropleth maps</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><div class="cell">
+<style type="text/css">
+ol {
+  padding-left: 0;
+}
+
+ol li {
+  list-style-position: inside;
+}
+</style>
+</div>
+<section id="introduction" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">5.1</span> Introduction</h2>
+<p>Choropleth or thematic maps visualise the variation in the values of a variable across geographical areas by encoding them in a colour gradient. Alternative graphics such as a bar or lollipop chart could be used to show the data but they lack potentially important spatial information. A choropleth map allows you to begin to identify hotspot areas and clusters of high or low values.</p>
+<p>However, there are three key issues to consider before choosing to display your data in a choropleth map.</p>
+<p><strong>1. Counts or rates</strong><br>
+Choropleth maps that visualise the distribution of counts are sensitive to population size. The population distribution will be mapped rather than the variable of interest. It is therefore recommended to map rates or percentages so that the population at risk is accounted for.</p>
+<p><strong>2. Modifiable Areal Unit Problem</strong><br>
+The Modifiable Areal Unit Problem or MAUP (Openshaw, 1984) points out that the spatial distribution of values in a choropleth map may be a function of the size and shape of geographical areas. There is not much that we can do about MAUP but we need to be aware of its potential impact.</p>
+<p><strong>3. Classification schemes</strong><br>
+Different classification schemes can produce very different choropleth maps (see below). As the distibution of a histogram is sensitive to the size of its bins so the spatial distribution visualised in a choropleth map can be affected by its intervals. It is good practice to inspect the values of your variable in a histogram before deciding which classification scheme to adopt.</p>
+</section><section id="getting-started" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="getting-started">
+<span class="header-section-number">5.2</span> Getting started</h2>
+<p>The main package that we will be using to create choropleth maps is the <a href="https://cran.r-project.org/web/packages/tmap/index.html">tmap</a> package. To install the package you can run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"tmap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will also be using the <a href="https://cran.r-project.org/web/packages/sf/index.html">sf</a> package to load spatial data, <a href="https://cran.r-project.org/web/packages/RColorBrewer/index.html">RColorBrewer</a> for colour palettes and <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a> for data manipulation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(sf)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="sourcing-geospatial-data" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="sourcing-geospatial-data">
+<span class="header-section-number">5.3</span> Sourcing geospatial data</h2>
+<p>Subnational administrative boundaries are available from two sources: <a href="https://gadm.org">GADM</a> and <a href="https://www.naturalearthdata.com/">Natural Earth</a>. The data are free to use for non-commercial purposes.</p>
+<section id="gadm" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="gadm">
+<span class="header-section-number">5.3.1</span> GADM</h3>
+<p>You can either download administrative boundary files using the <a href="https://cran.r-project.org/web/packages/geodata/"><code>geodata</code></a> package or directly from the <a href="https://gadm.org">GADM</a> website. The function <code>gadm()</code> has two key arguments. You need to supply the three-letter <a href="https://www.iso.org/obp/ui/#search">ISO code</a> to <code>country</code> and choose a <code>level</code> of administrative subdivision. 0 is the value for country and 1 is for the next administrative level down.</p>
+<p>The code below loads the states of <a href="https://gadm.org/maps/NGA.html">Nigeria</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(geodata)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>nigeria <span class="ot">&lt;-</span> <span class="fu">gadm</span>(<span class="at">country =</span> <span class="st">"NGA"</span>,  <span class="at">level =</span> <span class="dv">1</span>,  <span class="at">path =</span> <span class="fu">tempdir</span>(), <span class="at">version =</span> <span class="st">"latest"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you prefer to download the files manually from the website you need to select ‘Nigeria’ from the <a href="https://gadm.org/download_country.html">country dropdown</a> and then choose a file format. <a href="https://geojson.org/">GeoJSON</a> is an open, non-proprietary format that is used across the Web. There are three administrative divisions available:</p>
+<p>0 National<br>
+1 States (36 + Federal Capital Territory)<br>
+2 Local Government Areas (774)</p>
+<p>We will download ‘level 1’ in GeoJSON format by copying the URL and unzipping it. We can then use the <code>st_read()</code> function from the <strong>sf</strong> package to load the file into the R session. The sf package converts the GeoJSON file into a simple features object, a data frame with features stored in rows and attributes in columns. The feature geometries of the object are stored in a list-column at the end. These are the coordinates that describe the boundary of each state.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">download.file</span>(<span class="st">"https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_NGA_1.json.zip"</span>,</span>
+<span id="cb4-2"><a href="#cb4-2"></a>              <span class="st">"gadm41_NGA_1.json.zip"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">unzip</span>(<span class="st">"gadm41_NGA_1.json.zip"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>nigeria <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"gadm41_NGA_1.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="natural-earth" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="natural-earth">
+<span class="header-section-number">5.3.2</span> Natural Earth</h3>
+<p>Level 1 administrative boundaries are available from <a href="https://www.naturalearthdata.com/">Natural Earth</a> using the <code>ne_states()</code> function from the <a href="https://docs.ropensci.org/rnaturalearth/index.html"><code>rnaturalearth</code></a> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>nigeria <span class="ot">&lt;-</span> <span class="fu">ne_states</span>(<span class="at">country =</span> <span class="st">"nigeria"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also download subnational boundaries directly from the <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth</a> website. If you scroll down to ‘Admin 1 – States, Provinces’ you can download the <a href="https://doc.arcgis.com/en/arcgis-online/reference/shapefiles.htm">ESRI shapefile</a> of first-order administrative boundaries for a number of countries. To obtain the states of Nigeria we need to filter the results by the ISO code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">download.file</span>(<span class="st">"https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip"</span>, <span class="st">"ne_10m_admin_1_states_provinces.zip"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">unzip</span>(<span class="st">"ne_10m_admin_1_states_provinces.zip"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>nigeria <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"ne_10m_admin_1_states_provinces.shp"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">filter</span>(adm0_a3 <span class="sc">==</span> <span class="st">"NGA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="loading-geospatial-data" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="loading-geospatial-data">
+<span class="header-section-number">5.4</span> Loading geospatial data</h2>
+<p>On loading with <code>st_read()</code>, the R console prints out the number of features, the geometry type, dimensions, bounding box, and coordinate reference system (CRS). We can confirm that there are 37 features (states) and that the vector boundary layer is projected in the World Geodetic System 1984 (WGS84), with longitude and latitude units of decimal degrees.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>nigeria <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/nigeria.geojson"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; Reading layer `nigeria' from data source </span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;   `C:\Users\partrh\Projects\CRVS\book\r4vs\data\nigeria.geojson' </span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt;   using driver `GeoJSON'</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; Simple feature collection with 37 features and 1 field</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; Bounding box:  xmin: 2.671082 ymin: 4.272162 xmax: 14.66994 ymax: 13.88029</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can visualise the state boundaries using the base R <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. We just need to supply the <strong>geometry</strong> column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">plot</span>(nigeria<span class="sc">$</span>geometry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section><section id="plotting-in-tmap" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="plotting-in-tmap">
+<span class="header-section-number">5.5</span> Plotting in tmap</h2>
+<p>We can also use the <code>tmap</code> package to plot the state boundaries. Combining the <code>tm_shape()</code> and <code>tm_borders()</code> functions renders the outlines of each state.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">tm_shape</span>(nigeria) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">tm_borders</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<section id="style-borders" class="level3" data-number="5.5.1"><h3 data-number="5.5.1" class="anchored" data-anchor-id="style-borders">
+<span class="header-section-number">5.5.1</span> Style borders</h3>
+<p>The borders can be styled by passing <code>col</code> (colour) and <code>lwd</code> (border line width) arguments to the <a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html"><code>tm_borders()</code></a> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">tm_shape</span>(nigeria) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#000000"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section><section id="labelling" class="level3" data-number="5.5.2"><h3 data-number="5.5.2" class="anchored" data-anchor-id="labelling">
+<span class="header-section-number">5.5.2</span> Labelling</h3>
+<p>Each state can be labelled using the <a href="https://r-tmap.github.io/tmap/reference/tm_text.html"><code>tm_text()</code></a> function. Again, we supply various arguments to style the labels. The argument <code>auto.placement</code> ensures that labels don’t sit on top of each other.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">tm_shape</span>(nigeria) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#000000"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4"></a>          <span class="at">size =</span> <span class="fl">0.8</span>,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>          <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>          <span class="at">auto.placement =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>If you want to only label specific states you can use a filter.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">tm_shape</span>(nigeria) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#000000"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">tm_shape</span>(nigeria <span class="sc">|&gt;</span> <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Federal Capital Territory"</span>,<span class="st">"Jigawa"</span>,<span class="st">"Lagos"</span>,<span class="st">"Sokoto"</span>))) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">auto.placement =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section></section><section id="joining-data" class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="joining-data">
+<span class="header-section-number">5.6</span> Joining data</h2>
+<p>We have the boundaries of each state in Nigeria but we need some statistical data to create a choropleth map. We will be using data provided by the <a href="https://mics.unicef.org/sites/mics/files/Nigeria%20MICS%202021%20Statistical%20Snapshots_English.pdf">2021 Nigeria Multiple Indicators Cluster Survey (MICS)</a> on the percentage of children under age 5 whose births are registered by each Nigerian state.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co">#&gt; # A tibble: 6 × 2</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">#&gt;   state     percent</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co">#&gt;   &lt;chr&gt;       &lt;dbl&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt; 1 Abia         66.8</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#&gt; 2 Adamawa      79.7</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">#&gt; 3 Akwa Ibom    72.1</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="co">#&gt; 4 Anambra      86.5</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="co">#&gt; 5 Bauchi       38.3</span></span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="co">#&gt; 6 Bayelsa      28.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Both our spatial data and our birth registration data share a matching <strong>state</strong> variable which we can use to join the datasets. To check that all of the state names are consistent between datasets we can run an anti join.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">anti_join</span>(nigeria, df, <span class="at">by =</span> <span class="st">"state"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="co">#&gt; Simple feature collection with 1 feature and 1 field</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="co">#&gt; Bounding box:  xmin: 6.749594 ymin: 8.404707 xmax: 7.628196 ymax: 9.351419</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="co">#&gt;                       state                       geometry</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="co">#&gt; 1 Federal Capital Territory MULTIPOLYGON (((6.978107 8....</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can see that the ‘Federal Capital Territory’ in the spatial data has no match in the birth registration data. This is because the state is recorded as ‘FCT Abuja’ in the other dataset. We can fix this by recoding the state name in the spatial data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>nigeria <span class="ot">&lt;-</span> nigeria <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">case_when</span>(</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    state <span class="sc">==</span> <span class="st">"Federal Capital Territory"</span> <span class="sc">~</span> <span class="st">"FCT Abuja"</span>,</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> state)</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can now run the <code>left_join()</code> function to join the two datasets together.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>sf <span class="ot">&lt;-</span> <span class="fu">left_join</span>(nigeria, df, <span class="at">by =</span> <span class="st">"state"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When <code>left_join()</code> fails to find a match it enters a missing value in the corresponding row. We can therefore check that the join has worked by filtering out any missing values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">filter</span>(sf, <span class="fu">is.na</span>(percent))</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co">#&gt; Simple feature collection with 0 features and 2 fields</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co">#&gt; Bounding box:  xmin: NA ymin: NA xmax: NA ymax: NA</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="co">#&gt; [1] state    percent  geometry</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we are ready to create a choropleth map.</p>
+</section><section id="basic-choropleth" class="level2" data-number="5.7"><h2 data-number="5.7" class="anchored" data-anchor-id="basic-choropleth">
+<span class="header-section-number">5.7</span> Basic choropleth</h2>
+<p>The <a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html"><code>tm_polygons()</code></a> function creates an off-the-shelf choropleth map. You just supply the name of the variable that you want to visualise to <code>col</code> and a <code>title</code> for the legend.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"percent"</span>, </span>
+<span id="cb18-3"><a href="#cb18-3"></a>              <span class="at">title =</span> <span class="st">"% registered"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>To have finer control over the choropleth map it is better to use a combination of <code>tm_borders()</code> and <code>tm_fill()</code>. This allows us to style the borders.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#FFFFFF"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"percent"</span>, <span class="at">title =</span> <span class="st">"% registered"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>The default colour palette is orange and the map classification is ‘pretty’. We can change these next.</p>
+</section><section id="colour-palettes" class="level2" data-number="5.8"><h2 data-number="5.8" class="anchored" data-anchor-id="colour-palettes">
+<span class="header-section-number">5.8</span> Colour palettes</h2>
+<p><code>tmap</code> uses colour palettes from the <a href="https://colorbrewer2.org/">ColorBrewer</a> website which differ depending on the chosen <em>sequential</em>, <em>diverging</em>, or <em>categorical</em> colour scheme. If we wanted to show how the birth registration values are spread around the mean we could use colour palettes for a <em>diverging</em> scheme. However, we will use a palette from the sequential colour scheme because we want to visual the distribution of values from low to high. Here we will use the “Blues” palette which visualises low values as light blue and high values as dark blue.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#FFFFFF"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">auto.placement =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"percent"</span>,</span>
+<span id="cb20-5"><a href="#cb20-5"></a>          <span class="at">palette =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6"></a>          <span class="at">title =</span> <span class="st">"% registered"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section><section id="classes" class="level2" data-number="5.9"><h2 data-number="5.9" class="anchored" data-anchor-id="classes">
+<span class="header-section-number">5.9</span> Classes</h2>
+<p>When map classification breaks are not set explicitly tmap defaults to <code>style = "pretty"</code>. This is a base R <a href="https://cran.r-project.org/doc/manuals/r-release/fullrefman.pdf">function</a> which calculates roughly equal spaced round values. However, tmap has a number of other map classification schemes to choose from.</p>
+<section id="equal-interval" class="level3" data-number="5.9.1"><h3 data-number="5.9.1" class="anchored" data-anchor-id="equal-interval">
+<span class="header-section-number">5.9.1</span> Equal interval</h3>
+<p>Divides the distribution of values so that the range of values is identical within each class. The difference between the highest and lowest value is the same for each class grouping.</p>
+<p><strong>+</strong> represents the density of observations around the mean<br><strong>-</strong> maps tend to be unbalanced because the values aren’t evenly distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#FFFFFF"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">auto.placement =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"percent"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5"></a>          <span class="at">style =</span> <span class="st">"equal"</span>,</span>
+<span id="cb21-6"><a href="#cb21-6"></a>          <span class="at">n =</span> <span class="dv">4</span>,</span>
+<span id="cb21-7"><a href="#cb21-7"></a>          <span class="at">palette =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8"></a>          <span class="at">title =</span> <span class="st">"% registered"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section><section id="quantile" class="level3" data-number="5.9.2"><h3 data-number="5.9.2" class="anchored" data-anchor-id="quantile">
+<span class="header-section-number">5.9.2</span> Quantile</h3>
+<p>Sorts the values of a variable in ascending order and assigns an equal number of geographical areas to each colour.</p>
+<p><strong>+</strong> highlights a proportion of observations such as the top 25% of geographical areas<br><strong>-</strong> tends to mask heterogeneity</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#FFFFFF"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">auto.placement =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"percent"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5"></a>          <span class="at">style =</span> <span class="st">"quantile"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6"></a>          <span class="at">n =</span> <span class="dv">4</span>,</span>
+<span id="cb22-7"><a href="#cb22-7"></a>          <span class="at">palette =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb22-8"><a href="#cb22-8"></a>          <span class="at">title =</span> <span class="st">"% registered"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section><section id="natural-breaks-jenks" class="level3" data-number="5.9.3"><h3 data-number="5.9.3" class="anchored" data-anchor-id="natural-breaks-jenks">
+<span class="header-section-number">5.9.3</span> Natural breaks (jenks)</h3>
+<p>Class categories are based on natural groupings in the data. Uses a statistical procedure which seeks to reduce the variance <em>within</em> classes and maximises the variance <em>between</em> classes.</p>
+<p><strong>+</strong> identifies areas with similar values<br><strong>-</strong> the classes are unique to each variable so cannot be reused with other variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#FFFFFF"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">auto.placement =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"percent"</span>,</span>
+<span id="cb23-5"><a href="#cb23-5"></a>          <span class="at">style =</span> <span class="st">"jenks"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6"></a>          <span class="at">n =</span> <span class="dv">4</span>,</span>
+<span id="cb23-7"><a href="#cb23-7"></a>          <span class="at">palette =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8"></a>          <span class="at">title =</span> <span class="st">"% registered"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section><section id="custom-breaks" class="level3" data-number="5.9.4"><h3 data-number="5.9.4" class="anchored" data-anchor-id="custom-breaks">
+<span class="header-section-number">5.9.4</span> Custom breaks</h3>
+<p>Custom map classifications can be created by supplying <code>breaks</code> and <code>labels</code> to the <code>tm_fill()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#FFFFFF"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">auto.placement =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"percent"</span>,</span>
+<span id="cb24-5"><a href="#cb24-5"></a>          <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">58</span>,<span class="dv">76</span>,<span class="cn">Inf</span>),</span>
+<span id="cb24-6"><a href="#cb24-6"></a>          <span class="at">palette =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7"></a>          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">" &lt; 40%"</span>, <span class="st">" 40 - 58%"</span>, <span class="st">" 58 - 76%"</span>, <span class="st">" &gt; 76%"</span>),</span>
+<span id="cb24-8"><a href="#cb24-8"></a>          <span class="at">title =</span> <span class="st">"Total registered"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section></section><section id="customisation" class="level2" data-number="5.10"><h2 data-number="5.10" class="anchored" data-anchor-id="customisation">
+<span class="header-section-number">5.10</span> Customisation</h2>
+<p>There are several improvements we can make to the choropleth map by changing the layout, adding titles and tweaking the legend.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#FFFFFF"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">auto.placement =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"percent"</span>, <span class="at">title =</span> <span class="st">"% registered"</span>, <span class="at">style =</span> <span class="st">"jenks"</span>, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">palette =</span> <span class="st">"Blues"</span>) <span class="sc">+</span> </span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb25-6"><a href="#cb25-6"></a>            <span class="at">main.title =</span> <span class="st">"Levels of birth registration in Nigeria"</span>,</span>
+<span id="cb25-7"><a href="#cb25-7"></a>            <span class="at">main.title.size =</span> <span class="fl">1.2</span>,</span>
+<span id="cb25-8"><a href="#cb25-8"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a>  <span class="fu">tm_credits</span>(<span class="st">"Source: MICS, 2021"</span>, </span>
+<span id="cb25-10"><a href="#cb25-10"></a>             <span class="at">bg.color =</span> <span class="st">"white"</span>,</span>
+<span id="cb25-11"><a href="#cb25-11"></a>             <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"bottom"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="choropleth_maps_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" style="width:80.0%"></p>
+</div>
+</div>
+<p>You can also add in some cartographic elements such as a compass rose (<a href="https://r-tmap.github.io/tmap/reference/tm_compass.html"><code>tm_compass()</code></a>) or scale bar (<a href="https://r-tmap.github.io/tmap/reference/tm_scale_bar.html"><code>tm_scale_bar()</code></a>) if required.</p>
+</section><section id="interactivity" class="level2" data-number="5.11"><h2 data-number="5.11" class="anchored" data-anchor-id="interactivity">
+<span class="header-section-number">5.11</span> Interactivity</h2>
+<p>The <code>tmap</code> package also allows you to view your maps interactively. All you need to do is to switch between <code>tmap_mode("view")</code> for interactive viewing and <code>tmap_mode("plot")</code> for static plots.</p>
+</section><section id="exporting-maps" class="level2" data-number="5.12"><h2 data-number="5.12" class="anchored" data-anchor-id="exporting-maps">
+<span class="header-section-number">5.12</span> Exporting maps</h2>
+<p>To export static maps you can use the <code>tmap_save()</code> function. Just save your plot as an object and give it a <code>filename</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>tm <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"#000000"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">tm_text</span>(<span class="st">"state"</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">auto.placement =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"percent"</span>,  <span class="at">style =</span> <span class="st">"jenks"</span>, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">palette =</span> <span class="st">"Blues"</span>, <span class="at">title =</span> <span class="st">"% registered"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>)</span>
+<span id="cb26-5"><a href="#cb26-5"></a></span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="fu">tmap_save</span>(tm, <span class="at">filename =</span> <span class="st">"nigeria.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="further-resources" class="level2" data-number="5.13"><h2 data-number="5.13" class="anchored" data-anchor-id="further-resources">
+<span class="header-section-number">5.13</span> Further resources</h2>
+<ul>
+<li>Anselin, Luc (2016). Statistical Maps: Standard Deviation and Box Map. YouTube. <a href="https://www.youtube.com/watch?v=6-weK5J6xRI">https://www.youtube.com/watch?v=6-weK5J6xRI</a>
+</li>
+<li>Harris, Rich. (2022-2023). <a href="https://profrichharris.github.io/MandM/">Mapping and Modelling Geographic Data in R</a>. Online course.</li>
+<li>Lovelace, R., Nowosad, J., &amp; Muenchow, J. (2023). <a href="https://geocompr.robinlovelace.net/index.html">Geocomputation with R</a>. 2nd edition.</li>
+<li>ONS Geography. (2021). <a href="https://onsgeo.github.io/geospatial-training/docs/intro_to_gis_in_r">Introduction to GIS in R</a>. Online course.</li>
+<li>Openshaw, S., &amp; Openshaw, S. (1984). <em>The modifiable areal unit problem</em>. Geo Abstracts University of East Anglia</li>
+</ul>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./styling_tables.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Styling tables</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./resources.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Copyright 2024, Tesfaye Belay</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+</body></html>
