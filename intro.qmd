@@ -1,0 +1,3 @@
+# Introduction
+
+Welcome to this guide to creating publication ready vital statistics tables and graphics...

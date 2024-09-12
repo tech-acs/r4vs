@@ -1,0 +1,51 @@
+# Setup
+
+Please follow the steps below so that you have the necessary software for the workshops.
+
+## 1. Download and install R
+
+To download R go to [https://cloud.r-project.org/](https://cloud.r-project.org/). There are different downloads for Windows, MacOS and Linux operating systems. 
+
+There's normally a major update to R each year so it is recommended that you update your version of R regularly.
+
+## 2. Download and install RStudio
+RStudio is an integrated development environment (IDE) for R. This is essentially a more user friendly way of interacting with R.
+
+You can download and install RStudio from [https://posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop). Versions are available for Windows 10/11, macOS 12+ and other operating systems.
+
+RStudio is updated regularly but reminders to update will periodically pop up.
+
+Open up RStudio and select *File > New File > R script*. An untitled R script will appear in the Source pane. Now copy and paste the code below into the window. Then `Ctrl+A` the code and hit `Ctrl+Enter` to run it. 
+
+```{r}
+#| eval: false
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point()
+```
+
+If you see a scatter plot like this then your installation of R and RStudio has been successful.
+
+```{r}
+#| echo: false
+#| warning: false
+library(ggplot2)
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point()
+```
+
+
+## 3. Download and install Git
+First we'll check whether you already have Git on your computer. Open the Command Prompt (find the Search Bar and enter "cmd") and run: `git --version`. The Git version you're currently using will be returned. If `git: command not found` or similar is returned then you need to download and install Git.
+
+If you are using Windows and have admin rights then go to [https://git-scm.com/download/win](https://git-scm.com/download/win/win) and download the *Standalone Installer* for 64-bit. 
+
+::: {.callout-note}
+Note that RStudio requires a 64-bit operating system.
+:::
+
+Run through the installation process and accept all of the default settings. Downloads for other operating systems are available at [https://git-scm.com/download](https://git-scm.com/download).
+
+## 4. Register for a free GitHub account
+[GitHub](https://github.com/join) accounts are free. All you need to do is provide an email address, password and a unique username. There are some tips on creating a GitHub username [here](https://happygitwithr.com/github-acct.html?q=username#username-advice). Once you have completed the sign up process you can visit your dashboard and update your profile.

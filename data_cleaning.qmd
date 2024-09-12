@@ -1,0 +1,165 @@
+# Data cleaning
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse) ; library(reactable)
+```
+
+There are several simple routines that can help make the preparation of civil registration data for tabulation less time consuming. This vignette uses the [tidyverse](https://www.tidyverse.org/) suite of R packages to deal with common problems such as incorrect data types, duplicate rows, and missing values.
+
+We will use a synthetic dataset that has the appearance of civil registration data to experiment with. The states of Nigeria are used but otherwise the data are completely fictional.
+
+*Our synthetic dataset*
+```{r, echo=FALSE}
+n <- 1000
+id <- sample(1:n)
+birth1a <- sample(seq(as.Date("2024/05/01"), as.Date("2024/08/05"), by = "day"), n, replace = TRUE)
+birth1c <- sample(c("Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno","Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","Federal Capital Territory","Gombe","Imo","Jigawa" ,"Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nassarawa","Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara", ""), n, replace = TRUE)
+birth1g <- sample(c("Single", "Twin", "Triplet", "Quadruplet or higher"), n, replace = TRUE)
+birth1h <- sample(c("Doctor", "Nurse", "Midwife", "Other"), n, replace = TRUE)
+birth1i <- sample(c("Hospital", "Home", "Clinic", "Other", "Unknown"), n, replace = TRUE)
+birth2a <- sample(c("M", "F"), n, replace = TRUE)
+birth3b <- sample(0:90, n, replace = TRUE)
+raw <- data.frame(id, birth1a, birth1c, birth1g, birth1h, birth1i, birth2a, birth3b)
+
+# add mischief
+df <- raw |>
+  mutate(
+    birth1b = birth1a + sample.int(28, n, replace = TRUE), # add later registration date
+    birth1b = case_when(
+      id %in% sample.int(1000, 3, replace = TRUE) ~ ymd("1900-01-01"), TRUE ~ birth1b), # add incorrect date
+    birth3b = ifelse(id %in% sample.int(1000, 10, replace = TRUE), NA, birth3b) # add some missing values
+    ) |>
+  mutate(birth1a = as.character(birth1a)) |> # coerce birth1a to character
+  relocate(birth1b, .after = birth1a) |>
+  remove_rownames()
+  
+df <- df |> bind_rows(slice(df, rep(1, 4))) # duplicate rows
+
+reactable(df, defaultPageSize = 5)
+```
+
+Before we start we need to load the [tidyverse](https://www.tidyverse.org/) package.
+```{r, eval=FALSE}
+library(tidyverse)
+```
+
+Then we can inspect our dataset. 
+```{r}
+glimpse(df)
+```
+
+There are `r ncol(df)` variables in our data:
+
+- `id`
+- `birth1a` (Date of occurrence, Event)
+- `birth1b` (Date of registration, Event)
+- `birth1c` (Place of occurrence, Event)
+- `birth1g` (Type of birth, Event)
+- `bith1h`  (Attendant at birth, Event)
+- `birth1i` (Type of place of occurrence, Event)
+- `birth2a` (Sex, Newborn)
+- `birth3b` (Age, Mother)
+
+The variable `birth1b` (Date of registration, Event) is of type date, `id` and `birth3b` (Age, Mother) integer, and the others are all character.
+
+## Characters as dates
+Dates can be inputted in a variety of formats such as "1 August 24", Aug 1, 2024", and "2024-08-01". Sometimes R will not be able to parse a date and will read it as a character. 
+
+The variable `birth1a` (Date of occurrence, Event) is a character but it should be a date. We can coerce it to a date by passing it to the `as.Date()` function and choosing the corresponding date format. `birth1a` follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard for dates or 'YYYY-MM-DD' so we need to format the data with "%Y-%m-%d". 
+
+```{r}
+df <- mutate(df, birth1a = as.Date(birth1a, format = "%Y-%m-%d"))
+class(df$birth1a)
+```
+
+*Date formats in R*
+
+```{r, echo=FALSE}
+date_formats <- tribble(
+  ~Symbol, ~Description, ~Example,
+  "%d", "Day as a number", "01-31",
+  "%a", "Abbreviated weekday", "Wed",
+  "%A", "Unabbreviated weekday", "Wednesday",
+  "%m", "Month as a number", "1-12",
+  "%b", "Abbreviated month", "Feb",
+  "%B", "Unabbreviated month", "February",
+  "%y", "2-digit year", "24",
+  "%Y", "4-digit year", "2024"
+)
+reactable(date_formats)
+```
+
+You can also use the [`ymd()`](https://lubridate.tidyverse.org/reference/ymd.html) function which more intuitively transforms the date into year, month, and day. 
+
+```{r, eval=FALSE}
+mutate(df, birth1a = ymd(birth1a))
+```
+
+## Dates out of sequence
+There may be inputting errors in the civil registration data such as `birth1a` (Date of occurrence, Event) being recorded *after* `birth1b` (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where `birth1a` (Date of occurrence, Event) is *after* `birth1b` (Date of registration, Event) and prints out selected columns.
+
+```{r}
+filter(df, birth1a > birth1b) |> 
+  select(id, birth1a, birth1b)
+```
+
+We can see that some registration dates have been entered as "1900-01-01".
+
+## Duplicate rows
+We can identify duplicate rows by using the `id` variable which should be unique. The code below groups the data by `id` and then filters those with more than one row.
+```{r}
+df |> 
+  group_by(id) |> 
+  filter(n()>1)
+```
+
+When no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the [`join()`](https://tidyr.tidyverse.org/reference/unite.html) function.
+
+## Characters as factors
+It is common practice to read known values of a variable as characters, hence `stringsAsFactors = FALSE`. However, once you have read in the data you may wish to convert a character variable into a factor. Here we are converting `birth1g` (Type of birth, Event) into a factor.
+```{r}
+class(df$birth1g)
+df$birth1g <- as_factor(df$birth1g)
+class(df$birth1g)
+```
+
+## Wrong order of levels
+Sometimes the order of levels in a factor variable is not very helpful. The [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html) function allows you to customise the order of levels. Here we reorder the values of `birth1g` (Type of birth, Event) so that "Single" comes first, then "Twin" etc.
+```{r}
+df$birth1g |> levels()
+df$birth1g |> fct_relevel("Single", "Twin", "Triplet", "Quadruplet or higher") |> levels()
+```
+
+## Unhelpfully coded values
+Often values of a variable are coded unhelpfully. For example, in `birth2a` (Sex, Newborn) the sex of the newborn baby has been recorded as "M" and "F". We can easily recode these so that they are more readable. The [`fct_recode()`](https://forcats.tidyverse.org/reference/fct_recode.html) function enables you to change factor levels by hand.
+```{r}
+df$birth2a |> 
+  fct_recode(Female = "F", Male = "M") |> 
+  levels()
+```
+
+## Convert values to NA
+Missing values are recorded in a variety of ways e.g. 999999, NULL, or even " ". We can recode these missing values to a more explicit NA using the [`na_if()`](https://dplyr.tidyverse.org/reference/na_if.html) function. The variable `birth1c` (Place of occurrence, Event) includes a number of missing values that have been recorded as  " ". We can replace these with NA using the code below.
+```{r}
+df <- mutate(df, birth1c = na_if(birth1c, ""))
+```
+
+## Checking missing data
+To identify how many missing values there are in the whole dataset we can run:
+```{r}
+df |> map_dbl(~sum(is.na(.)))
+```
+
+There are `r sum(is.na(df$birth1c))` NA values in `birth1c` (Place of occurrence, Event) and `r sum(is.na(df$birth3b))` in `birth3b` (Age, Mother). 
+
+## Imputing missing data
+In cases where there are missing values in an integer variable we can impute them as an average. For example, there are `r sum(is.na(df$birth3b))` missing values in `birth3b` (Age, Mother). We can impute the mean age with the following code.
+```{r}
+df <- df |> 
+  mutate(birth3b = case_when(
+    is.na(birth3b) ~ as.integer(mean(birth3b, na.rm = TRUE)),
+    TRUE ~ birth3b)
+    )
+```
+
+<br>

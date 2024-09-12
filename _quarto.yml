@@ -1,0 +1,33 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "R for Vital Statistics"
+  author: Tesfaye Belay
+  repo-url: https://github.com/tech-acs/r4vs
+  repo-branch: main
+  repo-actions: [edit, issue]
+  page-footer: "Copyright 2024, Tesfaye Belay" 
+  page-navigation: true
+  search: true
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - setup.qmd
+    - data_cleaning.qmd
+    - styling_tables.qmd
+    - choropleth_maps.qmd
+  appendices:
+    - resources.qmd
+
+format:
+  html:
+    theme: cosmo
+    code-link: true
+    code-line-numbers: true
+    code-copy: hover
+    highlight-style: a11y
+
+
+

@@ -1,0 +1,6 @@
+# Welcome {.unnumbered}
+
+This book is a companion to the [vsreport](https://github.com/tech-acs/vsreport) package which automates the creation of vital statistics tables in R.
+
+## Acknowledgments
+R4VS is a collaborative effort and we welcome fixes and improvements to the content.
