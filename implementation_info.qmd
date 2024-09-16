@@ -1,0 +1,32 @@
+# Implementing an R Vital Statistics pipeline
+
+This chapter will outline the necessary process to go from the raw civil registration records to a CRVS report.
+Not only that, but to establish a process that is sustainable and that can be improved on into the future.
+The topics here covered are a suggestion and we appreciate that your particular case might be different.
+Throughout this chapter we will highlight certain issues that are common as well as some of the approaches to mitigate them.
+
+## The Organisational Landscape
+
+## The Data Collection and Handling Process
+
+## Variable Availability and Possible tables
+
+## Codebase Management and Collaboration Principles
+
+## Data Quality Analysis
+
+## Data Cleaning and Dataset Curation
+
+## Table Generation with `crvsreportpackage`
+
+## Table Polishing and Visual Alternatives
+
+## CRVS Tables Quality Assurance
+
+## Putting the Tables into Context
+
+## Achieving a CRVS report
+
+## It's not Only About the Report
+
+## Learning Lessons

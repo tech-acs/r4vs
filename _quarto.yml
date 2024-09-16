@@ -15,10 +15,13 @@ book:
     - index.qmd
     - intro.qmd
     - setup.qmd
+    - implementation_info.qmd
+    - practical_delivery.qmd
     - data_cleaning.qmd
     - styling_tables.qmd
     - choropleth_maps.qmd
   appendices:
+    - glossary.qmd
     - resources.qmd
 
 format:

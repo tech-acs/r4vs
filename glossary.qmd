@@ -1,0 +1,9 @@
+# Glossary of Terms
+
+This page will cover some commonly used terms throughout this book.
+Hopefully this provides some clarity on what is meant and can also serve as a glossary for
+new people to the CRVS space.
+
+- __CRVS__: Civil Registration Vital Statistics
+- __NRO__: National Registration Office
+- __NSO__: National Statistics Office
