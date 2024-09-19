@@ -214,7 +214,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -265,7 +265,7 @@ div.csl-indent {
 
 </header><section id="introduction" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">7.1</span> Introduction</h2>
-<p>The <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> R package <span class="citation" data-cites="ggplot2">(<a href="resources.html#ref-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> is one of the most popular tools for creating static publication-ready graphics. In this chapter we will run through the process of building a chart in ggplot2 using aggregated civil registration data. We will recreate <a href="#fig-completeness">Figure&nbsp;<span>7.1</span></a> that was published in Rwanda’s <a href="https://www.statistics.gov.rw/publication/2131">2023 Vital Statistics Report</a>.</p>
+<p>The <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> R package <span class="citation" data-cites="ggplot2">(<a href="references.html#ref-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> is one of the most popular tools for creating static publication-ready graphics. In this chapter we will run through the process of building a chart in ggplot2 using aggregated civil registration data. We will recreate <a href="#fig-completeness">Figure&nbsp;<span>7.1</span></a> that was published in Rwanda’s <a href="https://www.statistics.gov.rw/publication/2131">2023 Vital Statistics Report</a>.</p>
 <div id="fig-completeness" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure"><p><img src="images/completeness.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption class="figure-caption">Figure&nbsp;7.1: Birth and death registration completeness rates in Rwanda, 2019 to 2023</figcaption></figure>
@@ -273,7 +273,7 @@ div.csl-indent {
 <p>We’ll then present the code for a couple of common plots: a bar chart and population pyramid.</p>
 </section><section id="ggplot2" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="ggplot2">
 <span class="header-section-number">7.2</span> ggplot2</h2>
-<p>The <a href="https://ggplot2.tidyverse.org">ggplot2</a> package is underpinned by the ‘<strong>g</strong>rammar of <strong>g</strong>raphics’ <span class="citation" data-cites="wilkinson_grammar_2005">(<a href="resources.html#ref-wilkinson_grammar_2005" role="doc-biblioref">Wilkinson and Wills 2005</a>)</span>. Essentially, every data visualisation has a formal structure with three principle layers: data, aesthetics, and geometry. Variables in your <strong>data</strong> are mapped to the <strong>aes</strong>thetic properties (e.g.&nbsp;position, size and colour) of <strong>geom</strong>etric objects like scatter plots or line charts. You can see this in the arguments used by ggplot2:</p>
+<p>The <a href="https://ggplot2.tidyverse.org">ggplot2</a> package is underpinned by the ‘<strong>g</strong>rammar of <strong>g</strong>raphics’ <span class="citation" data-cites="wilkinson_grammar_2005">(<a href="references.html#ref-wilkinson_grammar_2005" role="doc-biblioref">Wilkinson and Wills 2005</a>)</span>. Essentially, every data visualisation has a formal structure with three principle layers: data, aesthetics, and geometry. Variables in your <strong>data</strong> are mapped to the <strong>aes</strong>thetic properties (e.g.&nbsp;position, size and colour) of <strong>geom</strong>etric objects like scatter plots or line charts. You can see this in the arguments used by ggplot2:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  <span class="at">data =</span> df,                                          <span class="co"># data</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> var1, <span class="at">y =</span> var2, <span class="at">colour =</span> var3)    <span class="co"># aesthetics</span></span>
@@ -317,13 +317,13 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Before we can visualise the data in a line chart we need to transform it from a table into ‘tidy’ data <span class="citation" data-cites="wickham_tidy_2014">(<a href="resources.html#ref-wickham_tidy_2014" role="doc-biblioref">Wickham 2014</a>)</span>. To be tidy the data must satisfy three rules:</p>
+<p>Before we can visualise the data in a line chart we need to transform it from a table into ‘tidy’ data <span class="citation" data-cites="wickham_tidy_2014">(<a href="references.html#ref-wickham_tidy_2014" role="doc-biblioref">Wickham 2014</a>)</span>. To be tidy the data must satisfy three rules:</p>
 <ul>
 <li>Each variable must have its own column</li>
 <li>Each observation must have its own row</li>
 <li>Each value must have its own cell</li>
 </ul>
-<p>The key step to make this data ‘tidy’ is to reshape it into ‘long format’ using the <code>pivot_longer()</code> function from the <a href="https://dplyr.tidyverse.org"><code>dplyr</code></a> package <span class="citation" data-cites="dplyr">(<a href="resources.html#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>. This function converts some of the column names into values of a new variable. In this case, the year column names become the values of a new variable called ‘Year’.</p>
+<p>The key step to make this data ‘tidy’ is to reshape it into ‘long format’ using the <code>pivot_longer()</code> function from the <a href="https://dplyr.tidyverse.org"><code>dplyr</code></a> package <span class="citation" data-cites="dplyr">(<a href="references.html#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>. This function converts some of the column names into values of a new variable. In this case, the year column names become the values of a new variable called ‘Year’.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>tidy_data <span class="ot">&lt;-</span> table <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Event, <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

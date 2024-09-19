@@ -235,14 +235,14 @@
     "href": "data_cleaning.html#dates-out-of-sequence",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.2 Dates out of sequence",
-    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 923 2024-05-30 1900-01-01\n2 935 2024-07-05 1900-01-01\n3 548 2024-06-19 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
+    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 380 2024-06-07 1900-01-01\n2 717 2024-07-15 1900-01-01\n3 889 2024-07-12 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
   },
   {
     "objectID": "data_cleaning.html#duplicate-rows",
     "href": "data_cleaning.html#duplicate-rows",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.3 Duplicate rows",
-    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c   birth1g birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n2   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n3   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n4   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n5   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
+    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n2    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n3    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n4    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n5    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
   },
   {
     "objectID": "data_cleaning.html#characters-as-factors",
@@ -256,7 +256,7 @@
     "href": "data_cleaning.html#wrong-order-of-levels",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.5 Wrong order of levels",
-    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\"\n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
+    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Triplet\"              \"Quadruplet or higher\" \"Twin\"                \n[4] \"Single\"              \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
   },
   {
     "objectID": "data_cleaning.html#unhelpfully-coded-values",
@@ -277,7 +277,7 @@
     "href": "data_cleaning.html#checking-missing-data",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.8 Checking missing data",
-    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      34       0       0       0       0      10 \n\n\nThere are 34 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
+    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      25       0       0       0       0      10 \n\n\nThere are 25 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
   },
   {
     "objectID": "data_cleaning.html#imputing-missing-data",
@@ -518,13 +518,6 @@
     "text": "8.12 Exporting maps\nTo export static maps you can use the tmap_save() function. Just save your plot as an object and give it a filename.\n\ntm &lt;- tm_shape(sf) + \n  tm_borders(col = \"#000000\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",  style = \"jenks\", n = 4, palette = \"Blues\", title = \"% registered\", alpha = 0.3)\n\ntmap_save(tm, filename = \"nigeria.png\")"
   },
   {
-    "objectID": "choropleth_maps.html#further-resources",
-    "href": "choropleth_maps.html#further-resources",
-    "title": "\n8  Choropleth maps\n",
-    "section": "\n8.13 Further resources",
-    "text": "8.13 Further resources\n\nAnselin, Luc (2016). Statistical Maps: Standard Deviation and Box Map. YouTube. https://www.youtube.com/watch?v=6-weK5J6xRI\n\nHarris, Rich. (2022-2023). Mapping and Modelling Geographic Data in R. Online course.\nLovelace, R., Nowosad, J., & Muenchow, J. (2023). Geocomputation with R. 2nd edition.\nONS Geography. (2021). Introduction to GIS in R. Online course.\nOpenshaw, S., & Openshaw, S. (1984). The modifiable areal unit problem. Geo Abstracts University of East Anglia"
-  },
-  {
     "objectID": "glossary.html",
     "href": "glossary.html",
     "title": "Appendix A — Glossary of Terms",
@@ -532,8 +525,22 @@
     "text": "This page will cover some commonly used terms throughout this book. Hopefully this provides some clarity on what is meant and can also serve as a glossary for new people to the CRVS space.\n\nCRVS: Civil Registration Vital Statistics\nNRO: National Registration Office\nNSO: National Statistics Office"
   },
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
+    "objectID": "resources.html#crvs",
+    "href": "resources.html#crvs",
+    "title": "Appendix B — Resources",
+    "section": "B.1 CRVS",
+    "text": "B.1 CRVS"
+  },
+  {
+    "objectID": "resources.html#r",
+    "href": "resources.html#r",
+    "title": "Appendix B — Resources",
+    "section": "B.2 R",
+    "text": "B.2 R\n\nB.2.1 General\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2024). R for Data Science. (2nd ed.). O’Reilly Media.\n\n\n\nB.2.2 Data visualisation\n\nB.2.2.1 Charts\n\nWickham, H., Navarro, D. & and Lin Pedersen, T. (2024). ggplot2: Elegant Graphics for Data Analysis. (3rd ed.). https://ggplot2-book.org\nChang, W. (2024). R Graphics Cookbook. (2nd ed.). https://r-graphics.org\nKrause, A,. Rennie, N., & Tarran, B. (2024, February 1). Best Practices for Data Visualisation. Royal Statistical Society. https://royal-statistical-society.github.io/datavisguide/\nWilke, C. (2024). SDS 375, Data Visualization in R [Online course]. University of Texas. https://wilkelab.org/SDS375\nScherer, C. (2023, May 15). A ggplot2 Tutorial for Beautiful Plotting in R. https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r\nBBC data team. (2019, January 24). BBC Visual and Data Journalism cookbook for R graphics. https://bbc.github.io/rcookbook\n\n\n\nB.2.2.2 Maps\n\nAnselin, L. (2016). Statistical Maps: Standard Deviation and Box Map. YouTube. https://www.youtube.com/watch?v=6-weK5J6xRI\nHarris, R. (2022-2023). Mapping and Modelling Geographic Data in R. Online course.\nLovelace, R., Nowosad, J., & Muenchow, J. (2023). Geocomputation with R. 2nd edition.\nONS Geography. (2021). Introduction to GIS in R. Online course."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
     "title": "References",
     "section": "",
     "text": "Wickham, Hadley. 2014. “Tidy Data.”\nJournal of Statistical Software 59 (10). https://doi.org/10.18637/jss.v059.i10.\n\n\n———. 2016. “Ggplot2: Elegant Graphics for Data Analysis.”\nhttps://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis\nVaughan. 2023. “Dplyr: A Grammar of Data Manipulation.” https://CRAN.R-project.org/package=dplyr.\n\n\nWilkinson, Leland, and Graham Wills. 2005. The Grammar of\nGraphics. 2nd ed. Statistics and Computing. New York: Springer."
