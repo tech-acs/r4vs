@@ -375,10 +375,3 @@ tm <- tm_shape(sf) +
 
 tmap_save(tm, filename = "nigeria.png")
 ```
-
-## Further resources
-- Anselin, Luc (2016). Statistical Maps: Standard Deviation and Box Map. YouTube. [https://www.youtube.com/watch?v=6-weK5J6xRI](https://www.youtube.com/watch?v=6-weK5J6xRI)
-- Harris, Rich. (2022-2023). [Mapping and Modelling Geographic Data in R](https://profrichharris.github.io/MandM/). Online course.
-- Lovelace, R., Nowosad, J., & Muenchow, J. (2023). [Geocomputation with R](https://geocompr.robinlovelace.net/index.html). 2nd edition.
-- ONS Geography. (2021). [Introduction to GIS in R](https://onsgeo.github.io/geospatial-training/docs/intro_to_gis_in_r). Online course.
-- Openshaw, S., & Openshaw, S. (1984). *The modifiable areal unit problem*. Geo Abstracts University of East Anglia
