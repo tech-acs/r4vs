@@ -19,7 +19,7 @@ book:
     - practical_delivery.qmd
     - data_cleaning.qmd
     - styling_tables.qmd
-    - chart.qmd
+    - charts.qmd
     - choropleth_maps.qmd
   appendices:
     - glossary.qmd
