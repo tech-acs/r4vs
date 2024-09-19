@@ -24,29 +24,29 @@
     "objectID": "setup.html#download-and-install-r",
     "href": "setup.html#download-and-install-r",
     "title": "\n2  Setup\n",
-    "section": "\n2.1 1. Download and install R",
-    "text": "2.1 1. Download and install R\nTo download R go to https://cloud.r-project.org/. There are different downloads for Windows, MacOS and Linux operating systems.\nThere’s normally a major update to R each year so it is recommended that you update your version of R regularly."
+    "section": "\n2.1 Download and install R",
+    "text": "2.1 Download and install R\nTo download R go to https://cloud.r-project.org/. There are different downloads for Windows, MacOS and Linux operating systems.\nThere’s normally a major update to R each year so it is recommended that you update your version of R regularly."
   },
   {
     "objectID": "setup.html#download-and-install-rstudio",
     "href": "setup.html#download-and-install-rstudio",
     "title": "\n2  Setup\n",
-    "section": "\n2.2 2. Download and install RStudio",
-    "text": "2.2 2. Download and install RStudio\nRStudio is an integrated development environment (IDE) for R. This is essentially a more user friendly way of interacting with R.\nYou can download and install RStudio from https://posit.co/download/rstudio-desktop. Versions are available for Windows 10/11, macOS 12+ and other operating systems.\nRStudio is updated regularly but reminders to update will periodically pop up.\nOpen up RStudio and select File &gt; New File &gt; R script. An untitled R script will appear in the Source pane. Now copy and paste the code below into the window. Then Ctrl+A the code and hit Ctrl+Enter to run it.\n\ninstall.packages(\"ggplot2\")\nlibrary(ggplot2)\nggplot(mtcars, aes(mpg, wt)) +\n  geom_point()\n\nIf you see a scatter plot like this then your installation of R and RStudio has been successful."
+    "section": "\n2.2 Download and install RStudio",
+    "text": "2.2 Download and install RStudio\nRStudio is an integrated development environment (IDE) for R. This is essentially a more user friendly way of interacting with R.\nYou can download and install RStudio from https://posit.co/download/rstudio-desktop. Versions are available for Windows 10/11, macOS 12+ and other operating systems.\nRStudio is updated regularly but reminders to update will periodically pop up.\nOpen up RStudio and select File &gt; New File &gt; R script. An untitled R script will appear in the Source pane. Now copy and paste the code below into the window. Then Ctrl+A the code and hit Ctrl+Enter to run it.\n\ninstall.packages(\"ggplot2\")\nlibrary(ggplot2)\nggplot(mtcars, aes(mpg, wt)) +\n  geom_point()\n\nIf you see a scatter plot like this then your installation of R and RStudio has been successful."
   },
   {
     "objectID": "setup.html#download-and-install-git",
     "href": "setup.html#download-and-install-git",
     "title": "\n2  Setup\n",
-    "section": "\n2.3 3. Download and install Git",
-    "text": "2.3 3. Download and install Git\nFirst we’ll check whether you already have Git on your computer. Open the Command Prompt (find the Search Bar and enter “cmd”) and run: git --version. The Git version you’re currently using will be returned. If git: command not found or similar is returned then you need to download and install Git.\nIf you are using Windows and have admin rights then go to https://git-scm.com/download/win and download the Standalone Installer for 64-bit.\n\n\n\n\n\n\nNote\n\n\n\nNote that RStudio requires a 64-bit operating system.\n\n\nRun through the installation process and accept all of the default settings. Downloads for other operating systems are available at https://git-scm.com/download."
+    "section": "\n2.3 Download and install Git",
+    "text": "2.3 Download and install Git\nFirst we’ll check whether you already have Git on your computer. Open the Command Prompt (find the Search Bar and enter “cmd”) and run: git --version. The Git version you’re currently using will be returned. If git: command not found or similar is returned then you need to download and install Git.\nIf you are using Windows and have admin rights then go to https://git-scm.com/download/win and download the Standalone Installer for 64-bit.\n\n\n\n\n\n\nNote\n\n\n\nNote that RStudio requires a 64-bit operating system.\n\n\nRun through the installation process and accept all of the default settings. Downloads for other operating systems are available at https://git-scm.com/download."
   },
   {
     "objectID": "setup.html#register-for-a-free-github-account",
     "href": "setup.html#register-for-a-free-github-account",
     "title": "\n2  Setup\n",
-    "section": "\n2.4 4. Register for a free GitHub account",
-    "text": "2.4 4. Register for a free GitHub account\nGitHub accounts are free. All you need to do is provide an email address, password and a unique username. There are some tips on creating a GitHub username here. Once you have completed the sign up process you can visit your dashboard and update your profile."
+    "section": "\n2.4 Register for a free GitHub account",
+    "text": "2.4 Register for a free GitHub account\nGitHub accounts are free. All you need to do is provide an email address, password and a unique username. There are some tips on creating a GitHub username here. Once you have completed the sign up process you can visit your dashboard and update your profile."
   },
   {
     "objectID": "implementation_info.html#the-organisational-landscape",
@@ -235,14 +235,14 @@
     "href": "data_cleaning.html#dates-out-of-sequence",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.2 Dates out of sequence",
-    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 685 2024-06-27 1900-01-01\n2 221 2024-05-02 1900-01-01\n3 900 2024-06-18 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
+    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 923 2024-05-30 1900-01-01\n2 935 2024-07-05 1900-01-01\n3 548 2024-06-19 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
   },
   {
     "objectID": "data_cleaning.html#duplicate-rows",
     "href": "data_cleaning.html#duplicate-rows",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.3 Duplicate rows",
-    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g    birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n2   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n3   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n4   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n5   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
+    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c   birth1g birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n2   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n3   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n4   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n5   221 2024-06-11 2024-06-23 Nassarawa Single  Other   Unknown M            79\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
   },
   {
     "objectID": "data_cleaning.html#characters-as-factors",
@@ -256,7 +256,7 @@
     "href": "data_cleaning.html#wrong-order-of-levels",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.5 Wrong order of levels",
-    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Quadruplet or higher\" \"Triplet\"              \"Twin\"                \n[4] \"Single\"              \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
+    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\"\n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
   },
   {
     "objectID": "data_cleaning.html#unhelpfully-coded-values",
@@ -277,7 +277,7 @@
     "href": "data_cleaning.html#checking-missing-data",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.8 Checking missing data",
-    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      39       0       0       0       0      10 \n\n\nThere are 39 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
+    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      34       0       0       0       0      10 \n\n\nThere are 34 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
   },
   {
     "objectID": "data_cleaning.html#imputing-missing-data",
