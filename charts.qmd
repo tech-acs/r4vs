@@ -1,0 +1,529 @@
+# Charts
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(tidyverse) ; library(knitr)
+```
+
+## Introduction
+
+The [`ggplot2`](https://ggplot2.tidyverse.org/) R package [@ggplot2] is one of the most popular tools for creating static publication-ready graphics. In this chapter we will run through the process of building a chart in ggplot2 using aggregated civil registration data. We will recreate @fig-completeness that was published in Rwanda's [2023 Vital Statistics Report](https://www.statistics.gov.rw/publication/2131).
+
+![Birth and death registration completeness rates in Rwanda, 2019 to 2023](images/completeness.png){#fig-completeness fig-align="left" width="60%"}
+
+We'll then present the code for a couple of common plots: a bar chart and population pyramid.
+
+## ggplot2
+
+The [ggplot2](https://ggplot2.tidyverse.org) package is underpinned by the ‘**g**rammar of **g**raphics’ [@wilkinson_grammar_2005]. Essentially, every data visualisation has a formal structure with three principle layers: data, aesthetics, and geometry. Variables in your **data** are mapped to the **aes**thetic properties (e.g. position, size and colour) of **geom**etric objects like scatter plots or line charts. You can see this in the arguments used by ggplot2:
+
+``` r
+ggplot(
+  data = df,                                          # data
+  mapping = aes(x = var1, y = var2, colour = var3)    # aesthetics
+  ) +             
+  geom_line()                                         # geometry
+```
+
+## Cleaning data
+
+Rwanda's 2023 Vital Statistics Report is accompanied by an Excel file containing data for all of the figures. @tbl-completeness contains all the values encoded in @fig-completeness.
+
+```{r}
+#| label: tbl-completeness
+#| tbl-cap: "Birth and death registration completeness rates in Rwanda, 2019 to 2023"
+
+table <- tribble(
+  ~Event, ~`2019`, ~`2020`, ~`2021`, ~`2022`, ~`2023`,
+  "Birth registration completeness rate", 87, 85.8, 84.2, 92.9, 90.04,
+  "Death registration completeness rate", 31.4, 29.9, 26.2, 31.1, 41.8
+  )
+
+table |> 
+  kable(digits = 1)
+```
+
+Before we can visualise the data in a line chart we need to transform it from a table into 'tidy' data [@wickham_tidy_2014]. To be tidy the data must satisfy three rules:
+
+-   Each variable must have its own column
+-   Each observation must have its own row
+-   Each value must have its own cell
+
+The key step to make this data 'tidy' is to reshape it into 'long format' using the `pivot_longer()` function from the [`dplyr`](https://dplyr.tidyverse.org) package [@dplyr]. This function converts some of the column names into values of a new variable. In this case, the year column names become the values of a new variable called 'Year'.
+
+```{r, echo = TRUE}
+tidy_data <- table |> 
+  pivot_longer(-Event, names_to = "Year", values_to = "Value")
+```
+
+```{r}
+#| label: tbl-long
+#| tbl-cap: "Data structured in long format"
+
+tidy_data |> 
+  kable(digits = 1)
+```
+
+Lastly, we need to check that the variables are in the correct format.
+
+```{r, echo=TRUE}
+glimpse(tidy_data)
+```
+
+We can see that the 'Year' variable has been stored as a character rather than as a numeric variable. This will cause us problems when we map this variable to the chart's x-axis. To rectify this we can use the `mutate()` function to convert 'Year' to an integer.
+
+```{r, echo=TRUE}
+tidy_data <- tidy_data |> 
+  mutate(Year = as.integer(Year))
+```
+
+Let's check to see if that worked.
+
+```{r}
+glimpse(tidy_data)
+```
+
+While we are formatting the data we might also abbreviate the values contained in the 'Event' variable from 'Birth registration completeness rate' to simply 'Births'. We can do this using `mutate()` and the `str_detect()` function from the [`stringr`](https://stringr.tidyverse.org/) package which detects the presence of a pattern in a string. Here we overwrite the value in the 'Event' column with 'Births' if we `str_detect()` the pattern 'Birth' and with 'Deaths' if we don't.
+
+```{r, echo=TRUE}
+tidy_data <- tidy_data |> 
+  mutate(Event = ifelse(str_detect(Event, "Birth"), "Births", "Deaths"))
+```
+
+Let's look again at the data.
+
+```{r}
+#| label: tbl-abbrev
+#| tbl-cap: "Abbreviated 'Event' values"
+
+tidy_data |> 
+  kable(digits = 1)
+```
+
+We are now ready to visualise the data in a line chart.
+
+## Creating a plot
+
+**Load the data and map variables**\
+First we pass the data to a `ggplot()` object and map the 'Year' variable to the x-axis, 'Value' to the y-axis, and 'Event' to colour. Each argument is within the [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html) function because the variables are mapped to the aesthetics or visual properties of the line chart. We can see that the values have been mapped to the axes because they have been scaled but there are no lines ...
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event))
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event))
+```
+:::
+:::
+
+**Add lines**\
+To add lines we need to specify a geom. In this case we simply add [`geom_line()`](https://ggplot2.tidyverse.org/reference/geom_path.html). 
+
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line()
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line()
+```
+:::
+:::
+
+::: {.callout-note}
+We are using `+` rather than the conventional `|>` because ggplot2 [predates](https://www.reddit.com/r/dataisbeautiful/comments/3mp9r7/comment/cvi19ly) the pipe operator.
+:::
+
+**Change the line width**\
+One of the arguments of `geom_line()` is [`linewidth`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html) which we can adjust to suit.
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2)
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2)
+```
+:::
+:::
+
+**Change the line colours**\
+We can specify which colours to map to the values of the 'Event' variable using the [`scale_colour_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html) function. You could also choose a [ColorBrewer](https://ggplot2.tidyverse.org/reference/scale_brewer.html) palette or even colours from a [Wes Anderson](https://cran.r-project.org/web/packages/wesanderson/index.html) film. The [Okabe-Ito palette](https://github.com/clauswilke/colorblindr/blob/master/R/palettes.R) is particularly recommended because they are colour-blind friendly.
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) 
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800"))
+```
+:::
+:::
+
+**Format the scale**\
+We can modify the y-axis with arguments from the [`scale_y_continuous()`](https://ggplot2.tidyverse.org/reference/scale_continuous.html) function. First we need to format the y-axis `labels` as percentages. There is a handy function from the [`scales`](https://scales.r-lib.org) package called [`label_percent()`](https://scales.r-lib.org/reference/label_percent.html) which we can use. Since the values of the 'Value' variable are already percentages we need to add the argument `scale = 1` to prevent the function from multiplying by 100.
+
+We can also set the `limits` of the y-axis to begin at zero and end at 100.
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) +
+  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1))
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) +
+  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1))
+```
+:::
+:::
+
+::: {.callout-tip}
+The `::` syntax is a neat way of using a function from another package without needing to load it beforehand with `library(scales)`.
+:::
+
+**Add labels**\
+Adding labels is very intuitive with the `labs()` function. You can specify `NULL` if you don't want to label a particular part of the chart. Here we have dropped the axis and legend labels but specified a title, subtitle and caption.
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) +
+  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1)) +
+  labs(x = NULL,
+       y = NULL,
+       title = "Birth and death registration completeness rates",
+       subtitle = "Rwanda, 2019-2023",
+       caption = "Source: CRVS system",
+       colour = NULL)
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) +
+  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1)) +
+  labs(x = NULL,
+       y = NULL,
+       title = "Birth and death registration completeness rates",
+       subtitle = "Rwanda, 2019-2023",
+       caption = "Source: CRVS system",
+       colour = NULL)
+```
+:::
+:::
+
+**Add a theme**\
+A [theme](https://ggplot2.tidyverse.org/reference/ggtheme.html) is an overall plot style. Here we use `theme_minimal()` which removes the grey background and axis ticks. The `base_size` argument allows us to resize the overall font size of the labels.
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) +
+  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1)) +
+  labs(x = NULL,
+       y = NULL,
+       title = "Birth and death registration completeness rates",
+       subtitle = "Rwanda, 2019-2023",
+       caption = "Source: CRVS system",
+       colour = NULL) +
+  theme_minimal(base_size = 14)
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) +
+  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1)) +
+  labs(x = NULL,
+       y = NULL,
+       title = "Birth and death registration completeness rates",
+       subtitle = "Rwanda, 2019-2023",
+       caption = "Source: CRVS system",
+       colour = NULL) +
+  theme_minimal(base_size = 14)
+```
+:::
+:::
+
+**Final tweaks**\
+Next we'll remove unnecessary grid lines and move the legend to the bottom of the plot. There are several other options available using the [`theme()`](https://ggplot2.tidyverse.org/reference/theme.html) function.
+
+We can also move the y-axis labels to the right side so that the latest values are easier to read. This is achieved by adding the argument `position = "right"` in the `scale_y_continuous()` function.
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) +
+  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1), position = "right") +
+  labs(x = NULL,
+       y = NULL,
+       title = "Birth and death registration completeness rates",
+       subtitle = "Rwanda, 2019-2023",
+       caption = "Source: CRVS system",
+       colour = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
+    )
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Births" = "#fc6721", "Deaths" = "#E7B800")) +
+  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1), position = "right") +
+  labs(x = NULL,
+       y = NULL,
+       title = "Birth and death registration completeness rates",
+       subtitle = "Rwanda, 2019-2023",
+       caption = "Source: CRVS system",
+       colour = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
+    )
+```
+:::
+:::
+
+::: {.callout-tip}
+You can add `expand = expansion()` in `scale_y_continuous` to reduce the gap between the x-axis labels and the axis line. 
+:::
+
+**Save the plot**\
+Lastly we can export the plot as a PNG and set the resolution to 300 dpi which is perfect for printing.
+
+```{r, echo=TRUE, eval=FALSE}
+ggsave("plot.png", scale = 1, dpi = 300)
+```
+
+## Other chart types
+The ggplot2 package is extremely versatile and be used to create all sorts of data visualisations. A couple of examples are shown below using data published alongside Rwanda's 2023 Vital Statistic report. Comments have been added to the code to help explain the additional steps involved.
+
+### Bar charts
+
+The bar chart ranks the districts of Rwanda by the count of recorded live births in 2023. It is a simple alternative to a choropleth map requiring little data transformation or additional code except the use of [`geom_col()`](https://ggplot2.tidyverse.org/reference/geom_bar.html).
+
+```{r}
+#| label: tbl-births-by-district
+#| tbl-cap: "Registered live births by mothers’ residence district in Rwanda, 2023"
+
+births_by_district <- tribble(
+  ~District, ~Value,
+  "Bugesera", 7212,
+  "Burera", 4651,
+  "Gakenke", 4086,
+  "Gasabo", 11837,
+  "Gatsibo", 6855,
+  "Gicumbi", 5699,
+  "Gisagara", 5257,
+  "Huye", 4797,
+  "Kamonyi", 5480,
+  "Karongi", 4030,
+  "Kayonza", 5897,
+  "Kicukiro", 6536,
+  "Kirehe", 6127,
+  "Muhanga", 4112,
+  "Musanze", 6008,
+  "Ngoma", 4772,
+  "Ngororero", 4381,
+  "Nyabihu", 4080,
+  "Nyagatare", 8616,
+  "Nyamagabe", 4420,
+  "Nyamasheke", 5104,
+  "Nyanza", 4331,
+  "Nyarugenge", 4882,
+  "Nyaruguru", 4070,
+  "Rubavu", 7034,
+  "Ruhango", 4174,
+  "Rulindo", 4099,
+  "Rusizi", 6522,
+  "Rutsiro", 4175,
+  "Rwamagana", 5948,
+  "Foreign", 76
+  ) 
+
+head(births_by_district) |> 
+  kable()
+```
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(births_by_district, aes(x = Value, y = forcats::fct_reorder(District, Value))) +
+  geom_col(fill = "seagreen") +
+  scale_x_continuous(expand = expansion(), labels = scales::comma) +
+  labs(x = NULL, y = NULL,
+       title = "Registered live births by mothers’ residence district",
+       subtitle = "Rwanda, 2023",
+       caption = "Source: CRVS system") +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank()
+    )
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(births_by_district, 
+       aes(x = Value, 
+           # arrange bars in descending order
+           y = forcats::fct_reorder(District, Value))) +
+  # add colour fill
+  geom_col(fill = "seagreen") +
+  scale_x_continuous(expand = expansion(), 
+                     # add thousands separator
+                     labels = scales::comma) +
+  labs(x = NULL, y = NULL,
+       title = "Registered live births by mothers’ residence district",
+       subtitle = "Rwanda, 2023",
+       caption = "Source: CRVS system") +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank()
+    )
+```
+:::
+:::
+
+### Population pyramid
+There is no specific geom for creating population pyramids in ggplot2. Here we create a back-to-back bar chart using `geom_col()`. You will notice that we change the values of 'Male' to negative so that they map to the x-axis in reverse. 
+
+```{r}
+#| label: tbl-deaths
+#| tbl-cap: "Age-sex structure of all registered deaths in Rwanda, 2023"
+
+deaths <- tribble(
+  ~Age, ~Female, ~Male,
+  "0-4", 2698, 3139,
+  "5-9", 230, 282,
+  "10-14", 148, 220,
+  "15-19", 267, 389,
+  "20-24", 316, 629,
+  "25-29", 376, 620,
+  "30-34", 450, 704,
+  "35-39", 536, 825,
+  "40-44", 552, 977,
+  "45-49", 535, 767,
+  "50-54", 553, 789,
+  "55-59", 616, 878,
+  "60-64", 814, 1222,
+  "65-69", 931, 1370,
+  "70-74", 1010, 1291,
+  "75-79", 1083, 1075,
+  "80+", 3742, 2819
+  ) |> 
+  pivot_longer(-Age, names_to = "Sex", values_to = "Value") |> 
+  group_by(Sex) |> 
+  mutate(Value = round(Value/sum(Value)*100,1),
+         Age = forcats::fct_relevel(Age, "0-4","5-9"))
+
+head(deaths) |> 
+  kable()
+```
+
+::: grid
+::: g-col-6
+```{r, echo=TRUE, eval=FALSE}
+ggplot(deaths, 
+       # change values of 'Male' to negative
+       aes(x = ifelse(Sex == "Male", -Value, Value), 
+           y = Age, fill = Sex)) + 
+  # adjust transparency
+  geom_col(alpha = 0.8) + 
+  scale_x_continuous(
+    # set x-axis limits
+    limits = c(-30, 30),
+    # set x-axis scale
+    breaks = seq(-30, 30, 10),
+    # add % sign to x-axis labels
+    labels = function(x) {paste0(abs(x), '%')}
+    ) + 
+  # choose appropriate colours
+  scale_fill_manual(values = c("Female" = "#7E105E", "Male" = "#009087")) + 
+  labs(x = NULL, y = NULL,
+       title = "Age-sex structure of all registered deaths",
+       subtitle = "Rwanda, 2023",
+       caption = "Source: CRVS systems",
+       # drop legend title
+       fill = "") +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank()
+    )
+```
+:::
+
+::: g-col-6
+```{r}
+ggplot(deaths, aes(x = ifelse(Sex == "Male", -Value, Value), y = Age, fill = Sex)) + 
+  geom_col(alpha = 0.8) + 
+  scale_x_continuous(limits = c(-30, 30), breaks = seq(-30, 30, 10), labels = function(x) {paste0(abs(x), '%')}) + 
+  scale_fill_manual(values = c("Female" = "#7E105E", "Male" = "#009087")) + 
+  labs(x = NULL, y = NULL,
+       title = "Age-sex structure of all registered deaths",
+       subtitle = "Rwanda, 2023",
+       caption = "Source: CRVS systems",
+       fill = "") +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank()
+    )
+```
+:::
+:::
