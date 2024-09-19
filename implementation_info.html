@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Vital Statistics - References</title>
+<title>R for Vital Statistics - 3&nbsp; Implementing an R Vital Statistics pipeline</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./resources.html" rel="prev">
+<link href="./practical_delivery.html" rel="next">
+<link href="./setup.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -93,7 +75,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./implementation_info.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Implementing an R Vital Statistics pipeline</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -141,7 +123,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./implementation_info.html" class="sidebar-item-text sidebar-link">
+  <a href="./implementation_info.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Implementing an R Vital Statistics pipeline</span></span></a>
   </div>
 </li>
@@ -198,7 +180,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -210,14 +192,32 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-organisational-landscape" id="toc-the-organisational-landscape" class="nav-link active" data-scroll-target="#the-organisational-landscape"><span class="header-section-number">3.1</span> The Organisational Landscape</a></li>
+  <li><a href="#the-data-collection-and-handling-process" id="toc-the-data-collection-and-handling-process" class="nav-link" data-scroll-target="#the-data-collection-and-handling-process"><span class="header-section-number">3.2</span> The Data Collection and Handling Process</a></li>
+  <li><a href="#variable-availability-and-possible-tables" id="toc-variable-availability-and-possible-tables" class="nav-link" data-scroll-target="#variable-availability-and-possible-tables"><span class="header-section-number">3.3</span> Variable Availability and Possible tables</a></li>
+  <li><a href="#codebase-management-and-collaboration-principles" id="toc-codebase-management-and-collaboration-principles" class="nav-link" data-scroll-target="#codebase-management-and-collaboration-principles"><span class="header-section-number">3.4</span> Codebase Management and Collaboration Principles</a></li>
+  <li><a href="#data-quality-analysis" id="toc-data-quality-analysis" class="nav-link" data-scroll-target="#data-quality-analysis"><span class="header-section-number">3.5</span> Data Quality Analysis</a></li>
+  <li><a href="#data-cleaning-and-dataset-curation" id="toc-data-cleaning-and-dataset-curation" class="nav-link" data-scroll-target="#data-cleaning-and-dataset-curation"><span class="header-section-number">3.6</span> Data Cleaning and Dataset Curation</a></li>
+  <li><a href="#table-generation-with-crvsreportpackage" id="toc-table-generation-with-crvsreportpackage" class="nav-link" data-scroll-target="#table-generation-with-crvsreportpackage"><span class="header-section-number">3.7</span> Table Generation with <code>crvsreportpackage</code></a></li>
+  <li><a href="#table-polishing-and-visual-alternatives" id="toc-table-polishing-and-visual-alternatives" class="nav-link" data-scroll-target="#table-polishing-and-visual-alternatives"><span class="header-section-number">3.8</span> Table Polishing and Visual Alternatives</a></li>
+  <li><a href="#crvs-tables-quality-assurance" id="toc-crvs-tables-quality-assurance" class="nav-link" data-scroll-target="#crvs-tables-quality-assurance"><span class="header-section-number">3.9</span> CRVS Tables Quality Assurance</a></li>
+  <li><a href="#putting-the-tables-into-context" id="toc-putting-the-tables-into-context" class="nav-link" data-scroll-target="#putting-the-tables-into-context"><span class="header-section-number">3.10</span> Putting the Tables into Context</a></li>
+  <li><a href="#achieving-a-crvs-report" id="toc-achieving-a-crvs-report" class="nav-link" data-scroll-target="#achieving-a-crvs-report"><span class="header-section-number">3.11</span> Achieving a CRVS report</a></li>
+  <li><a href="#its-not-only-about-the-report" id="toc-its-not-only-about-the-report" class="nav-link" data-scroll-target="#its-not-only-about-the-report"><span class="header-section-number">3.12</span> It’s not Only About the Report</a></li>
+  <li><a href="#learning-lessons" id="toc-learning-lessons" class="nav-link" data-scroll-target="#learning-lessons"><span class="header-section-number">3.13</span> Learning Lessons</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tech-acs/r4vs/edit/main/implementation_info.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tech-acs/r4vs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Implementing an R Vital Statistics pipeline</span></h1>
 </div>
 
 
@@ -232,11 +232,48 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="list" style="display: none">
+<p>This chapter will outline the necessary process to go from the raw civil registration records to a CRVS report. Not only that, but to establish a process that is sustainable and that can be improved on into the future. The topics here covered are a suggestion and we appreciate that your particular case might be different. Throughout this chapter we will highlight certain issues that are common as well as some of the approaches to mitigate them.</p>
+<section id="the-organisational-landscape" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-organisational-landscape"><span class="header-section-number">3.1</span> The Organisational Landscape</h2>
+</section>
+<section id="the-data-collection-and-handling-process" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-data-collection-and-handling-process"><span class="header-section-number">3.2</span> The Data Collection and Handling Process</h2>
+</section>
+<section id="variable-availability-and-possible-tables" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="variable-availability-and-possible-tables"><span class="header-section-number">3.3</span> Variable Availability and Possible tables</h2>
+</section>
+<section id="codebase-management-and-collaboration-principles" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="codebase-management-and-collaboration-principles"><span class="header-section-number">3.4</span> Codebase Management and Collaboration Principles</h2>
+</section>
+<section id="data-quality-analysis" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="data-quality-analysis"><span class="header-section-number">3.5</span> Data Quality Analysis</h2>
+</section>
+<section id="data-cleaning-and-dataset-curation" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="data-cleaning-and-dataset-curation"><span class="header-section-number">3.6</span> Data Cleaning and Dataset Curation</h2>
+</section>
+<section id="table-generation-with-crvsreportpackage" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="table-generation-with-crvsreportpackage"><span class="header-section-number">3.7</span> Table Generation with <code>crvsreportpackage</code></h2>
+</section>
+<section id="table-polishing-and-visual-alternatives" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="table-polishing-and-visual-alternatives"><span class="header-section-number">3.8</span> Table Polishing and Visual Alternatives</h2>
+</section>
+<section id="crvs-tables-quality-assurance" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="crvs-tables-quality-assurance"><span class="header-section-number">3.9</span> CRVS Tables Quality Assurance</h2>
+</section>
+<section id="putting-the-tables-into-context" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="putting-the-tables-into-context"><span class="header-section-number">3.10</span> Putting the Tables into Context</h2>
+</section>
+<section id="achieving-a-crvs-report" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="achieving-a-crvs-report"><span class="header-section-number">3.11</span> Achieving a CRVS report</h2>
+</section>
+<section id="its-not-only-about-the-report" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="its-not-only-about-the-report"><span class="header-section-number">3.12</span> It’s not Only About the Report</h2>
+</section>
+<section id="learning-lessons" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="learning-lessons"><span class="header-section-number">3.13</span> Learning Lessons</h2>
 
-</div>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -472,13 +509,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./resources.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="./setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./practical_delivery.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical Delivery of CRVS table Generation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -487,7 +528,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024, Tesfaye Belay<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tech-acs/r4vs/edit/main/references.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tech-acs/r4vs/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="nav-footer-center">Copyright 2024, Tesfaye Belay</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

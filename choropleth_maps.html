@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>R for Vital Statistics - 5&nbsp; Choropleth maps</title>
+<title>R for Vital Statistics - 8&nbsp; Choropleth maps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./resources.html" rel="next">
-<link href="./styling_tables.html" rel="prev">
+<link href="./glossary.html" rel="next">
+<link href="./charts.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,7 +99,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./choropleth_maps.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Choropleth maps</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./choropleth_maps.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Choropleth maps</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -143,20 +143,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./implementation_info.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Implementing an R Vital Statistics pipeline</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./practical_delivery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical Delivery of CRVS table Generation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./data_cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data cleaning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./styling_tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Styling tables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Styling tables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./charts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Charts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./choropleth_maps.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Choropleth maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Choropleth maps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -170,7 +188,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary of Terms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -184,45 +214,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">5.2</span> Getting started</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">8.1</span> Introduction</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">8.2</span> Getting started</a></li>
   <li>
-<a href="#sourcing-geospatial-data" id="toc-sourcing-geospatial-data" class="nav-link" data-scroll-target="#sourcing-geospatial-data"><span class="header-section-number">5.3</span> Sourcing geospatial data</a>
+<a href="#sourcing-geospatial-data" id="toc-sourcing-geospatial-data" class="nav-link" data-scroll-target="#sourcing-geospatial-data"><span class="header-section-number">8.3</span> Sourcing geospatial data</a>
   <ul class="collapse">
-<li><a href="#gadm" id="toc-gadm" class="nav-link" data-scroll-target="#gadm"><span class="header-section-number">5.3.1</span> GADM</a></li>
-  <li><a href="#natural-earth" id="toc-natural-earth" class="nav-link" data-scroll-target="#natural-earth"><span class="header-section-number">5.3.2</span> Natural Earth</a></li>
+<li><a href="#gadm" id="toc-gadm" class="nav-link" data-scroll-target="#gadm"><span class="header-section-number">8.3.1</span> GADM</a></li>
+  <li><a href="#natural-earth" id="toc-natural-earth" class="nav-link" data-scroll-target="#natural-earth"><span class="header-section-number">8.3.2</span> Natural Earth</a></li>
   </ul>
 </li>
-  <li><a href="#loading-geospatial-data" id="toc-loading-geospatial-data" class="nav-link" data-scroll-target="#loading-geospatial-data"><span class="header-section-number">5.4</span> Loading geospatial data</a></li>
+  <li><a href="#loading-geospatial-data" id="toc-loading-geospatial-data" class="nav-link" data-scroll-target="#loading-geospatial-data"><span class="header-section-number">8.4</span> Loading geospatial data</a></li>
   <li>
-<a href="#plotting-in-tmap" id="toc-plotting-in-tmap" class="nav-link" data-scroll-target="#plotting-in-tmap"><span class="header-section-number">5.5</span> Plotting in tmap</a>
+<a href="#plotting-in-tmap" id="toc-plotting-in-tmap" class="nav-link" data-scroll-target="#plotting-in-tmap"><span class="header-section-number">8.5</span> Plotting in tmap</a>
   <ul class="collapse">
-<li><a href="#style-borders" id="toc-style-borders" class="nav-link" data-scroll-target="#style-borders"><span class="header-section-number">5.5.1</span> Style borders</a></li>
-  <li><a href="#labelling" id="toc-labelling" class="nav-link" data-scroll-target="#labelling"><span class="header-section-number">5.5.2</span> Labelling</a></li>
+<li><a href="#style-borders" id="toc-style-borders" class="nav-link" data-scroll-target="#style-borders"><span class="header-section-number">8.5.1</span> Style borders</a></li>
+  <li><a href="#labelling" id="toc-labelling" class="nav-link" data-scroll-target="#labelling"><span class="header-section-number">8.5.2</span> Labelling</a></li>
   </ul>
 </li>
-  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data"><span class="header-section-number">5.6</span> Joining data</a></li>
-  <li><a href="#basic-choropleth" id="toc-basic-choropleth" class="nav-link" data-scroll-target="#basic-choropleth"><span class="header-section-number">5.7</span> Basic choropleth</a></li>
-  <li><a href="#colour-palettes" id="toc-colour-palettes" class="nav-link" data-scroll-target="#colour-palettes"><span class="header-section-number">5.8</span> Colour palettes</a></li>
+  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data"><span class="header-section-number">8.6</span> Joining data</a></li>
+  <li><a href="#basic-choropleth" id="toc-basic-choropleth" class="nav-link" data-scroll-target="#basic-choropleth"><span class="header-section-number">8.7</span> Basic choropleth</a></li>
+  <li><a href="#colour-palettes" id="toc-colour-palettes" class="nav-link" data-scroll-target="#colour-palettes"><span class="header-section-number">8.8</span> Colour palettes</a></li>
   <li>
-<a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes"><span class="header-section-number">5.9</span> Classes</a>
+<a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes"><span class="header-section-number">8.9</span> Classes</a>
   <ul class="collapse">
-<li><a href="#equal-interval" id="toc-equal-interval" class="nav-link" data-scroll-target="#equal-interval"><span class="header-section-number">5.9.1</span> Equal interval</a></li>
-  <li><a href="#quantile" id="toc-quantile" class="nav-link" data-scroll-target="#quantile"><span class="header-section-number">5.9.2</span> Quantile</a></li>
-  <li><a href="#natural-breaks-jenks" id="toc-natural-breaks-jenks" class="nav-link" data-scroll-target="#natural-breaks-jenks"><span class="header-section-number">5.9.3</span> Natural breaks (jenks)</a></li>
-  <li><a href="#custom-breaks" id="toc-custom-breaks" class="nav-link" data-scroll-target="#custom-breaks"><span class="header-section-number">5.9.4</span> Custom breaks</a></li>
+<li><a href="#equal-interval" id="toc-equal-interval" class="nav-link" data-scroll-target="#equal-interval"><span class="header-section-number">8.9.1</span> Equal interval</a></li>
+  <li><a href="#quantile" id="toc-quantile" class="nav-link" data-scroll-target="#quantile"><span class="header-section-number">8.9.2</span> Quantile</a></li>
+  <li><a href="#natural-breaks-jenks" id="toc-natural-breaks-jenks" class="nav-link" data-scroll-target="#natural-breaks-jenks"><span class="header-section-number">8.9.3</span> Natural breaks (jenks)</a></li>
+  <li><a href="#custom-breaks" id="toc-custom-breaks" class="nav-link" data-scroll-target="#custom-breaks"><span class="header-section-number">8.9.4</span> Custom breaks</a></li>
   </ul>
 </li>
-  <li><a href="#customisation" id="toc-customisation" class="nav-link" data-scroll-target="#customisation"><span class="header-section-number">5.10</span> Customisation</a></li>
-  <li><a href="#interactivity" id="toc-interactivity" class="nav-link" data-scroll-target="#interactivity"><span class="header-section-number">5.11</span> Interactivity</a></li>
-  <li><a href="#exporting-maps" id="toc-exporting-maps" class="nav-link" data-scroll-target="#exporting-maps"><span class="header-section-number">5.12</span> Exporting maps</a></li>
-  <li><a href="#further-resources" id="toc-further-resources" class="nav-link" data-scroll-target="#further-resources"><span class="header-section-number">5.13</span> Further resources</a></li>
+  <li><a href="#customisation" id="toc-customisation" class="nav-link" data-scroll-target="#customisation"><span class="header-section-number">8.10</span> Customisation</a></li>
+  <li><a href="#interactivity" id="toc-interactivity" class="nav-link" data-scroll-target="#interactivity"><span class="header-section-number">8.11</span> Interactivity</a></li>
+  <li><a href="#exporting-maps" id="toc-exporting-maps" class="nav-link" data-scroll-target="#exporting-maps"><span class="header-section-number">8.12</span> Exporting maps</a></li>
+  <li><a href="#further-resources" id="toc-further-resources" class="nav-link" data-scroll-target="#further-resources"><span class="header-section-number">8.13</span> Further resources</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tech-acs/r4vs/edit/main/choropleth_maps.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tech-acs/r4vs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Choropleth maps</span>
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Choropleth maps</span>
 </h1>
 </div>
 
@@ -247,8 +277,8 @@ ol li {
 }
 </style>
 </div>
-<section id="introduction" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">5.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">8.1</span> Introduction</h2>
 <p>Choropleth or thematic maps visualise the variation in the values of a variable across geographical areas by encoding them in a colour gradient. Alternative graphics such as a bar or lollipop chart could be used to show the data but they lack potentially important spatial information. A choropleth map allows you to begin to identify hotspot areas and clusters of high or low values.</p>
 <p>However, there are three key issues to consider before choosing to display your data in a choropleth map.</p>
 <p><strong>1. Counts or rates</strong><br>
@@ -257,8 +287,8 @@ Choropleth maps that visualise the distribution of counts are sensitive to popul
 The Modifiable Areal Unit Problem or MAUP (Openshaw, 1984) points out that the spatial distribution of values in a choropleth map may be a function of the size and shape of geographical areas. There is not much that we can do about MAUP but we need to be aware of its potential impact.</p>
 <p><strong>3. Classification schemes</strong><br>
 Different classification schemes can produce very different choropleth maps (see below). As the distibution of a histogram is sensitive to the size of its bins so the spatial distribution visualised in a choropleth map can be affected by its intervals. It is good practice to inspect the values of your variable in a histogram before deciding which classification scheme to adopt.</p>
-</section><section id="getting-started" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="getting-started">
-<span class="header-section-number">5.2</span> Getting started</h2>
+</section><section id="getting-started" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="getting-started">
+<span class="header-section-number">8.2</span> Getting started</h2>
 <p>The main package that we will be using to create choropleth maps is the <a href="https://cran.r-project.org/web/packages/tmap/index.html">tmap</a> package. To install the package you can run:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"tmap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -270,11 +300,11 @@ Different classification schemes can produce very different choropleth maps (see
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(RColorBrewer)</span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="sourcing-geospatial-data" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="sourcing-geospatial-data">
-<span class="header-section-number">5.3</span> Sourcing geospatial data</h2>
+</section><section id="sourcing-geospatial-data" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="sourcing-geospatial-data">
+<span class="header-section-number">8.3</span> Sourcing geospatial data</h2>
 <p>Subnational administrative boundaries are available from two sources: <a href="https://gadm.org">GADM</a> and <a href="https://www.naturalearthdata.com/">Natural Earth</a>. The data are free to use for non-commercial purposes.</p>
-<section id="gadm" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="gadm">
-<span class="header-section-number">5.3.1</span> GADM</h3>
+<section id="gadm" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="gadm">
+<span class="header-section-number">8.3.1</span> GADM</h3>
 <p>You can either download administrative boundary files using the <a href="https://cran.r-project.org/web/packages/geodata/"><code>geodata</code></a> package or directly from the <a href="https://gadm.org">GADM</a> website. The function <code>gadm()</code> has two key arguments. You need to supply the three-letter <a href="https://www.iso.org/obp/ui/#search">ISO code</a> to <code>country</code> and choose a <code>level</code> of administrative subdivision. 0 is the value for country and 1 is for the next administrative level down.</p>
 <p>The code below loads the states of <a href="https://gadm.org/maps/NGA.html">Nigeria</a>.</p>
 <div class="cell">
@@ -292,8 +322,8 @@ Different classification schemes can produce very different choropleth maps (see
 <span id="cb4-3"><a href="#cb4-3"></a><span class="fu">unzip</span>(<span class="st">"gadm41_NGA_1.json.zip"</span>)</span>
 <span id="cb4-4"><a href="#cb4-4"></a>nigeria <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"gadm41_NGA_1.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="natural-earth" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="natural-earth">
-<span class="header-section-number">5.3.2</span> Natural Earth</h3>
+</section><section id="natural-earth" class="level3" data-number="8.3.2"><h3 data-number="8.3.2" class="anchored" data-anchor-id="natural-earth">
+<span class="header-section-number">8.3.2</span> Natural Earth</h3>
 <p>Level 1 administrative boundaries are available from <a href="https://www.naturalearthdata.com/">Natural Earth</a> using the <code>ne_states()</code> function from the <a href="https://docs.ropensci.org/rnaturalearth/index.html"><code>rnaturalearth</code></a> package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(rnaturalearth)</span>
@@ -306,19 +336,18 @@ Different classification schemes can produce very different choropleth maps (see
 <span id="cb6-3"><a href="#cb6-3"></a>nigeria <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"ne_10m_admin_1_states_provinces.shp"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">filter</span>(adm0_a3 <span class="sc">==</span> <span class="st">"NGA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="loading-geospatial-data" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="loading-geospatial-data">
-<span class="header-section-number">5.4</span> Loading geospatial data</h2>
+</section></section><section id="loading-geospatial-data" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="loading-geospatial-data">
+<span class="header-section-number">8.4</span> Loading geospatial data</h2>
 <p>On loading with <code>st_read()</code>, the R console prints out the number of features, the geometry type, dimensions, bounding box, and coordinate reference system (CRS). We can confirm that there are 37 features (states) and that the vector boundary layer is projected in the World Geodetic System 1984 (WGS84), with longitude and latitude units of decimal degrees.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>nigeria <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/nigeria.geojson"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; Reading layer `nigeria' from data source </span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;   `C:\Users\partrh\Projects\CRVS\book\r4vs\data\nigeria.geojson' </span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt;   using driver `GeoJSON'</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; Simple feature collection with 37 features and 1 field</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; Bounding box:  xmin: 2.671082 ymin: 4.272162 xmax: 14.66994 ymax: 13.88029</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;   `C:\Users\partrh\GitHub\r4vs\data\nigeria.geojson' using driver `GeoJSON'</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; Simple feature collection with 37 features and 1 field</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; Bounding box:  xmin: 2.671082 ymin: 4.272162 xmax: 14.66994 ymax: 13.88029</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can visualise the state boundaries using the base R <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. We just need to supply the <strong>geometry</strong> column.</p>
 <div class="cell">
@@ -327,8 +356,8 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</section><section id="plotting-in-tmap" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="plotting-in-tmap">
-<span class="header-section-number">5.5</span> Plotting in tmap</h2>
+</section><section id="plotting-in-tmap" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="plotting-in-tmap">
+<span class="header-section-number">8.5</span> Plotting in tmap</h2>
 <p>We can also use the <code>tmap</code> package to plot the state boundaries. Combining the <code>tm_shape()</code> and <code>tm_borders()</code> functions renders the outlines of each state.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">tm_shape</span>(nigeria) <span class="sc">+</span></span>
@@ -337,8 +366,8 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-<section id="style-borders" class="level3" data-number="5.5.1"><h3 data-number="5.5.1" class="anchored" data-anchor-id="style-borders">
-<span class="header-section-number">5.5.1</span> Style borders</h3>
+<section id="style-borders" class="level3" data-number="8.5.1"><h3 data-number="8.5.1" class="anchored" data-anchor-id="style-borders">
+<span class="header-section-number">8.5.1</span> Style borders</h3>
 <p>The borders can be styled by passing <code>col</code> (colour) and <code>lwd</code> (border line width) arguments to the <a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html"><code>tm_borders()</code></a> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">tm_shape</span>(nigeria) <span class="sc">+</span> </span>
@@ -347,8 +376,8 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</section><section id="labelling" class="level3" data-number="5.5.2"><h3 data-number="5.5.2" class="anchored" data-anchor-id="labelling">
-<span class="header-section-number">5.5.2</span> Labelling</h3>
+</section><section id="labelling" class="level3" data-number="8.5.2"><h3 data-number="8.5.2" class="anchored" data-anchor-id="labelling">
+<span class="header-section-number">8.5.2</span> Labelling</h3>
 <p>Each state can be labelled using the <a href="https://r-tmap.github.io/tmap/reference/tm_text.html"><code>tm_text()</code></a> function. Again, we supply various arguments to style the labels. The argument <code>auto.placement</code> ensures that labels don’t sit on top of each other.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">tm_shape</span>(nigeria) <span class="sc">+</span> </span>
@@ -371,8 +400,8 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</section></section><section id="joining-data" class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="joining-data">
-<span class="header-section-number">5.6</span> Joining data</h2>
+</section></section><section id="joining-data" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="joining-data">
+<span class="header-section-number">8.6</span> Joining data</h2>
 <p>We have the boundaries of each state in Nigeria but we need some statistical data to create a choropleth map. We will be using data provided by the <a href="https://mics.unicef.org/sites/mics/files/Nigeria%20MICS%202021%20Statistical%20Snapshots_English.pdf">2021 Nigeria Multiple Indicators Cluster Survey (MICS)</a> on the percentage of children under age 5 whose births are registered by each Nigerian state.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">head</span>(df)</span>
@@ -419,8 +448,8 @@ Different classification schemes can produce very different choropleth maps (see
 <span id="cb17-6"><a href="#cb17-6"></a><span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we are ready to create a choropleth map.</p>
-</section><section id="basic-choropleth" class="level2" data-number="5.7"><h2 data-number="5.7" class="anchored" data-anchor-id="basic-choropleth">
-<span class="header-section-number">5.7</span> Basic choropleth</h2>
+</section><section id="basic-choropleth" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="basic-choropleth">
+<span class="header-section-number">8.7</span> Basic choropleth</h2>
 <p>The <a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html"><code>tm_polygons()</code></a> function creates an off-the-shelf choropleth map. You just supply the name of the variable that you want to visualise to <code>col</code> and a <code>title</code> for the legend.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
@@ -440,8 +469,8 @@ Different classification schemes can produce very different choropleth maps (see
 </div>
 </div>
 <p>The default colour palette is orange and the map classification is ‘pretty’. We can change these next.</p>
-</section><section id="colour-palettes" class="level2" data-number="5.8"><h2 data-number="5.8" class="anchored" data-anchor-id="colour-palettes">
-<span class="header-section-number">5.8</span> Colour palettes</h2>
+</section><section id="colour-palettes" class="level2" data-number="8.8"><h2 data-number="8.8" class="anchored" data-anchor-id="colour-palettes">
+<span class="header-section-number">8.8</span> Colour palettes</h2>
 <p><code>tmap</code> uses colour palettes from the <a href="https://colorbrewer2.org/">ColorBrewer</a> website which differ depending on the chosen <em>sequential</em>, <em>diverging</em>, or <em>categorical</em> colour scheme. If we wanted to show how the birth registration values are spread around the mean we could use colour palettes for a <em>diverging</em> scheme. However, we will use a palette from the sequential colour scheme because we want to visual the distribution of values from low to high. Here we will use the “Blues” palette which visualises low values as light blue and high values as dark blue.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
@@ -454,11 +483,11 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</section><section id="classes" class="level2" data-number="5.9"><h2 data-number="5.9" class="anchored" data-anchor-id="classes">
-<span class="header-section-number">5.9</span> Classes</h2>
+</section><section id="classes" class="level2" data-number="8.9"><h2 data-number="8.9" class="anchored" data-anchor-id="classes">
+<span class="header-section-number">8.9</span> Classes</h2>
 <p>When map classification breaks are not set explicitly tmap defaults to <code>style = "pretty"</code>. This is a base R <a href="https://cran.r-project.org/doc/manuals/r-release/fullrefman.pdf">function</a> which calculates roughly equal spaced round values. However, tmap has a number of other map classification schemes to choose from.</p>
-<section id="equal-interval" class="level3" data-number="5.9.1"><h3 data-number="5.9.1" class="anchored" data-anchor-id="equal-interval">
-<span class="header-section-number">5.9.1</span> Equal interval</h3>
+<section id="equal-interval" class="level3" data-number="8.9.1"><h3 data-number="8.9.1" class="anchored" data-anchor-id="equal-interval">
+<span class="header-section-number">8.9.1</span> Equal interval</h3>
 <p>Divides the distribution of values so that the range of values is identical within each class. The difference between the highest and lowest value is the same for each class grouping.</p>
 <p><strong>+</strong> represents the density of observations around the mean<br><strong>-</strong> maps tend to be unbalanced because the values aren’t evenly distributed.</p>
 <div class="cell">
@@ -474,8 +503,8 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</section><section id="quantile" class="level3" data-number="5.9.2"><h3 data-number="5.9.2" class="anchored" data-anchor-id="quantile">
-<span class="header-section-number">5.9.2</span> Quantile</h3>
+</section><section id="quantile" class="level3" data-number="8.9.2"><h3 data-number="8.9.2" class="anchored" data-anchor-id="quantile">
+<span class="header-section-number">8.9.2</span> Quantile</h3>
 <p>Sorts the values of a variable in ascending order and assigns an equal number of geographical areas to each colour.</p>
 <p><strong>+</strong> highlights a proportion of observations such as the top 25% of geographical areas<br><strong>-</strong> tends to mask heterogeneity</p>
 <div class="cell">
@@ -491,8 +520,8 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</section><section id="natural-breaks-jenks" class="level3" data-number="5.9.3"><h3 data-number="5.9.3" class="anchored" data-anchor-id="natural-breaks-jenks">
-<span class="header-section-number">5.9.3</span> Natural breaks (jenks)</h3>
+</section><section id="natural-breaks-jenks" class="level3" data-number="8.9.3"><h3 data-number="8.9.3" class="anchored" data-anchor-id="natural-breaks-jenks">
+<span class="header-section-number">8.9.3</span> Natural breaks (jenks)</h3>
 <p>Class categories are based on natural groupings in the data. Uses a statistical procedure which seeks to reduce the variance <em>within</em> classes and maximises the variance <em>between</em> classes.</p>
 <p><strong>+</strong> identifies areas with similar values<br><strong>-</strong> the classes are unique to each variable so cannot be reused with other variables</p>
 <div class="cell">
@@ -508,8 +537,8 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</section><section id="custom-breaks" class="level3" data-number="5.9.4"><h3 data-number="5.9.4" class="anchored" data-anchor-id="custom-breaks">
-<span class="header-section-number">5.9.4</span> Custom breaks</h3>
+</section><section id="custom-breaks" class="level3" data-number="8.9.4"><h3 data-number="8.9.4" class="anchored" data-anchor-id="custom-breaks">
+<span class="header-section-number">8.9.4</span> Custom breaks</h3>
 <p>Custom map classifications can be created by supplying <code>breaks</code> and <code>labels</code> to the <code>tm_fill()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
@@ -524,8 +553,8 @@ Different classification schemes can produce very different choropleth maps (see
 <p><img src="choropleth_maps_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
-</section></section><section id="customisation" class="level2" data-number="5.10"><h2 data-number="5.10" class="anchored" data-anchor-id="customisation">
-<span class="header-section-number">5.10</span> Customisation</h2>
+</section></section><section id="customisation" class="level2" data-number="8.10"><h2 data-number="8.10" class="anchored" data-anchor-id="customisation">
+<span class="header-section-number">8.10</span> Customisation</h2>
 <p>There are several improvements we can make to the choropleth map by changing the layout, adding titles and tweaking the legend.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
@@ -544,11 +573,11 @@ Different classification schemes can produce very different choropleth maps (see
 </div>
 </div>
 <p>You can also add in some cartographic elements such as a compass rose (<a href="https://r-tmap.github.io/tmap/reference/tm_compass.html"><code>tm_compass()</code></a>) or scale bar (<a href="https://r-tmap.github.io/tmap/reference/tm_scale_bar.html"><code>tm_scale_bar()</code></a>) if required.</p>
-</section><section id="interactivity" class="level2" data-number="5.11"><h2 data-number="5.11" class="anchored" data-anchor-id="interactivity">
-<span class="header-section-number">5.11</span> Interactivity</h2>
+</section><section id="interactivity" class="level2" data-number="8.11"><h2 data-number="8.11" class="anchored" data-anchor-id="interactivity">
+<span class="header-section-number">8.11</span> Interactivity</h2>
 <p>The <code>tmap</code> package also allows you to view your maps interactively. All you need to do is to switch between <code>tmap_mode("view")</code> for interactive viewing and <code>tmap_mode("plot")</code> for static plots.</p>
-</section><section id="exporting-maps" class="level2" data-number="5.12"><h2 data-number="5.12" class="anchored" data-anchor-id="exporting-maps">
-<span class="header-section-number">5.12</span> Exporting maps</h2>
+</section><section id="exporting-maps" class="level2" data-number="8.12"><h2 data-number="8.12" class="anchored" data-anchor-id="exporting-maps">
+<span class="header-section-number">8.12</span> Exporting maps</h2>
 <p>To export static maps you can use the <code>tmap_save()</code> function. Just save your plot as an object and give it a <code>filename</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>tm <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(sf) <span class="sc">+</span> </span>
@@ -558,8 +587,8 @@ Different classification schemes can produce very different choropleth maps (see
 <span id="cb26-5"><a href="#cb26-5"></a></span>
 <span id="cb26-6"><a href="#cb26-6"></a><span class="fu">tmap_save</span>(tm, <span class="at">filename =</span> <span class="st">"nigeria.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="further-resources" class="level2" data-number="5.13"><h2 data-number="5.13" class="anchored" data-anchor-id="further-resources">
-<span class="header-section-number">5.13</span> Further resources</h2>
+</section><section id="further-resources" class="level2" data-number="8.13"><h2 data-number="8.13" class="anchored" data-anchor-id="further-resources">
+<span class="header-section-number">8.13</span> Further resources</h2>
 <ul>
 <li>Anselin, Luc (2016). Statistical Maps: Standard Deviation and Box Map. YouTube. <a href="https://www.youtube.com/watch?v=6-weK5J6xRI">https://www.youtube.com/watch?v=6-weK5J6xRI</a>
 </li>
@@ -803,13 +832,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./styling_tables.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Styling tables</span></span>
+      <a href="./charts.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Charts</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./resources.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./glossary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary of Terms</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -49,269 +49,493 @@
     "text": "2.4 4. Register for a free GitHub account\nGitHub accounts are free. All you need to do is provide an email address, password and a unique username. There are some tips on creating a GitHub username here. Once you have completed the sign up process you can visit your dashboard and update your profile."
   },
   {
+    "objectID": "implementation_info.html#the-organisational-landscape",
+    "href": "implementation_info.html#the-organisational-landscape",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.1 The Organisational Landscape",
+    "text": "3.1 The Organisational Landscape"
+  },
+  {
+    "objectID": "implementation_info.html#the-data-collection-and-handling-process",
+    "href": "implementation_info.html#the-data-collection-and-handling-process",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.2 The Data Collection and Handling Process",
+    "text": "3.2 The Data Collection and Handling Process"
+  },
+  {
+    "objectID": "implementation_info.html#variable-availability-and-possible-tables",
+    "href": "implementation_info.html#variable-availability-and-possible-tables",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.3 Variable Availability and Possible tables",
+    "text": "3.3 Variable Availability and Possible tables"
+  },
+  {
+    "objectID": "implementation_info.html#codebase-management-and-collaboration-principles",
+    "href": "implementation_info.html#codebase-management-and-collaboration-principles",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.4 Codebase Management and Collaboration Principles",
+    "text": "3.4 Codebase Management and Collaboration Principles"
+  },
+  {
+    "objectID": "implementation_info.html#data-quality-analysis",
+    "href": "implementation_info.html#data-quality-analysis",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.5 Data Quality Analysis",
+    "text": "3.5 Data Quality Analysis"
+  },
+  {
+    "objectID": "implementation_info.html#data-cleaning-and-dataset-curation",
+    "href": "implementation_info.html#data-cleaning-and-dataset-curation",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.6 Data Cleaning and Dataset Curation",
+    "text": "3.6 Data Cleaning and Dataset Curation"
+  },
+  {
+    "objectID": "implementation_info.html#table-generation-with-crvsreportpackage",
+    "href": "implementation_info.html#table-generation-with-crvsreportpackage",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.7 Table Generation with crvsreportpackage",
+    "text": "3.7 Table Generation with crvsreportpackage"
+  },
+  {
+    "objectID": "implementation_info.html#table-polishing-and-visual-alternatives",
+    "href": "implementation_info.html#table-polishing-and-visual-alternatives",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.8 Table Polishing and Visual Alternatives",
+    "text": "3.8 Table Polishing and Visual Alternatives"
+  },
+  {
+    "objectID": "implementation_info.html#crvs-tables-quality-assurance",
+    "href": "implementation_info.html#crvs-tables-quality-assurance",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.9 CRVS Tables Quality Assurance",
+    "text": "3.9 CRVS Tables Quality Assurance"
+  },
+  {
+    "objectID": "implementation_info.html#putting-the-tables-into-context",
+    "href": "implementation_info.html#putting-the-tables-into-context",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.10 Putting the Tables into Context",
+    "text": "3.10 Putting the Tables into Context"
+  },
+  {
+    "objectID": "implementation_info.html#achieving-a-crvs-report",
+    "href": "implementation_info.html#achieving-a-crvs-report",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.11 Achieving a CRVS report",
+    "text": "3.11 Achieving a CRVS report"
+  },
+  {
+    "objectID": "implementation_info.html#its-not-only-about-the-report",
+    "href": "implementation_info.html#its-not-only-about-the-report",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.12 It’s not Only About the Report",
+    "text": "3.12 It’s not Only About the Report"
+  },
+  {
+    "objectID": "implementation_info.html#learning-lessons",
+    "href": "implementation_info.html#learning-lessons",
+    "title": "3  Implementing an R Vital Statistics pipeline",
+    "section": "3.13 Learning Lessons",
+    "text": "3.13 Learning Lessons"
+  },
+  {
+    "objectID": "practical_delivery.html#before-we-begin",
+    "href": "practical_delivery.html#before-we-begin",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.1 Before we Begin",
+    "text": "4.1 Before we Begin"
+  },
+  {
+    "objectID": "practical_delivery.html#who-should-participate",
+    "href": "practical_delivery.html#who-should-participate",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.2 Who Should Participate?",
+    "text": "4.2 Who Should Participate?"
+  },
+  {
+    "objectID": "practical_delivery.html#what-should-the-agenda-look-like",
+    "href": "practical_delivery.html#what-should-the-agenda-look-like",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.3 What Should the Agenda Look like?",
+    "text": "4.3 What Should the Agenda Look like?"
+  },
+  {
+    "objectID": "practical_delivery.html#requirements-before-starting",
+    "href": "practical_delivery.html#requirements-before-starting",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.4 Requirements Before Starting",
+    "text": "4.4 Requirements Before Starting\n\n4.4.1 Requirements for the NSO/NROs\n\n\n4.4.2 Requirements for the Delivery Team"
+  },
+  {
+    "objectID": "practical_delivery.html#what-are-the-goals",
+    "href": "practical_delivery.html#what-are-the-goals",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.5 What are the Goals?",
+    "text": "4.5 What are the Goals?"
+  },
+  {
+    "objectID": "practical_delivery.html#day-1",
+    "href": "practical_delivery.html#day-1",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.6 Day 1",
+    "text": "4.6 Day 1"
+  },
+  {
+    "objectID": "practical_delivery.html#day-2",
+    "href": "practical_delivery.html#day-2",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.7 Day 2",
+    "text": "4.7 Day 2"
+  },
+  {
+    "objectID": "practical_delivery.html#day-3",
+    "href": "practical_delivery.html#day-3",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.8 Day 3",
+    "text": "4.8 Day 3"
+  },
+  {
+    "objectID": "practical_delivery.html#day-4",
+    "href": "practical_delivery.html#day-4",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.9 Day 4",
+    "text": "4.9 Day 4"
+  },
+  {
+    "objectID": "practical_delivery.html#day-5",
+    "href": "practical_delivery.html#day-5",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.10 Day 5",
+    "text": "4.10 Day 5"
+  },
+  {
+    "objectID": "practical_delivery.html#how-did-it-go",
+    "href": "practical_delivery.html#how-did-it-go",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.11 How did it Go?",
+    "text": "4.11 How did it Go?"
+  },
+  {
+    "objectID": "practical_delivery.html#what-next",
+    "href": "practical_delivery.html#what-next",
+    "title": "4  Practical Delivery of CRVS table Generation",
+    "section": "4.12 What Next?",
+    "text": "4.12 What Next?"
+  },
+  {
     "objectID": "data_cleaning.html#characters-as-dates",
     "href": "data_cleaning.html#characters-as-dates",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.1 Characters as dates",
-    "text": "3.1 Characters as dates\nDates can be inputted in a variety of formats such as “1 August 24”, Aug 1, 2024”, and “2024-08-01”. Sometimes R will not be able to parse a date and will read it as a character.\nThe variable birth1a (Date of occurrence, Event) is a character but it should be a date. We can coerce it to a date by passing it to the as.Date() function and choosing the corresponding date format. birth1a follows the ISO 8601 standard for dates or ‘YYYY-MM-DD’ so we need to format the data with “%Y-%m-%d”.\n\ndf &lt;- mutate(df, birth1a = as.Date(birth1a, format = \"%Y-%m-%d\"))\nclass(df$birth1a)\n\n[1] \"Date\"\n\n\nDate formats in R\n\n\n\n\n\n\n\nYou can also use the ymd() function which more intuitively transforms the date into year, month, and day.\n\nmutate(df, birth1a = ymd(birth1a))"
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.1 Characters as dates",
+    "text": "5.1 Characters as dates\nDates can be inputted in a variety of formats such as “1 August 24”, Aug 1, 2024”, and “2024-08-01”. Sometimes R will not be able to parse a date and will read it as a character.\nThe variable birth1a (Date of occurrence, Event) is a character but it should be a date. We can coerce it to a date by passing it to the as.Date() function and choosing the corresponding date format. birth1a follows the ISO 8601 standard for dates or ‘YYYY-MM-DD’ so we need to format the data with “%Y-%m-%d”.\n\ndf &lt;- mutate(df, birth1a = as.Date(birth1a, format = \"%Y-%m-%d\"))\nclass(df$birth1a)\n\n[1] \"Date\"\n\n\nDate formats in R\n\n\n\n\n\n\n\nYou can also use the ymd() function which more intuitively transforms the date into year, month, and day.\n\nmutate(df, birth1a = ymd(birth1a))"
   },
   {
     "objectID": "data_cleaning.html#dates-out-of-sequence",
     "href": "data_cleaning.html#dates-out-of-sequence",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.2 Dates out of sequence",
-    "text": "3.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 523 2024-05-15 1900-01-01\n2  68 2024-06-11 1900-01-01\n3  60 2024-07-23 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.2 Dates out of sequence",
+    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 685 2024-06-27 1900-01-01\n2 221 2024-05-02 1900-01-01\n3 900 2024-06-18 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
   },
   {
     "objectID": "data_cleaning.html#duplicate-rows",
     "href": "data_cleaning.html#duplicate-rows",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.3 Duplicate rows",
-    "text": "3.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g    birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1    77 2024-07-15 2024-08-07 Kano    Quadruple… Other   Clinic  F            25\n2    77 2024-07-15 2024-08-07 Kano    Quadruple… Other   Clinic  F            25\n3    77 2024-07-15 2024-08-07 Kano    Quadruple… Other   Clinic  F            25\n4    77 2024-07-15 2024-08-07 Kano    Quadruple… Other   Clinic  F            25\n5    77 2024-07-15 2024-08-07 Kano    Quadruple… Other   Clinic  F            25\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.3 Duplicate rows",
+    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g    birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n2   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n3   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n4   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n5   757 2024-06-21 2024-06-25 Jigawa  Quadruple… Nurse   Clinic  F             7\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
   },
   {
     "objectID": "data_cleaning.html#characters-as-factors",
     "href": "data_cleaning.html#characters-as-factors",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.4 Characters as factors",
-    "text": "3.4 Characters as factors\nIt is common practice to read known values of a variable as characters, hence stringsAsFactors = FALSE. However, once you have read in the data you may wish to convert a character variable into a factor. Here we are converting birth1g (Type of birth, Event) into a factor.\n\nclass(df$birth1g)\n\n[1] \"character\"\n\ndf$birth1g &lt;- as_factor(df$birth1g)\nclass(df$birth1g)\n\n[1] \"factor\""
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.4 Characters as factors",
+    "text": "5.4 Characters as factors\nIt is common practice to read known values of a variable as characters, hence stringsAsFactors = FALSE. However, once you have read in the data you may wish to convert a character variable into a factor. Here we are converting birth1g (Type of birth, Event) into a factor.\n\nclass(df$birth1g)\n\n[1] \"character\"\n\ndf$birth1g &lt;- as_factor(df$birth1g)\nclass(df$birth1g)\n\n[1] \"factor\""
   },
   {
     "objectID": "data_cleaning.html#wrong-order-of-levels",
     "href": "data_cleaning.html#wrong-order-of-levels",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.5 Wrong order of levels",
-    "text": "3.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Quadruplet or higher\" \"Twin\"                 \"Triplet\"             \n[4] \"Single\"              \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.5 Wrong order of levels",
+    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Quadruplet or higher\" \"Triplet\"              \"Twin\"                \n[4] \"Single\"              \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
   },
   {
     "objectID": "data_cleaning.html#unhelpfully-coded-values",
     "href": "data_cleaning.html#unhelpfully-coded-values",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.6 Unhelpfully coded values",
-    "text": "3.6 Unhelpfully coded values\nOften values of a variable are coded unhelpfully. For example, in birth2a (Sex, Newborn) the sex of the newborn baby has been recorded as “M” and “F”. We can easily recode these so that they are more readable. The fct_recode() function enables you to change factor levels by hand.\n\ndf$birth2a |&gt; \n  fct_recode(Female = \"F\", Male = \"M\") |&gt; \n  levels()\n\n[1] \"Female\" \"Male\""
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.6 Unhelpfully coded values",
+    "text": "5.6 Unhelpfully coded values\nOften values of a variable are coded unhelpfully. For example, in birth2a (Sex, Newborn) the sex of the newborn baby has been recorded as “M” and “F”. We can easily recode these so that they are more readable. The fct_recode() function enables you to change factor levels by hand.\n\ndf$birth2a |&gt; \n  fct_recode(Female = \"F\", Male = \"M\") |&gt; \n  levels()\n\n[1] \"Female\" \"Male\""
   },
   {
     "objectID": "data_cleaning.html#convert-values-to-na",
     "href": "data_cleaning.html#convert-values-to-na",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.7 Convert values to NA",
-    "text": "3.7 Convert values to NA\nMissing values are recorded in a variety of ways e.g. 999999, NULL, or even ” “. We can recode these missing values to a more explicit NA using the na_if() function. The variable birth1c (Place of occurrence, Event) includes a number of missing values that have been recorded as” “. We can replace these with NA using the code below.\n\ndf &lt;- mutate(df, birth1c = na_if(birth1c, \"\"))"
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.7 Convert values to NA",
+    "text": "5.7 Convert values to NA\nMissing values are recorded in a variety of ways e.g. 999999, NULL, or even ” “. We can recode these missing values to a more explicit NA using the na_if() function. The variable birth1c (Place of occurrence, Event) includes a number of missing values that have been recorded as” “. We can replace these with NA using the code below.\n\ndf &lt;- mutate(df, birth1c = na_if(birth1c, \"\"))"
   },
   {
     "objectID": "data_cleaning.html#checking-missing-data",
     "href": "data_cleaning.html#checking-missing-data",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.8 Checking missing data",
-    "text": "3.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      36       0       0       0       0      10 \n\n\nThere are 36 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.8 Checking missing data",
+    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      39       0       0       0       0      10 \n\n\nThere are 39 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
   },
   {
     "objectID": "data_cleaning.html#imputing-missing-data",
     "href": "data_cleaning.html#imputing-missing-data",
-    "title": "\n3  Data cleaning\n",
-    "section": "\n3.9 Imputing missing data",
-    "text": "3.9 Imputing missing data\nIn cases where there are missing values in an integer variable we can impute them as an average. For example, there are 10 missing values in birth3b (Age, Mother). We can impute the mean age with the following code.\n\ndf &lt;- df |&gt; \n  mutate(birth3b = case_when(\n    is.na(birth3b) ~ as.integer(mean(birth3b, na.rm = TRUE)),\n    TRUE ~ birth3b)\n    )"
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.9 Imputing missing data",
+    "text": "5.9 Imputing missing data\nIn cases where there are missing values in an integer variable we can impute them as an average. For example, there are 10 missing values in birth3b (Age, Mother). We can impute the mean age with the following code.\n\ndf &lt;- df |&gt; \n  mutate(birth3b = case_when(\n    is.na(birth3b) ~ as.integer(mean(birth3b, na.rm = TRUE)),\n    TRUE ~ birth3b)\n    )"
   },
   {
     "objectID": "styling_tables.html#gt-tables",
     "href": "styling_tables.html#gt-tables",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.1 gt tables",
-    "text": "4.1 gt tables\nBefore formatting and styling the table it is a good idea to understand the structure and syntax of a gt table. This is important because the functions in the gt package are named so that they relate to the parts of the table.\n\n\nThe Parts of a gt Table\n\n\n\nTable header: title and subtitle\n\nStub and Stub Head: area to left of table containing row labels. The stubhead contains the label that describes the rows.\n\nColumn labels: column labels\n\nSpanner column labels: labels for grouped columns\n\nTable body: columns and rows\n\nTable footer: text at the bottom of the table containing optional footnotes and source notes"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.1 gt tables",
+    "text": "6.1 gt tables\nBefore formatting and styling the table it is a good idea to understand the structure and syntax of a gt table. This is important because the functions in the gt package are named so that they relate to the parts of the table.\n\n\nThe Parts of a gt Table\n\n\n\nTable header: title and subtitle\n\nStub and Stub Head: area to left of table containing row labels. The stubhead contains the label that describes the rows.\n\nColumn labels: column labels\n\nSpanner column labels: labels for grouped columns\n\nTable body: columns and rows\n\nTable footer: text at the bottom of the table containing optional footnotes and source notes"
   },
   {
     "objectID": "styling_tables.html#summary-data",
     "href": "styling_tables.html#summary-data",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.2 Summary data",
-    "text": "4.2 Summary data\nWe have some summary data for Table 3.11 (Redistribution of births with incomplete data on ‘age of mother’, year) from the Vital Strategies report template.\n\n#&gt; # A tibble: 11 × 4\n#&gt;    fert_age_grp total proportion adjusted_total\n#&gt;    &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;\n#&gt;  1 &lt;15              2      0                  2\n#&gt;  2 15-19          239      0.048            250\n#&gt;  3 19-24         1088      0.218           1140\n#&gt;  4 25-20         1596      0.319           1673\n#&gt;  5 30-34         1298      0.26            1360\n#&gt;  6 35-39          640      0.128            671\n#&gt;  7 40-44          124      0.025            130\n#&gt;  8 45-49           12      0.002             13\n#&gt;  9 50+              1      0                  0\n#&gt; 10 Unknown        240     NA                  0\n#&gt; 11 Total         5240      1               5240"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.2 Summary data",
+    "text": "6.2 Summary data\nWe have some summary data for Table 3.11 (Redistribution of births with incomplete data on ‘age of mother’, year) from the Vital Strategies report template.\n\n#&gt; # A tibble: 11 × 4\n#&gt;    fert_age_grp total proportion adjusted_total\n#&gt;    &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;\n#&gt;  1 &lt;15              2      0                  2\n#&gt;  2 15-19          239      0.048            250\n#&gt;  3 19-24         1088      0.218           1140\n#&gt;  4 25-20         1596      0.319           1673\n#&gt;  5 30-34         1298      0.26            1360\n#&gt;  6 35-39          640      0.128            671\n#&gt;  7 40-44          124      0.025            130\n#&gt;  8 45-49           12      0.002             13\n#&gt;  9 50+              1      0                  0\n#&gt; 10 Unknown        240     NA                  0\n#&gt; 11 Total         5240      1               5240"
   },
   {
     "objectID": "styling_tables.html#simple-table",
     "href": "styling_tables.html#simple-table",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.3 Simple table",
-    "text": "4.3 Simple table\nThe default gt table can be created using the gt() function. It is a simple table with 4 columns.\n\ndf |&gt; gt()\n\n\n\n\n\n\nfert_age_grp\n      total\n      proportion\n      adjusted_total\n    \n\n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.3 Simple table",
+    "text": "6.3 Simple table\nThe default gt table can be created using the gt() function. It is a simple table with 4 columns.\n\ndf |&gt; gt()\n\n\n\n\n\n\nfert_age_grp\n      total\n      proportion\n      adjusted_total\n    \n\n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240"
   },
   {
     "objectID": "styling_tables.html#rows",
     "href": "styling_tables.html#rows",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.4 Rows",
-    "text": "4.4 Rows\nStubs are table row labels. You can specify a stub column using the gt() function and the rowname_col argument. We have supplied ‘fert_age_grp’ as the stub column because fertility age group is the grouping variable. Normally the stubhead will remain unlabelled so we supply label text to tab_stubhead().\nNB Not all tables need row labels so you can skip this step if unnecessary.\nWe can also make additional styling improvements by re-positioning the stubhead label, formatting it as bold and setting the stub width.\n\ntbl &lt;- df |&gt; \n  # create a column of row names\n  gt(rowname_col = \"fert_age_grp\") |&gt; \n  # add a stubhead label\n  tab_stubhead(label = \"Mothers' age group (years)\") |&gt; \n  # style stubhead label\n  tab_style(\n    style = cell_text(v_align  = \"top\", weight = \"bold\"),\n    locations = cells_stubhead()\n  ) |&gt;\n  # set stub width\n  cols_width(fert_age_grp ~ px(100))\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      total\n      proportion\n      adjusted_total\n    \n\n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240\n\n\n\n\n\n\nThe table now only contains 3 columns because we assigned ‘fert_age_grp’ to the stub.\nIf you wanted to combine particular rows you can use the tab_row_group() function. Suppose we wanted to create a ‘40+’ group we would just supply a vector of the relevant age groups to the rows argument of tab_row_group().\n\ntbl |&gt; \n  tab_row_group(\n    label = \"40+\",\n    rows = c(\"40-44\", \"45-49\", \"50+\")\n  ) |&gt; \n  tab_row_group(\n    label = \"Under 40\",\n    rows = 1:6\n  ) |&gt; \n  tab_style(\n    style = cell_text(weight = \"bold\", style = \"italic\"),\n    locations = cells_row_groups()\n    )\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      total\n      proportion\n      adjusted_total\n    \n\n\nUnder 40\n    \n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40+\n    \n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\n\n    \n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.4 Rows",
+    "text": "6.4 Rows\nStubs are table row labels. You can specify a stub column using the gt() function and the rowname_col argument. We have supplied ‘fert_age_grp’ as the stub column because fertility age group is the grouping variable. Normally the stubhead will remain unlabelled so we supply label text to tab_stubhead().\nNB Not all tables need row labels so you can skip this step if unnecessary.\nWe can also make additional styling improvements by re-positioning the stubhead label, formatting it as bold and setting the stub width.\n\ntbl &lt;- df |&gt; \n  # create a column of row names\n  gt(rowname_col = \"fert_age_grp\") |&gt; \n  # add a stubhead label\n  tab_stubhead(label = \"Mothers' age group (years)\") |&gt; \n  # style stubhead label\n  tab_style(\n    style = cell_text(v_align  = \"top\", weight = \"bold\"),\n    locations = cells_stubhead()\n  ) |&gt;\n  # set stub width\n  cols_width(fert_age_grp ~ px(100))\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      total\n      proportion\n      adjusted_total\n    \n\n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240\n\n\n\n\n\n\nThe table now only contains 3 columns because we assigned ‘fert_age_grp’ to the stub.\nIf you wanted to combine particular rows you can use the tab_row_group() function. Suppose we wanted to create a ‘40+’ group we would just supply a vector of the relevant age groups to the rows argument of tab_row_group().\n\ntbl |&gt; \n  tab_row_group(\n    label = \"40+\",\n    rows = c(\"40-44\", \"45-49\", \"50+\")\n  ) |&gt; \n  tab_row_group(\n    label = \"Under 40\",\n    rows = 1:6\n  ) |&gt; \n  tab_style(\n    style = cell_text(weight = \"bold\", style = \"italic\"),\n    locations = cells_row_groups()\n    )\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      total\n      proportion\n      adjusted_total\n    \n\n\nUnder 40\n    \n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40+\n    \n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\n\n    \n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240"
   },
   {
     "objectID": "styling_tables.html#label-columns",
     "href": "styling_tables.html#label-columns",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.5 Label columns",
-    "text": "4.5 Label columns\nTo customise the column labels we can use the cols_label() function.\n\ntbl &lt;- tbl |&gt; \n  cols_label(\n    total = \"Number of births\",\n    proportion = \"Proportion (%)\",\n    adjusted_total = \"Number of births\"\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      Number of births\n      Proportion (%)\n      Number of births\n    \n\n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.5 Label columns",
+    "text": "6.5 Label columns\nTo customise the column labels we can use the cols_label() function.\n\ntbl &lt;- tbl |&gt; \n  cols_label(\n    total = \"Number of births\",\n    proportion = \"Proportion (%)\",\n    adjusted_total = \"Number of births\"\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      Number of births\n      Proportion (%)\n      Number of births\n    \n\n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240"
   },
   {
     "objectID": "styling_tables.html#style-column-labels",
     "href": "styling_tables.html#style-column-labels",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.6 Style column labels",
-    "text": "4.6 Style column labels\nThe generic tab_style() function can be used to target the column labels and apply styling. Here we use the cells_column_labels() location helper function to left-align and format the column labels as bold.\n\ntbl &lt;- tbl |&gt; \n  tab_style(\n    style = cell_text(align  = \"right\", weight = \"bold\"),\n    locations = cells_column_labels()\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      Number of births\n      Proportion (%)\n      Number of births\n    \n\n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.6 Style column labels",
+    "text": "6.6 Style column labels\nThe generic tab_style() function can be used to target the column labels and apply styling. Here we use the cells_column_labels() location helper function to left-align and format the column labels as bold.\n\ntbl &lt;- tbl |&gt; \n  tab_style(\n    style = cell_text(align  = \"right\", weight = \"bold\"),\n    locations = cells_column_labels()\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      Number of births\n      Proportion (%)\n      Number of births\n    \n\n\n&lt;15\n2\n0.000\n2\n\n\n15-19\n239\n0.048\n250\n\n\n19-24\n1088\n0.218\n1140\n\n\n25-20\n1596\n0.319\n1673\n\n\n30-34\n1298\n0.260\n1360\n\n\n35-39\n640\n0.128\n671\n\n\n40-44\n124\n0.025\n130\n\n\n45-49\n12\n0.002\n13\n\n\n50+\n1\n0.000\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5240\n1.000\n5240"
   },
   {
     "objectID": "styling_tables.html#format-columns",
     "href": "styling_tables.html#format-columns",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.7 Format columns",
-    "text": "4.7 Format columns\nThere are a variety of functions that format column values. Here we use fmt_number() to specify whole numbers with thousands separators for the ‘total’ and ‘adjusted_total’ columns. The function fmt_percent() converts values of ‘proportion’ into a percentage with one decimal place.\n\ntbl &lt;- tbl |&gt; \n  fmt_number(columns = c(\"total\", \"adjusted_total\"), decimals = 0) |&gt;\n  fmt_percent(columns = \"proportion\", decimals = 1)\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      Number of births\n      Proportion (%)\n      Number of births\n    \n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.7 Format columns",
+    "text": "6.7 Format columns\nThere are a variety of functions that format column values. Here we use fmt_number() to specify whole numbers with thousands separators for the ‘total’ and ‘adjusted_total’ columns. The function fmt_percent() converts values of ‘proportion’ into a percentage with one decimal place.\n\ntbl &lt;- tbl |&gt; \n  fmt_number(columns = c(\"total\", \"adjusted_total\"), decimals = 0) |&gt;\n  fmt_percent(columns = \"proportion\", decimals = 1)\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      Number of births\n      Proportion (%)\n      Number of births\n    \n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240"
   },
   {
     "objectID": "styling_tables.html#spanner-column-labels",
     "href": "styling_tables.html#spanner-column-labels",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.8 Spanner column labels",
-    "text": "4.8 Spanner column labels\nGrouping together columns can be done with the tab_spanner() function. The columns argument is used to specify which columns to span.\nWe can style the spanner column labels using tab_style() and the cells_column_spanners() location helper function.\n\ntbl &lt;- tbl |&gt; \n  tab_spanner(\n    label = \"Unadjusted\",\n    columns = c(total, proportion)\n  ) |&gt;\n  tab_spanner(\n    label = \"Adjusted\",\n    columns = adjusted_total\n  ) |&gt; \n  # style spanner column labels\n  tab_style(\n    style = cell_text(align  = \"right\", weight = \"bold\"),\n    locations = cells_column_spanners()\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.8 Spanner column labels",
+    "text": "6.8 Spanner column labels\nGrouping together columns can be done with the tab_spanner() function. The columns argument is used to specify which columns to span.\nWe can style the spanner column labels using tab_style() and the cells_column_spanners() location helper function.\n\ntbl &lt;- tbl |&gt; \n  tab_spanner(\n    label = \"Unadjusted\",\n    columns = c(total, proportion)\n  ) |&gt;\n  tab_spanner(\n    label = \"Adjusted\",\n    columns = adjusted_total\n  ) |&gt; \n  # style spanner column labels\n  tab_style(\n    style = cell_text(align  = \"right\", weight = \"bold\"),\n    locations = cells_column_spanners()\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240"
   },
   {
     "objectID": "styling_tables.html#headers",
     "href": "styling_tables.html#headers",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.9 Headers",
-    "text": "4.9 Headers\nAdd a title and subtitle to the table using the tab_header() function. You can style the headings with either markdown (md()) or HTML (html()). Here we have used markdown to format the title in bold.\nThe table headings are centred by default but you can change the alignment to either “left” or “right” using the opt_align_table_header() function.\n\ntbl &lt;- tbl |&gt; \n  tab_header(\n    # style title using markdown\n    title = md(\"**Table 3.11**\"),\n    subtitle = \"Redistribution of live births with incomplete data on ‘age of mother’, year\"\n  ) |&gt;\n  # align left\n  opt_align_table_header(align = \"left\")\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.9 Headers",
+    "text": "6.9 Headers\nAdd a title and subtitle to the table using the tab_header() function. You can style the headings with either markdown (md()) or HTML (html()). Here we have used markdown to format the title in bold.\nThe table headings are centred by default but you can change the alignment to either “left” or “right” using the opt_align_table_header() function.\n\ntbl &lt;- tbl |&gt; \n  tab_header(\n    # style title using markdown\n    title = md(\"**Table 3.11**\"),\n    subtitle = \"Redistribution of live births with incomplete data on ‘age of mother’, year\"\n  ) |&gt;\n  # align left\n  opt_align_table_header(align = \"left\")\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240"
   },
   {
     "objectID": "styling_tables.html#source-notes",
     "href": "styling_tables.html#source-notes",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.10 Source notes",
-    "text": "4.10 Source notes\nThe function tab_source_note() allows you to add source information to a table. It is possible to style the text with either Markdown (md()) or HTML (html()).\n\ntbl &lt;- tbl |&gt; \n  tab_source_note(\n    source_note = md(\"*Source*: CRVS system\")\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.10 Source notes",
+    "text": "6.10 Source notes\nThe function tab_source_note() allows you to add source information to a table. It is possible to style the text with either Markdown (md()) or HTML (html()).\n\ntbl &lt;- tbl |&gt; \n  tab_source_note(\n    source_note = md(\"*Source*: CRVS system\")\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system"
   },
   {
     "objectID": "styling_tables.html#footnotes",
     "href": "styling_tables.html#footnotes",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.11 Footnotes",
-    "text": "4.11 Footnotes\nFootnotes are added to gt tables using the tab_footnote() function. It consists of two main arguments. You provide the text of the footnote using footnote and target the corresponding cells using location. The footnote text can be styled using md() or html() and cells can be targeted using a location helper function. For example, we have supplied the cells_column_spanners() location helper function to tab_footnote() to target a particular spanner column label: ‘Adjusted’.\n\ntbl &lt;- tbl |&gt; \n  tab_footnote(\n    footnote = \"Births were adjusted for missing values on age of mother\",\n    locations = cells_column_spanners(spanners = \"Adjusted\")\n  ) |&gt; \n  opt_footnote_marks(marks = \"standard\")\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother\n    \n\n\n\n\nYou can also customise the set of footnote marks using the opt_footnote_marks() function. Here we have use the ‘standard’ set which is an asterisk, dagger, double dagger etc. You can alternatively opt for ‘numbers’, ‘letters’ or even supply your own vector of symbols using c()."
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.11 Footnotes",
+    "text": "6.11 Footnotes\nFootnotes are added to gt tables using the tab_footnote() function. It consists of two main arguments. You provide the text of the footnote using footnote and target the corresponding cells using location. The footnote text can be styled using md() or html() and cells can be targeted using a location helper function. For example, we have supplied the cells_column_spanners() location helper function to tab_footnote() to target a particular spanner column label: ‘Adjusted’.\n\ntbl &lt;- tbl |&gt; \n  tab_footnote(\n    footnote = \"Births were adjusted for missing values on age of mother\",\n    locations = cells_column_spanners(spanners = \"Adjusted\")\n  ) |&gt; \n  opt_footnote_marks(marks = \"standard\")\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother\n    \n\n\n\n\nYou can also customise the set of footnote marks using the opt_footnote_marks() function. Here we have use the ‘standard’ set which is an asterisk, dagger, double dagger etc. You can alternatively opt for ‘numbers’, ‘letters’ or even supply your own vector of symbols using c()."
   },
   {
     "objectID": "styling_tables.html#cell-styling",
     "href": "styling_tables.html#cell-styling",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.12 Cell styling",
-    "text": "4.12 Cell styling\nWe can use the general purpose tab_style() function with location helper functions to style any part of the table. Here we will format the ‘Total’ cells_stub() row label in bold.\n\ntbl &lt;- tbl |&gt; \n  tab_style(\n    style = cell_text(weight = \"bold\"),\n    locations = cells_stub(rows = \"Total\")\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother\n    \n\n\n\n\nIf we wanted to draw attention to a specific value we could also highlight it with a colour fill. Here we locate the target cell by passing the column name and row number to the cells_body() location helper function in tab_style().\n\ntbl |&gt; \n  tab_style(\n    style = cell_fill(color = \"tomato\", alpha = 0.5),\n    locations = cells_body(columns = total, rows = 4)\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother\n    \n\n\n\n\nHighlighting the whole row would require identifying the relevant row.\n\ntbl |&gt; \n  tab_style(\n    style = cell_fill(color = \"tomato\", alpha = 0.5),\n    locations = cells_body(rows = fert_age_grp == \"25-20\")\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.12 Cell styling",
+    "text": "6.12 Cell styling\nWe can use the general purpose tab_style() function with location helper functions to style any part of the table. Here we will format the ‘Total’ cells_stub() row label in bold.\n\ntbl &lt;- tbl |&gt; \n  tab_style(\n    style = cell_text(weight = \"bold\"),\n    locations = cells_stub(rows = \"Total\")\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother\n    \n\n\n\n\nIf we wanted to draw attention to a specific value we could also highlight it with a colour fill. Here we locate the target cell by passing the column name and row number to the cells_body() location helper function in tab_style().\n\ntbl |&gt; \n  tab_style(\n    style = cell_fill(color = \"tomato\", alpha = 0.5),\n    locations = cells_body(columns = total, rows = 4)\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother\n    \n\n\n\n\nHighlighting the whole row would require identifying the relevant row.\n\ntbl |&gt; \n  tab_style(\n    style = cell_fill(color = \"tomato\", alpha = 0.5),\n    locations = cells_body(rows = fert_age_grp == \"25-20\")\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother"
   },
   {
     "objectID": "styling_tables.html#table-styling",
     "href": "styling_tables.html#table-styling",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.13 Table styling",
-    "text": "4.13 Table styling\nWe can style the whole table in a number of ways. For example, we can use the opt_table_font() function to specify a specific typeface.\nThe tab_options() function has nearly 200 different styling options for the whole table. We have picked a few below to match the table style in the Vital Strategies report template\n\ntbl &lt;- tbl |&gt; \n  opt_table_font(font = google_font(\"Montserrat\")) |&gt;\n  tab_options(\n    # change size of text\n    heading.title.font.size = px(22),\n    heading.subtitle.font.size = px(18),\n    column_labels.font.size = px(15),\n    table.font.size = px(14),\n    # adjust table width\n    table.width = px(600),\n    # reduce the height of rows\n    data_row.padding = px(3),\n    # modify the table's background colour\n    table.background.color = \"#EFF3F7\",\n    # style borders\n    table.border.top.color = \"transparent\",\n    table.border.bottom.color = \"transparent\",\n    heading.border.bottom.color = \"transparent\",\n    column_labels.border.bottom.color = \"#AFC3D8\",\n    table_body.border.bottom.color = \"#AFC3D8\",\n    table_body.hlines.color = \"#AFC3D8\"\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.13 Table styling",
+    "text": "6.13 Table styling\nWe can style the whole table in a number of ways. For example, we can use the opt_table_font() function to specify a specific typeface.\nThe tab_options() function has nearly 200 different styling options for the whole table. We have picked a few below to match the table style in the Vital Strategies report template\n\ntbl &lt;- tbl |&gt; \n  opt_table_font(font = google_font(\"Montserrat\")) |&gt;\n  tab_options(\n    # change size of text\n    heading.title.font.size = px(22),\n    heading.subtitle.font.size = px(18),\n    column_labels.font.size = px(15),\n    table.font.size = px(14),\n    # adjust table width\n    table.width = px(600),\n    # reduce the height of rows\n    data_row.padding = px(3),\n    # modify the table's background colour\n    table.background.color = \"#EFF3F7\",\n    # style borders\n    table.border.top.color = \"transparent\",\n    table.border.bottom.color = \"transparent\",\n    heading.border.bottom.color = \"transparent\",\n    column_labels.border.bottom.color = \"#AFC3D8\",\n    table_body.border.bottom.color = \"#AFC3D8\",\n    table_body.hlines.color = \"#AFC3D8\"\n  )\n\n# show the table\ntbl\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3.11\n\n    \n\nRedistribution of live births with incomplete data on ‘age of mother’, year\n    \n\nMothers' age group (years)\n      \n        Unadjusted\n      \n      \n        Adjusted*\n      \n    \n\nNumber of births\n      Proportion (%)\n      Number of births\n    \n\n\n\n&lt;15\n2\n0.0%\n2\n\n\n15-19\n239\n4.8%\n250\n\n\n19-24\n1,088\n21.8%\n1,140\n\n\n25-20\n1,596\n31.9%\n1,673\n\n\n30-34\n1,298\n26.0%\n1,360\n\n\n35-39\n640\n12.8%\n671\n\n\n40-44\n124\n2.5%\n130\n\n\n45-49\n12\n0.2%\n13\n\n\n50+\n1\n0.0%\n0\n\n\nUnknown\n240\nNA\n0\n\n\nTotal\n5,240\n100.0%\n5,240\n\n\n\n\nSource: CRVS system\n\n    \n\n\n* Births were adjusted for missing values on age of mother"
   },
   {
     "objectID": "styling_tables.html#create-a-theme",
     "href": "styling_tables.html#create-a-theme",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.14 Create a theme",
-    "text": "4.14 Create a theme\nA theme is a function that applies consistent table styling options to any table.\n\ntheme_vs &lt;- function(tbl) {\n  tbl |&gt; \n    opt_table_font(font = google_font(\"Montserrat\")) |&gt;\n    tab_options(\n      heading.title.font.size = px(22),\n      heading.subtitle.font.size = px(18),\n      column_labels.font.size = px(15),\n      table.font.size = px(14),\n      table.width = px(600),\n      data_row.padding = px(3),\n      table.background.color = \"#EFF3F7\",\n      table.border.top.color = \"transparent\",\n      table.border.bottom.color = \"transparent\",\n      heading.border.bottom.color = \"transparent\",\n      column_labels.border.bottom.color = \"#AFC3D8\",\n      table_body.border.bottom.color = \"#AFC3D8\",\n      table_body.hlines.color = \"#AFC3D8\"\n      )\n}\n\nThis can then be applied as:\n\ntbl |&gt; \n  theme_vs()"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.14 Create a theme",
+    "text": "6.14 Create a theme\nA theme is a function that applies consistent table styling options to any table.\n\ntheme_vs &lt;- function(tbl) {\n  tbl |&gt; \n    opt_table_font(font = google_font(\"Montserrat\")) |&gt;\n    tab_options(\n      heading.title.font.size = px(22),\n      heading.subtitle.font.size = px(18),\n      column_labels.font.size = px(15),\n      table.font.size = px(14),\n      table.width = px(600),\n      data_row.padding = px(3),\n      table.background.color = \"#EFF3F7\",\n      table.border.top.color = \"transparent\",\n      table.border.bottom.color = \"transparent\",\n      heading.border.bottom.color = \"transparent\",\n      column_labels.border.bottom.color = \"#AFC3D8\",\n      table_body.border.bottom.color = \"#AFC3D8\",\n      table_body.hlines.color = \"#AFC3D8\"\n      )\n}\n\nThis can then be applied as:\n\ntbl |&gt; \n  theme_vs()"
   },
   {
     "objectID": "styling_tables.html#full-code",
     "href": "styling_tables.html#full-code",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.15 Full code",
-    "text": "4.15 Full code\nWe can combine all the different parts of the code together.\n\ntbl &lt;- df |&gt; \n  # Rows\n  gt(rowname_col = \"fert_age_grp\") |&gt; \n  tab_stubhead(label = \"Mothers' age group (years)\") |&gt; \n  tab_style(\n    style = cell_text(v_align  = \"top\", weight = \"bold\"),\n    locations = cells_stubhead()\n  ) |&gt;\n  cols_width(fert_age_grp ~ px(100)) |&gt; \n  # Label columns\n  cols_label(\n    total = \"Number of births\",\n    proportion = \"Proportion (%)\",\n    adjusted_total = \"Number of births\"\n  ) |&gt; \n  # Style column labels\n  tab_style(\n    style = cell_text(align  = \"right\", weight = \"bold\"),\n    locations = cells_column_labels()\n  ) |&gt; \n  # Format columns\n  fmt_number(columns = c(\"total\", \"adjusted_total\"), decimals = 0) |&gt;\n  fmt_percent(columns = \"proportion\", decimals = 1) |&gt; \n  # Spanner column labels\n  tab_spanner(\n    label = \"Unadjusted\",\n    columns = c(total, proportion)\n  ) |&gt;\n  tab_spanner(\n    label = \"Adjusted\",\n    columns = adjusted_total\n  ) |&gt; \n  tab_style(\n    style = cell_text(align  = \"right\", weight = \"bold\"),\n    locations = cells_column_spanners()\n  ) |&gt; \n  # Headers\n  tab_header(\n    title = md(\"**Table 3.11**\"),\n    subtitle = \"Redistribution of live births with incomplete data on ‘age of mother’, year\"\n  ) |&gt;\n  opt_align_table_header(align = \"left\") |&gt; \n  # Source notes\n  tab_source_note(\n    source_note = md(\"*Source*: CRVS system\")\n  ) |&gt; \n  # Footnotes\n  tab_footnote(\n    footnote = \"Births were adjusted for missing values on age of mother\",\n    locations = cells_column_spanners(spanners = \"Adjusted\")\n  ) |&gt; \n  opt_footnote_marks(marks = \"standard\") |&gt; \n  # Cell styling\n  tab_style(\n    style = cell_text(weight = \"bold\"),\n    locations = cells_stub(rows = \"Total\")\n  ) |&gt; \n  # Table styling\n  vs_theme()"
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.15 Full code",
+    "text": "6.15 Full code\nWe can combine all the different parts of the code together.\n\ntbl &lt;- df |&gt; \n  # Rows\n  gt(rowname_col = \"fert_age_grp\") |&gt; \n  tab_stubhead(label = \"Mothers' age group (years)\") |&gt; \n  tab_style(\n    style = cell_text(v_align  = \"top\", weight = \"bold\"),\n    locations = cells_stubhead()\n  ) |&gt;\n  cols_width(fert_age_grp ~ px(100)) |&gt; \n  # Label columns\n  cols_label(\n    total = \"Number of births\",\n    proportion = \"Proportion (%)\",\n    adjusted_total = \"Number of births\"\n  ) |&gt; \n  # Style column labels\n  tab_style(\n    style = cell_text(align  = \"right\", weight = \"bold\"),\n    locations = cells_column_labels()\n  ) |&gt; \n  # Format columns\n  fmt_number(columns = c(\"total\", \"adjusted_total\"), decimals = 0) |&gt;\n  fmt_percent(columns = \"proportion\", decimals = 1) |&gt; \n  # Spanner column labels\n  tab_spanner(\n    label = \"Unadjusted\",\n    columns = c(total, proportion)\n  ) |&gt;\n  tab_spanner(\n    label = \"Adjusted\",\n    columns = adjusted_total\n  ) |&gt; \n  tab_style(\n    style = cell_text(align  = \"right\", weight = \"bold\"),\n    locations = cells_column_spanners()\n  ) |&gt; \n  # Headers\n  tab_header(\n    title = md(\"**Table 3.11**\"),\n    subtitle = \"Redistribution of live births with incomplete data on ‘age of mother’, year\"\n  ) |&gt;\n  opt_align_table_header(align = \"left\") |&gt; \n  # Source notes\n  tab_source_note(\n    source_note = md(\"*Source*: CRVS system\")\n  ) |&gt; \n  # Footnotes\n  tab_footnote(\n    footnote = \"Births were adjusted for missing values on age of mother\",\n    locations = cells_column_spanners(spanners = \"Adjusted\")\n  ) |&gt; \n  opt_footnote_marks(marks = \"standard\") |&gt; \n  # Cell styling\n  tab_style(\n    style = cell_text(weight = \"bold\"),\n    locations = cells_stub(rows = \"Total\")\n  ) |&gt; \n  # Table styling\n  vs_theme()"
   },
   {
     "objectID": "styling_tables.html#saving-tables",
     "href": "styling_tables.html#saving-tables",
-    "title": "\n4  Styling tables\n",
-    "section": "\n4.16 Saving tables",
-    "text": "4.16 Saving tables\nOnce we are happy with our table we can export it. gt provide a number of different output options including Word and PDF.\n\n# to a PNG\ntbl |&gt; gtsave(\"gt_table_3_11.png\", expand = 10)\n\n# to a Word doc\ntbl |&gt; gtsave(\"gt_table_3_11.docx\")\n\n# to a PDF\ntbl |&gt; gtsave(\"gt_table_3_11.pdf\")\n\nNB if you want to export an editable table (rather than an image) to a Word document then run gtsave(\"gt_table_3_11.rtf\")."
+    "title": "\n6  Styling tables\n",
+    "section": "\n6.16 Saving tables",
+    "text": "6.16 Saving tables\nOnce we are happy with our table we can export it. gt provide a number of different output options including Word and PDF.\n\n# to a PNG\ntbl |&gt; gtsave(\"gt_table_3_11.png\", expand = 10)\n\n# to a Word doc\ntbl |&gt; gtsave(\"gt_table_3_11.docx\")\n\n# to a PDF\ntbl |&gt; gtsave(\"gt_table_3_11.pdf\")\n\nNB if you want to export an editable table (rather than an image) to a Word document then run gtsave(\"gt_table_3_11.rtf\")."
+  },
+  {
+    "objectID": "charts.html#introduction",
+    "href": "charts.html#introduction",
+    "title": "\n7  Charts\n",
+    "section": "\n7.1 Introduction",
+    "text": "7.1 Introduction\nThe ggplot2 R package (Wickham 2016) is one of the most popular tools for creating static publication-ready graphics. In this chapter we will run through the process of building a chart in ggplot2 using aggregated civil registration data. We will recreate Figure 7.1 that was published in Rwanda’s 2023 Vital Statistics Report.\n\n\nFigure 7.1: Birth and death registration completeness rates in Rwanda, 2019 to 2023\n\nWe’ll then present the code for a couple of common plots: a bar chart and population pyramid."
+  },
+  {
+    "objectID": "charts.html#ggplot2",
+    "href": "charts.html#ggplot2",
+    "title": "\n7  Charts\n",
+    "section": "\n7.2 ggplot2",
+    "text": "7.2 ggplot2\nThe ggplot2 package is underpinned by the ‘grammar of graphics’ (Wilkinson and Wills 2005). Essentially, every data visualisation has a formal structure with three principle layers: data, aesthetics, and geometry. Variables in your data are mapped to the aesthetic properties (e.g. position, size and colour) of geometric objects like scatter plots or line charts. You can see this in the arguments used by ggplot2:\nggplot(\n  data = df,                                          # data\n  mapping = aes(x = var1, y = var2, colour = var3)    # aesthetics\n  ) +             \n  geom_line()                                         # geometry"
+  },
+  {
+    "objectID": "charts.html#cleaning-data",
+    "href": "charts.html#cleaning-data",
+    "title": "\n7  Charts\n",
+    "section": "\n7.3 Cleaning data",
+    "text": "7.3 Cleaning data\nRwanda’s 2023 Vital Statistics Report is accompanied by an Excel file containing data for all of the figures. Table 7.1 contains all the values encoded in Figure 7.1.\n\n\n\n\nTable 7.1: Birth and death registration completeness rates in Rwanda, 2019 to 2023\n\nEvent\n2019\n2020\n2021\n2022\n2023\n\n\n\nBirth registration completeness rate\n87.0\n85.8\n84.2\n92.9\n90.0\n\n\nDeath registration completeness rate\n31.4\n29.9\n26.2\n31.1\n41.8\n\n\n\n\n\n\nBefore we can visualise the data in a line chart we need to transform it from a table into ‘tidy’ data (Wickham 2014). To be tidy the data must satisfy three rules:\n\nEach variable must have its own column\nEach observation must have its own row\nEach value must have its own cell\n\nThe key step to make this data ‘tidy’ is to reshape it into ‘long format’ using the pivot_longer() function from the dplyr package (Wickham et al. 2023). This function converts some of the column names into values of a new variable. In this case, the year column names become the values of a new variable called ‘Year’.\n\ntidy_data &lt;- table |&gt; \n  pivot_longer(-Event, names_to = \"Year\", values_to = \"Value\")\n\n\n\n\n\nTable 7.2: Data structured in long format\n\nEvent\nYear\nValue\n\n\n\nBirth registration completeness rate\n2019\n87.0\n\n\nBirth registration completeness rate\n2020\n85.8\n\n\nBirth registration completeness rate\n2021\n84.2\n\n\nBirth registration completeness rate\n2022\n92.9\n\n\nBirth registration completeness rate\n2023\n90.0\n\n\nDeath registration completeness rate\n2019\n31.4\n\n\nDeath registration completeness rate\n2020\n29.9\n\n\nDeath registration completeness rate\n2021\n26.2\n\n\nDeath registration completeness rate\n2022\n31.1\n\n\nDeath registration completeness rate\n2023\n41.8\n\n\n\n\n\n\nLastly, we need to check that the variables are in the correct format.\n\nglimpse(tidy_data)\n\nRows: 10\nColumns: 3\n$ Event &lt;chr&gt; \"Birth registration completeness rate\", \"Birth registration comp…\n$ Year  &lt;chr&gt; \"2019\", \"2020\", \"2021\", \"2022\", \"2023\", \"2019\", \"2020\", \"2021\", …\n$ Value &lt;dbl&gt; 87.00, 85.80, 84.20, 92.90, 90.04, 31.40, 29.90, 26.20, 31.10, 4…\n\n\nWe can see that the ‘Year’ variable has been stored as a character rather than as a numeric variable. This will cause us problems when we map this variable to the chart’s x-axis. To rectify this we can use the mutate() function to convert ‘Year’ to an integer.\n\ntidy_data &lt;- tidy_data |&gt; \n  mutate(Year = as.integer(Year))\n\nLet’s check to see if that worked.\n\n\nRows: 10\nColumns: 3\n$ Event &lt;chr&gt; \"Birth registration completeness rate\", \"Birth registration comp…\n$ Year  &lt;int&gt; 2019, 2020, 2021, 2022, 2023, 2019, 2020, 2021, 2022, 2023\n$ Value &lt;dbl&gt; 87.00, 85.80, 84.20, 92.90, 90.04, 31.40, 29.90, 26.20, 31.10, 4…\n\n\nWhile we are formatting the data we might also abbreviate the values contained in the ‘Event’ variable from ‘Birth registration completeness rate’ to simply ‘Births’. We can do this using mutate() and the str_detect() function from the stringr package which detects the presence of a pattern in a string. Here we overwrite the value in the ‘Event’ column with ‘Births’ if we str_detect() the pattern ‘Birth’ and with ‘Deaths’ if we don’t.\n\ntidy_data &lt;- tidy_data |&gt; \n  mutate(Event = ifelse(str_detect(Event, \"Birth\"), \"Births\", \"Deaths\"))\n\nLet’s look again at the data.\n\n\n\n\nTable 7.3: Abbreviated ‘Event’ values\n\nEvent\nYear\nValue\n\n\n\nBirths\n2019\n87.0\n\n\nBirths\n2020\n85.8\n\n\nBirths\n2021\n84.2\n\n\nBirths\n2022\n92.9\n\n\nBirths\n2023\n90.0\n\n\nDeaths\n2019\n31.4\n\n\nDeaths\n2020\n29.9\n\n\nDeaths\n2021\n26.2\n\n\nDeaths\n2022\n31.1\n\n\nDeaths\n2023\n41.8\n\n\n\n\n\n\nWe are now ready to visualise the data in a line chart."
+  },
+  {
+    "objectID": "charts.html#creating-a-plot",
+    "href": "charts.html#creating-a-plot",
+    "title": "\n7  Charts\n",
+    "section": "\n7.4 Creating a plot",
+    "text": "7.4 Creating a plot\nLoad the data and map variables\nFirst we pass the data to a ggplot() object and map the ‘Year’ variable to the x-axis, ‘Value’ to the y-axis, and ‘Event’ to colour. Each argument is within the aes() function because the variables are mapped to the aesthetics or visual properties of the line chart. We can see that the values have been mapped to the axes because they have been scaled but there are no lines …\n\n\n\nggplot(tidy_data, aes(x = Year, y = Value, colour = Event))\n\n\n\n\n\n\n\n\n\n\nAdd lines\nTo add lines we need to specify a geom. In this case we simply add geom_line().\n\n\n\nggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nWe are using + rather than the conventional |&gt; because ggplot2 predates the pipe operator.\n\n\nChange the line width\nOne of the arguments of geom_line() is linewidth which we can adjust to suit.\n\n\n\nggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +\n  geom_line(linewidth = 1.2)\n\n\n\n\n\n\n\n\n\n\nChange the line colours\nWe can specify which colours to map to the values of the ‘Event’ variable using the scale_colour_manual() function. You could also choose a ColorBrewer palette or even colours from a Wes Anderson film. The Okabe-Ito palette is particularly recommended because they are colour-blind friendly.\n\n\n\nggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +\n  geom_line(linewidth = 1.2) +\n  scale_colour_manual(values = c(\"Births\" = \"#fc6721\", \"Deaths\" = \"#E7B800\")) \n\n\n\n\n\n\n\n\n\n\nFormat the scale\nWe can modify the y-axis with arguments from the scale_y_continuous() function. First we need to format the y-axis labels as percentages. There is a handy function from the scales package called label_percent() which we can use. Since the values of the ‘Value’ variable are already percentages we need to add the argument scale = 1 to prevent the function from multiplying by 100.\nWe can also set the limits of the y-axis to begin at zero and end at 100.\n\n\n\nggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +\n  geom_line(linewidth = 1.2) +\n  scale_colour_manual(values = c(\"Births\" = \"#fc6721\", \"Deaths\" = \"#E7B800\")) +\n  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe :: syntax is a neat way of using a function from another package without needing to load it beforehand with library(scales).\n\n\nAdd labels\nAdding labels is very intuitive with the labs() function. You can specify NULL if you don’t want to label a particular part of the chart. Here we have dropped the axis and legend labels but specified a title, subtitle and caption.\n\n\n\nggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +\n  geom_line(linewidth = 1.2) +\n  scale_colour_manual(values = c(\"Births\" = \"#fc6721\", \"Deaths\" = \"#E7B800\")) +\n  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1)) +\n  labs(x = NULL,\n       y = NULL,\n       title = \"Birth and death registration completeness rates\",\n       subtitle = \"Rwanda, 2019-2023\",\n       caption = \"Source: CRVS system\",\n       colour = NULL)\n\n\n\n\n\n\n\n\n\n\nAdd a theme\nA theme is an overall plot style. Here we use theme_minimal() which removes the grey background and axis ticks. The base_size argument allows us to resize the overall font size of the labels.\n\n\n\nggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +\n  geom_line(linewidth = 1.2) +\n  scale_colour_manual(values = c(\"Births\" = \"#fc6721\", \"Deaths\" = \"#E7B800\")) +\n  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1)) +\n  labs(x = NULL,\n       y = NULL,\n       title = \"Birth and death registration completeness rates\",\n       subtitle = \"Rwanda, 2019-2023\",\n       caption = \"Source: CRVS system\",\n       colour = NULL) +\n  theme_minimal(base_size = 14)\n\n\n\n\n\n\n\n\n\n\nFinal tweaks\nNext we’ll remove unnecessary grid lines and move the legend to the bottom of the plot. There are several other options available using the theme() function.\nWe can also move the y-axis labels to the right side so that the latest values are easier to read. This is achieved by adding the argument position = \"right\" in the scale_y_continuous() function.\n\n\n\nggplot(tidy_data, aes(x = Year, y = Value, colour = Event)) +\n  geom_line(linewidth = 1.2) +\n  scale_colour_manual(values = c(\"Births\" = \"#fc6721\", \"Deaths\" = \"#E7B800\")) +\n  scale_y_continuous(limits = c(0,100), labels = scales::label_percent(scale = 1), position = \"right\") +\n  labs(x = NULL,\n       y = NULL,\n       title = \"Birth and death registration completeness rates\",\n       subtitle = \"Rwanda, 2019-2023\",\n       caption = \"Source: CRVS system\",\n       colour = NULL) +\n  theme_minimal(base_size = 14) +\n  theme(\n    panel.grid.major.x = element_blank(),\n    panel.grid.minor = element_blank(),\n    legend.position = \"bottom\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou can add expand = expansion() in scale_y_continuous to reduce the gap between the x-axis labels and the axis line.\n\n\nSave the plot\nLastly we can export the plot as a PNG and set the resolution to 300 dpi which is perfect for printing.\n\nggsave(\"plot.png\", scale = 1, dpi = 300)"
+  },
+  {
+    "objectID": "charts.html#other-chart-types",
+    "href": "charts.html#other-chart-types",
+    "title": "\n7  Charts\n",
+    "section": "\n7.5 Other chart types",
+    "text": "7.5 Other chart types\nThe ggplot2 package is extremely versatile and be used to create all sorts of data visualisations. A couple of examples are shown below using data published alongside Rwanda’s 2023 Vital Statistic report. Comments have been added to the code to help explain the additional steps involved.\n\n7.5.1 Bar charts\nThe bar chart ranks the districts of Rwanda by the count of recorded live births in 2023. It is a simple alternative to a choropleth map requiring little data transformation or additional code except the use of geom_col().\n\n\n\n\nTable 7.4: Registered live births by mothers’ residence district in Rwanda, 2023\n\nDistrict\nValue\n\n\n\nBugesera\n7212\n\n\nBurera\n4651\n\n\nGakenke\n4086\n\n\nGasabo\n11837\n\n\nGatsibo\n6855\n\n\nGicumbi\n5699\n\n\n\n\n\n\n\n\n\nggplot(births_by_district, aes(x = Value, y = forcats::fct_reorder(District, Value))) +\n  geom_col(fill = \"seagreen\") +\n  scale_x_continuous(expand = expansion(), labels = scales::comma) +\n  labs(x = NULL, y = NULL,\n       title = \"Registered live births by mothers’ residence district\",\n       subtitle = \"Rwanda, 2023\",\n       caption = \"Source: CRVS system\") +\n  theme_minimal(base_size = 14) +\n  theme(\n    panel.grid.major.y = element_blank(),\n    panel.grid.minor = element_blank()\n    )\n\n\n\n\n\n\n\n\n\n\n\n7.5.2 Population pyramid\nThere is no specific geom for creating population pyramids in ggplot2. Here we create a back-to-back bar chart using geom_col(). You will notice that we change the values of ‘Male’ to negative so that they map to the x-axis in reverse.\n\n\n\n\nTable 7.5: Age-sex structure of all registered deaths in Rwanda, 2023\n\nAge\nSex\nValue\n\n\n\n0-4\nFemale\n18.2\n\n\n0-4\nMale\n17.4\n\n\n5-9\nFemale\n1.5\n\n\n5-9\nMale\n1.6\n\n\n10-14\nFemale\n1.0\n\n\n10-14\nMale\n1.2\n\n\n\n\n\n\n\n\n\nggplot(deaths, \n       # change values of 'Male' to negative\n       aes(x = ifelse(Sex == \"Male\", -Value, Value), \n           y = Age, fill = Sex)) + \n  # adjust transparency\n  geom_col(alpha = 0.8) + \n  scale_x_continuous(\n    # set x-axis limits\n    limits = c(-30, 30),\n    # set x-axis scale\n    breaks = seq(-30, 30, 10),\n    # add % sign to x-axis labels\n    labels = function(x) {paste0(abs(x), '%')}\n    ) + \n  # choose appropriate colours\n  scale_fill_manual(values = c(\"Female\" = \"#7E105E\", \"Male\" = \"#009087\")) + \n  labs(x = NULL, y = NULL,\n       title = \"Age-sex structure of all registered deaths\",\n       subtitle = \"Rwanda, 2023\",\n       caption = \"Source: CRVS systems\",\n       # drop legend title\n       fill = \"\") +\n  theme_minimal(base_size = 14) +\n  theme(\n    panel.grid.major.y = element_blank(),\n    panel.grid.minor = element_blank()\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWickham, Hadley. 2014. “Tidy Data.” Journal of Statistical Software 59 (10). https://doi.org/10.18637/jss.v059.i10.\n\n\n———. 2016. “Ggplot2: Elegant Graphics for Data Analysis.” https://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. “Dplyr: A Grammar of Data Manipulation.” https://CRAN.R-project.org/package=dplyr.\n\n\nWilkinson, Leland, and Graham Wills. 2005. The Grammar of Graphics. 2nd ed. Statistics and Computing. New York: Springer."
   },
   {
     "objectID": "choropleth_maps.html#introduction",
     "href": "choropleth_maps.html#introduction",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.1 Introduction",
-    "text": "5.1 Introduction\nChoropleth or thematic maps visualise the variation in the values of a variable across geographical areas by encoding them in a colour gradient. Alternative graphics such as a bar or lollipop chart could be used to show the data but they lack potentially important spatial information. A choropleth map allows you to begin to identify hotspot areas and clusters of high or low values.\nHowever, there are three key issues to consider before choosing to display your data in a choropleth map.\n1. Counts or rates\nChoropleth maps that visualise the distribution of counts are sensitive to population size. The population distribution will be mapped rather than the variable of interest. It is therefore recommended to map rates or percentages so that the population at risk is accounted for.\n2. Modifiable Areal Unit Problem\nThe Modifiable Areal Unit Problem or MAUP (Openshaw, 1984) points out that the spatial distribution of values in a choropleth map may be a function of the size and shape of geographical areas. There is not much that we can do about MAUP but we need to be aware of its potential impact.\n3. Classification schemes\nDifferent classification schemes can produce very different choropleth maps (see below). As the distibution of a histogram is sensitive to the size of its bins so the spatial distribution visualised in a choropleth map can be affected by its intervals. It is good practice to inspect the values of your variable in a histogram before deciding which classification scheme to adopt."
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.1 Introduction",
+    "text": "8.1 Introduction\nChoropleth or thematic maps visualise the variation in the values of a variable across geographical areas by encoding them in a colour gradient. Alternative graphics such as a bar or lollipop chart could be used to show the data but they lack potentially important spatial information. A choropleth map allows you to begin to identify hotspot areas and clusters of high or low values.\nHowever, there are three key issues to consider before choosing to display your data in a choropleth map.\n1. Counts or rates\nChoropleth maps that visualise the distribution of counts are sensitive to population size. The population distribution will be mapped rather than the variable of interest. It is therefore recommended to map rates or percentages so that the population at risk is accounted for.\n2. Modifiable Areal Unit Problem\nThe Modifiable Areal Unit Problem or MAUP (Openshaw, 1984) points out that the spatial distribution of values in a choropleth map may be a function of the size and shape of geographical areas. There is not much that we can do about MAUP but we need to be aware of its potential impact.\n3. Classification schemes\nDifferent classification schemes can produce very different choropleth maps (see below). As the distibution of a histogram is sensitive to the size of its bins so the spatial distribution visualised in a choropleth map can be affected by its intervals. It is good practice to inspect the values of your variable in a histogram before deciding which classification scheme to adopt."
   },
   {
     "objectID": "choropleth_maps.html#getting-started",
     "href": "choropleth_maps.html#getting-started",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.2 Getting started",
-    "text": "5.2 Getting started\nThe main package that we will be using to create choropleth maps is the tmap package. To install the package you can run:\n\ninstall.packages(\"tmap\")\n\nWe will also be using the sf package to load spatial data, RColorBrewer for colour palettes and dplyr for data manipulation.\n\nlibrary(tmap)\nlibrary(sf)\nlibrary(RColorBrewer)\nlibrary(dplyr)"
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.2 Getting started",
+    "text": "8.2 Getting started\nThe main package that we will be using to create choropleth maps is the tmap package. To install the package you can run:\n\ninstall.packages(\"tmap\")\n\nWe will also be using the sf package to load spatial data, RColorBrewer for colour palettes and dplyr for data manipulation.\n\nlibrary(tmap)\nlibrary(sf)\nlibrary(RColorBrewer)\nlibrary(dplyr)"
   },
   {
     "objectID": "choropleth_maps.html#sourcing-geospatial-data",
     "href": "choropleth_maps.html#sourcing-geospatial-data",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.3 Sourcing geospatial data",
-    "text": "5.3 Sourcing geospatial data\nSubnational administrative boundaries are available from two sources: GADM and Natural Earth. The data are free to use for non-commercial purposes.\n\n5.3.1 GADM\nYou can either download administrative boundary files using the geodata package or directly from the GADM website. The function gadm() has two key arguments. You need to supply the three-letter ISO code to country and choose a level of administrative subdivision. 0 is the value for country and 1 is for the next administrative level down.\nThe code below loads the states of Nigeria.\n\nlibrary(geodata)\nnigeria &lt;- gadm(country = \"NGA\",  level = 1,  path = tempdir(), version = \"latest\")\n\nIf you prefer to download the files manually from the website you need to select ‘Nigeria’ from the country dropdown and then choose a file format. GeoJSON is an open, non-proprietary format that is used across the Web. There are three administrative divisions available:\n0 National\n1 States (36 + Federal Capital Territory)\n2 Local Government Areas (774)\nWe will download ‘level 1’ in GeoJSON format by copying the URL and unzipping it. We can then use the st_read() function from the sf package to load the file into the R session. The sf package converts the GeoJSON file into a simple features object, a data frame with features stored in rows and attributes in columns. The feature geometries of the object are stored in a list-column at the end. These are the coordinates that describe the boundary of each state.\n\ndownload.file(\"https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_NGA_1.json.zip\",\n              \"gadm41_NGA_1.json.zip\")\nunzip(\"gadm41_NGA_1.json.zip\")\nnigeria &lt;- st_read(\"gadm41_NGA_1.json\")\n\n\n5.3.2 Natural Earth\nLevel 1 administrative boundaries are available from Natural Earth using the ne_states() function from the rnaturalearth package.\n\nlibrary(rnaturalearth)\nnigeria &lt;- ne_states(country = \"nigeria\", returnclass = \"sf\")\n\nYou can also download subnational boundaries directly from the Natural Earth website. If you scroll down to ‘Admin 1 – States, Provinces’ you can download the ESRI shapefile of first-order administrative boundaries for a number of countries. To obtain the states of Nigeria we need to filter the results by the ISO code.\n\ndownload.file(\"https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip\", \"ne_10m_admin_1_states_provinces.zip\")\nunzip(\"ne_10m_admin_1_states_provinces.zip\")\nnigeria &lt;- st_read(\"ne_10m_admin_1_states_provinces.shp\") |&gt; \n  filter(adm0_a3 == \"NGA\")"
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.3 Sourcing geospatial data",
+    "text": "8.3 Sourcing geospatial data\nSubnational administrative boundaries are available from two sources: GADM and Natural Earth. The data are free to use for non-commercial purposes.\n\n8.3.1 GADM\nYou can either download administrative boundary files using the geodata package or directly from the GADM website. The function gadm() has two key arguments. You need to supply the three-letter ISO code to country and choose a level of administrative subdivision. 0 is the value for country and 1 is for the next administrative level down.\nThe code below loads the states of Nigeria.\n\nlibrary(geodata)\nnigeria &lt;- gadm(country = \"NGA\",  level = 1,  path = tempdir(), version = \"latest\")\n\nIf you prefer to download the files manually from the website you need to select ‘Nigeria’ from the country dropdown and then choose a file format. GeoJSON is an open, non-proprietary format that is used across the Web. There are three administrative divisions available:\n0 National\n1 States (36 + Federal Capital Territory)\n2 Local Government Areas (774)\nWe will download ‘level 1’ in GeoJSON format by copying the URL and unzipping it. We can then use the st_read() function from the sf package to load the file into the R session. The sf package converts the GeoJSON file into a simple features object, a data frame with features stored in rows and attributes in columns. The feature geometries of the object are stored in a list-column at the end. These are the coordinates that describe the boundary of each state.\n\ndownload.file(\"https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_NGA_1.json.zip\",\n              \"gadm41_NGA_1.json.zip\")\nunzip(\"gadm41_NGA_1.json.zip\")\nnigeria &lt;- st_read(\"gadm41_NGA_1.json\")\n\n\n8.3.2 Natural Earth\nLevel 1 administrative boundaries are available from Natural Earth using the ne_states() function from the rnaturalearth package.\n\nlibrary(rnaturalearth)\nnigeria &lt;- ne_states(country = \"nigeria\", returnclass = \"sf\")\n\nYou can also download subnational boundaries directly from the Natural Earth website. If you scroll down to ‘Admin 1 – States, Provinces’ you can download the ESRI shapefile of first-order administrative boundaries for a number of countries. To obtain the states of Nigeria we need to filter the results by the ISO code.\n\ndownload.file(\"https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip\", \"ne_10m_admin_1_states_provinces.zip\")\nunzip(\"ne_10m_admin_1_states_provinces.zip\")\nnigeria &lt;- st_read(\"ne_10m_admin_1_states_provinces.shp\") |&gt; \n  filter(adm0_a3 == \"NGA\")"
   },
   {
     "objectID": "choropleth_maps.html#loading-geospatial-data",
     "href": "choropleth_maps.html#loading-geospatial-data",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.4 Loading geospatial data",
-    "text": "5.4 Loading geospatial data\nOn loading with st_read(), the R console prints out the number of features, the geometry type, dimensions, bounding box, and coordinate reference system (CRS). We can confirm that there are 37 features (states) and that the vector boundary layer is projected in the World Geodetic System 1984 (WGS84), with longitude and latitude units of decimal degrees.\n\nnigeria &lt;- st_read(\"data/nigeria.geojson\")\n#&gt; Reading layer `nigeria' from data source \n#&gt;   `C:\\Users\\partrh\\Projects\\CRVS\\book\\r4vs\\data\\nigeria.geojson' \n#&gt;   using driver `GeoJSON'\n#&gt; Simple feature collection with 37 features and 1 field\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 2.671082 ymin: 4.272162 xmax: 14.66994 ymax: 13.88029\n#&gt; Geodetic CRS:  WGS 84\n\nWe can visualise the state boundaries using the base R plot() function. We just need to supply the geometry column.\n\nplot(nigeria$geometry)"
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.4 Loading geospatial data",
+    "text": "8.4 Loading geospatial data\nOn loading with st_read(), the R console prints out the number of features, the geometry type, dimensions, bounding box, and coordinate reference system (CRS). We can confirm that there are 37 features (states) and that the vector boundary layer is projected in the World Geodetic System 1984 (WGS84), with longitude and latitude units of decimal degrees.\n\nnigeria &lt;- st_read(\"data/nigeria.geojson\")\n#&gt; Reading layer `nigeria' from data source \n#&gt;   `C:\\Users\\partrh\\GitHub\\r4vs\\data\\nigeria.geojson' using driver `GeoJSON'\n#&gt; Simple feature collection with 37 features and 1 field\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 2.671082 ymin: 4.272162 xmax: 14.66994 ymax: 13.88029\n#&gt; Geodetic CRS:  WGS 84\n\nWe can visualise the state boundaries using the base R plot() function. We just need to supply the geometry column.\n\nplot(nigeria$geometry)"
   },
   {
     "objectID": "choropleth_maps.html#plotting-in-tmap",
     "href": "choropleth_maps.html#plotting-in-tmap",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.5 Plotting in tmap",
-    "text": "5.5 Plotting in tmap\nWe can also use the tmap package to plot the state boundaries. Combining the tm_shape() and tm_borders() functions renders the outlines of each state.\n\ntm_shape(nigeria) +\n  tm_borders()\n\n\n\n\n\n5.5.1 Style borders\nThe borders can be styled by passing col (colour) and lwd (border line width) arguments to the tm_borders() function.\n\ntm_shape(nigeria) + \n  tm_borders(col = \"#000000\", lwd = 0.5)\n\n\n\n\n\n5.5.2 Labelling\nEach state can be labelled using the tm_text() function. Again, we supply various arguments to style the labels. The argument auto.placement ensures that labels don’t sit on top of each other.\n\ntm_shape(nigeria) + \n  tm_borders(col = \"#000000\", lwd = 0.5) +\n  tm_text(\"state\", \n          size = 0.8,\n          col = \"black\",\n          auto.placement = TRUE)\n\n\n\n\nIf you want to only label specific states you can use a filter.\n\ntm_shape(nigeria) + \n  tm_borders(col = \"#000000\", lwd = 0.5) +\n  tm_shape(nigeria |&gt; filter(state %in% c(\"Federal Capital Territory\",\"Jigawa\",\"Lagos\",\"Sokoto\"))) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE)"
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.5 Plotting in tmap",
+    "text": "8.5 Plotting in tmap\nWe can also use the tmap package to plot the state boundaries. Combining the tm_shape() and tm_borders() functions renders the outlines of each state.\n\ntm_shape(nigeria) +\n  tm_borders()\n\n\n\n\n\n8.5.1 Style borders\nThe borders can be styled by passing col (colour) and lwd (border line width) arguments to the tm_borders() function.\n\ntm_shape(nigeria) + \n  tm_borders(col = \"#000000\", lwd = 0.5)\n\n\n\n\n\n8.5.2 Labelling\nEach state can be labelled using the tm_text() function. Again, we supply various arguments to style the labels. The argument auto.placement ensures that labels don’t sit on top of each other.\n\ntm_shape(nigeria) + \n  tm_borders(col = \"#000000\", lwd = 0.5) +\n  tm_text(\"state\", \n          size = 0.8,\n          col = \"black\",\n          auto.placement = TRUE)\n\n\n\n\nIf you want to only label specific states you can use a filter.\n\ntm_shape(nigeria) + \n  tm_borders(col = \"#000000\", lwd = 0.5) +\n  tm_shape(nigeria |&gt; filter(state %in% c(\"Federal Capital Territory\",\"Jigawa\",\"Lagos\",\"Sokoto\"))) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE)"
   },
   {
     "objectID": "choropleth_maps.html#joining-data",
     "href": "choropleth_maps.html#joining-data",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.6 Joining data",
-    "text": "5.6 Joining data\nWe have the boundaries of each state in Nigeria but we need some statistical data to create a choropleth map. We will be using data provided by the 2021 Nigeria Multiple Indicators Cluster Survey (MICS) on the percentage of children under age 5 whose births are registered by each Nigerian state.\n\nhead(df)\n#&gt; # A tibble: 6 × 2\n#&gt;   state     percent\n#&gt;   &lt;chr&gt;       &lt;dbl&gt;\n#&gt; 1 Abia         66.8\n#&gt; 2 Adamawa      79.7\n#&gt; 3 Akwa Ibom    72.1\n#&gt; 4 Anambra      86.5\n#&gt; 5 Bauchi       38.3\n#&gt; 6 Bayelsa      28.2\n\nBoth our spatial data and our birth registration data share a matching state variable which we can use to join the datasets. To check that all of the state names are consistent between datasets we can run an anti join.\n\nanti_join(nigeria, df, by = \"state\")\n#&gt; Simple feature collection with 1 feature and 1 field\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 6.749594 ymin: 8.404707 xmax: 7.628196 ymax: 9.351419\n#&gt; Geodetic CRS:  WGS 84\n#&gt;                       state                       geometry\n#&gt; 1 Federal Capital Territory MULTIPOLYGON (((6.978107 8....\n\nWe can see that the ‘Federal Capital Territory’ in the spatial data has no match in the birth registration data. This is because the state is recorded as ‘FCT Abuja’ in the other dataset. We can fix this by recoding the state name in the spatial data.\n\nnigeria &lt;- nigeria |&gt; \n  mutate(state = case_when(\n    state == \"Federal Capital Territory\" ~ \"FCT Abuja\",\n    TRUE ~ state)\n    )\n\nWe can now run the left_join() function to join the two datasets together.\n\nsf &lt;- left_join(nigeria, df, by = \"state\")\n\nWhen left_join() fails to find a match it enters a missing value in the corresponding row. We can therefore check that the join has worked by filtering out any missing values.\n\nfilter(sf, is.na(percent))\n#&gt; Simple feature collection with 0 features and 2 fields\n#&gt; Bounding box:  xmin: NA ymin: NA xmax: NA ymax: NA\n#&gt; Geodetic CRS:  WGS 84\n#&gt; [1] state    percent  geometry\n#&gt; &lt;0 rows&gt; (or 0-length row.names)\n\nNow we are ready to create a choropleth map."
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.6 Joining data",
+    "text": "8.6 Joining data\nWe have the boundaries of each state in Nigeria but we need some statistical data to create a choropleth map. We will be using data provided by the 2021 Nigeria Multiple Indicators Cluster Survey (MICS) on the percentage of children under age 5 whose births are registered by each Nigerian state.\n\nhead(df)\n#&gt; # A tibble: 6 × 2\n#&gt;   state     percent\n#&gt;   &lt;chr&gt;       &lt;dbl&gt;\n#&gt; 1 Abia         66.8\n#&gt; 2 Adamawa      79.7\n#&gt; 3 Akwa Ibom    72.1\n#&gt; 4 Anambra      86.5\n#&gt; 5 Bauchi       38.3\n#&gt; 6 Bayelsa      28.2\n\nBoth our spatial data and our birth registration data share a matching state variable which we can use to join the datasets. To check that all of the state names are consistent between datasets we can run an anti join.\n\nanti_join(nigeria, df, by = \"state\")\n#&gt; Simple feature collection with 1 feature and 1 field\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 6.749594 ymin: 8.404707 xmax: 7.628196 ymax: 9.351419\n#&gt; Geodetic CRS:  WGS 84\n#&gt;                       state                       geometry\n#&gt; 1 Federal Capital Territory MULTIPOLYGON (((6.978107 8....\n\nWe can see that the ‘Federal Capital Territory’ in the spatial data has no match in the birth registration data. This is because the state is recorded as ‘FCT Abuja’ in the other dataset. We can fix this by recoding the state name in the spatial data.\n\nnigeria &lt;- nigeria |&gt; \n  mutate(state = case_when(\n    state == \"Federal Capital Territory\" ~ \"FCT Abuja\",\n    TRUE ~ state)\n    )\n\nWe can now run the left_join() function to join the two datasets together.\n\nsf &lt;- left_join(nigeria, df, by = \"state\")\n\nWhen left_join() fails to find a match it enters a missing value in the corresponding row. We can therefore check that the join has worked by filtering out any missing values.\n\nfilter(sf, is.na(percent))\n#&gt; Simple feature collection with 0 features and 2 fields\n#&gt; Bounding box:  xmin: NA ymin: NA xmax: NA ymax: NA\n#&gt; Geodetic CRS:  WGS 84\n#&gt; [1] state    percent  geometry\n#&gt; &lt;0 rows&gt; (or 0-length row.names)\n\nNow we are ready to create a choropleth map."
   },
   {
     "objectID": "choropleth_maps.html#basic-choropleth",
     "href": "choropleth_maps.html#basic-choropleth",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.7 Basic choropleth",
-    "text": "5.7 Basic choropleth\nThe tm_polygons() function creates an off-the-shelf choropleth map. You just supply the name of the variable that you want to visualise to col and a title for the legend.\n\ntm_shape(sf) + \n  tm_polygons(col = \"percent\", \n              title = \"% registered\")\n\n\n\n\nTo have finer control over the choropleth map it is better to use a combination of tm_borders() and tm_fill(). This allows us to style the borders.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_fill(col = \"percent\", title = \"% registered\")\n\n\n\n\nThe default colour palette is orange and the map classification is ‘pretty’. We can change these next."
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.7 Basic choropleth",
+    "text": "8.7 Basic choropleth\nThe tm_polygons() function creates an off-the-shelf choropleth map. You just supply the name of the variable that you want to visualise to col and a title for the legend.\n\ntm_shape(sf) + \n  tm_polygons(col = \"percent\", \n              title = \"% registered\")\n\n\n\n\nTo have finer control over the choropleth map it is better to use a combination of tm_borders() and tm_fill(). This allows us to style the borders.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_fill(col = \"percent\", title = \"% registered\")\n\n\n\n\nThe default colour palette is orange and the map classification is ‘pretty’. We can change these next."
   },
   {
     "objectID": "choropleth_maps.html#colour-palettes",
     "href": "choropleth_maps.html#colour-palettes",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.8 Colour palettes",
-    "text": "5.8 Colour palettes\ntmap uses colour palettes from the ColorBrewer website which differ depending on the chosen sequential, diverging, or categorical colour scheme. If we wanted to show how the birth registration values are spread around the mean we could use colour palettes for a diverging scheme. However, we will use a palette from the sequential colour scheme because we want to visual the distribution of values from low to high. Here we will use the “Blues” palette which visualises low values as light blue and high values as dark blue.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          palette = \"Blues\",\n          title = \"% registered\")"
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.8 Colour palettes",
+    "text": "8.8 Colour palettes\ntmap uses colour palettes from the ColorBrewer website which differ depending on the chosen sequential, diverging, or categorical colour scheme. If we wanted to show how the birth registration values are spread around the mean we could use colour palettes for a diverging scheme. However, we will use a palette from the sequential colour scheme because we want to visual the distribution of values from low to high. Here we will use the “Blues” palette which visualises low values as light blue and high values as dark blue.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          palette = \"Blues\",\n          title = \"% registered\")"
   },
   {
     "objectID": "choropleth_maps.html#classes",
     "href": "choropleth_maps.html#classes",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.9 Classes",
-    "text": "5.9 Classes\nWhen map classification breaks are not set explicitly tmap defaults to style = \"pretty\". This is a base R function which calculates roughly equal spaced round values. However, tmap has a number of other map classification schemes to choose from.\n\n5.9.1 Equal interval\nDivides the distribution of values so that the range of values is identical within each class. The difference between the highest and lowest value is the same for each class grouping.\n+ represents the density of observations around the mean- maps tend to be unbalanced because the values aren’t evenly distributed.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          style = \"equal\",\n          n = 4,\n          palette = \"Blues\",\n          title = \"% registered\")\n\n\n\n\n\n5.9.2 Quantile\nSorts the values of a variable in ascending order and assigns an equal number of geographical areas to each colour.\n+ highlights a proportion of observations such as the top 25% of geographical areas- tends to mask heterogeneity\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          style = \"quantile\",\n          n = 4,\n          palette = \"Blues\",\n          title = \"% registered\")\n\n\n\n\n\n5.9.3 Natural breaks (jenks)\nClass categories are based on natural groupings in the data. Uses a statistical procedure which seeks to reduce the variance within classes and maximises the variance between classes.\n+ identifies areas with similar values- the classes are unique to each variable so cannot be reused with other variables\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          style = \"jenks\",\n          n = 4,\n          palette = \"Blues\",\n          title = \"% registered\")\n\n\n\n\n\n5.9.4 Custom breaks\nCustom map classifications can be created by supplying breaks and labels to the tm_fill() function.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          breaks = c(0,40,58,76,Inf),\n          palette = \"Blues\",\n          labels = c(\" &lt; 40%\", \" 40 - 58%\", \" 58 - 76%\", \" &gt; 76%\"),\n          title = \"Total registered\")"
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.9 Classes",
+    "text": "8.9 Classes\nWhen map classification breaks are not set explicitly tmap defaults to style = \"pretty\". This is a base R function which calculates roughly equal spaced round values. However, tmap has a number of other map classification schemes to choose from.\n\n8.9.1 Equal interval\nDivides the distribution of values so that the range of values is identical within each class. The difference between the highest and lowest value is the same for each class grouping.\n+ represents the density of observations around the mean- maps tend to be unbalanced because the values aren’t evenly distributed.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          style = \"equal\",\n          n = 4,\n          palette = \"Blues\",\n          title = \"% registered\")\n\n\n\n\n\n8.9.2 Quantile\nSorts the values of a variable in ascending order and assigns an equal number of geographical areas to each colour.\n+ highlights a proportion of observations such as the top 25% of geographical areas- tends to mask heterogeneity\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          style = \"quantile\",\n          n = 4,\n          palette = \"Blues\",\n          title = \"% registered\")\n\n\n\n\n\n8.9.3 Natural breaks (jenks)\nClass categories are based on natural groupings in the data. Uses a statistical procedure which seeks to reduce the variance within classes and maximises the variance between classes.\n+ identifies areas with similar values- the classes are unique to each variable so cannot be reused with other variables\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          style = \"jenks\",\n          n = 4,\n          palette = \"Blues\",\n          title = \"% registered\")\n\n\n\n\n\n8.9.4 Custom breaks\nCustom map classifications can be created by supplying breaks and labels to the tm_fill() function.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",\n          breaks = c(0,40,58,76,Inf),\n          palette = \"Blues\",\n          labels = c(\" &lt; 40%\", \" 40 - 58%\", \" 58 - 76%\", \" &gt; 76%\"),\n          title = \"Total registered\")"
   },
   {
     "objectID": "choropleth_maps.html#customisation",
     "href": "choropleth_maps.html#customisation",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.10 Customisation",
-    "text": "5.10 Customisation\nThere are several improvements we can make to the choropleth map by changing the layout, adding titles and tweaking the legend.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.6, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\", title = \"% registered\", style = \"jenks\", n = 4, palette = \"Blues\") + \n  tm_layout(frame = FALSE,\n            main.title = \"Levels of birth registration in Nigeria\",\n            main.title.size = 1.2,\n            legend.outside = TRUE) +\n  tm_credits(\"Source: MICS, 2021\", \n             bg.color = \"white\",\n             position = c(\"right\", \"bottom\"))\n\n\n\n\nYou can also add in some cartographic elements such as a compass rose (tm_compass()) or scale bar (tm_scale_bar()) if required."
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.10 Customisation",
+    "text": "8.10 Customisation\nThere are several improvements we can make to the choropleth map by changing the layout, adding titles and tweaking the legend.\n\ntm_shape(sf) + \n  tm_borders(col = \"#FFFFFF\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.6, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\", title = \"% registered\", style = \"jenks\", n = 4, palette = \"Blues\") + \n  tm_layout(frame = FALSE,\n            main.title = \"Levels of birth registration in Nigeria\",\n            main.title.size = 1.2,\n            legend.outside = TRUE) +\n  tm_credits(\"Source: MICS, 2021\", \n             bg.color = \"white\",\n             position = c(\"right\", \"bottom\"))\n\n\n\n\nYou can also add in some cartographic elements such as a compass rose (tm_compass()) or scale bar (tm_scale_bar()) if required."
   },
   {
     "objectID": "choropleth_maps.html#interactivity",
     "href": "choropleth_maps.html#interactivity",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.11 Interactivity",
-    "text": "5.11 Interactivity\nThe tmap package also allows you to view your maps interactively. All you need to do is to switch between tmap_mode(\"view\") for interactive viewing and tmap_mode(\"plot\") for static plots."
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.11 Interactivity",
+    "text": "8.11 Interactivity\nThe tmap package also allows you to view your maps interactively. All you need to do is to switch between tmap_mode(\"view\") for interactive viewing and tmap_mode(\"plot\") for static plots."
   },
   {
     "objectID": "choropleth_maps.html#exporting-maps",
     "href": "choropleth_maps.html#exporting-maps",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.12 Exporting maps",
-    "text": "5.12 Exporting maps\nTo export static maps you can use the tmap_save() function. Just save your plot as an object and give it a filename.\n\ntm &lt;- tm_shape(sf) + \n  tm_borders(col = \"#000000\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",  style = \"jenks\", n = 4, palette = \"Blues\", title = \"% registered\", alpha = 0.3)\n\ntmap_save(tm, filename = \"nigeria.png\")"
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.12 Exporting maps",
+    "text": "8.12 Exporting maps\nTo export static maps you can use the tmap_save() function. Just save your plot as an object and give it a filename.\n\ntm &lt;- tm_shape(sf) + \n  tm_borders(col = \"#000000\", lwd = 0.5) +\n  tm_text(\"state\", size = 0.8, col = \"black\", auto.placement = TRUE) +\n  tm_fill(col = \"percent\",  style = \"jenks\", n = 4, palette = \"Blues\", title = \"% registered\", alpha = 0.3)\n\ntmap_save(tm, filename = \"nigeria.png\")"
   },
   {
     "objectID": "choropleth_maps.html#further-resources",
     "href": "choropleth_maps.html#further-resources",
-    "title": "\n5  Choropleth maps\n",
-    "section": "\n5.13 Further resources",
-    "text": "5.13 Further resources\n\nAnselin, Luc (2016). Statistical Maps: Standard Deviation and Box Map. YouTube. https://www.youtube.com/watch?v=6-weK5J6xRI\n\nHarris, Rich. (2022-2023). Mapping and Modelling Geographic Data in R. Online course.\nLovelace, R., Nowosad, J., & Muenchow, J. (2023). Geocomputation with R. 2nd edition.\nONS Geography. (2021). Introduction to GIS in R. Online course.\nOpenshaw, S., & Openshaw, S. (1984). The modifiable areal unit problem. Geo Abstracts University of East Anglia"
+    "title": "\n8  Choropleth maps\n",
+    "section": "\n8.13 Further resources",
+    "text": "8.13 Further resources\n\nAnselin, Luc (2016). Statistical Maps: Standard Deviation and Box Map. YouTube. https://www.youtube.com/watch?v=6-weK5J6xRI\n\nHarris, Rich. (2022-2023). Mapping and Modelling Geographic Data in R. Online course.\nLovelace, R., Nowosad, J., & Muenchow, J. (2023). Geocomputation with R. 2nd edition.\nONS Geography. (2021). Introduction to GIS in R. Online course.\nOpenshaw, S., & Openshaw, S. (1984). The modifiable areal unit problem. Geo Abstracts University of East Anglia"
+  },
+  {
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Appendix A — Glossary of Terms",
+    "section": "",
+    "text": "This page will cover some commonly used terms throughout this book. Hopefully this provides some clarity on what is meant and can also serve as a glossary for new people to the CRVS space.\n\nCRVS: Civil Registration Vital Statistics\nNRO: National Registration Office\nNSO: National Statistics Office"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "References",
+    "section": "",
+    "text": "Wickham, Hadley. 2014. “Tidy Data.”\nJournal of Statistical Software 59 (10). https://doi.org/10.18637/jss.v059.i10.\n\n\n———. 2016. “Ggplot2: Elegant Graphics for Data Analysis.”\nhttps://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis\nVaughan. 2023. “Dplyr: A Grammar of Data Manipulation.” https://CRAN.R-project.org/package=dplyr.\n\n\nWilkinson, Leland, and Graham Wills. 2005. The Grammar of\nGraphics. 2nd ed. Statistics and Computing. New York: Springer."
   }
 ]

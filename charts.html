@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>R for Vital Statistics - 7&nbsp; Charts</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./choropleth_maps.html" rel="next">
+<link href="./styling_tables.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+</head>
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./charts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Charts</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Vital Statistics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/tech-acs/r4vs" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./implementation_info.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Implementing an R Vital Statistics pipeline</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./practical_delivery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical Delivery of CRVS table Generation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./styling_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Styling tables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./charts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Charts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./choropleth_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Choropleth maps</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary of Terms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a></li>
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="header-section-number">7.2</span> ggplot2</a></li>
+  <li><a href="#cleaning-data" id="toc-cleaning-data" class="nav-link" data-scroll-target="#cleaning-data"><span class="header-section-number">7.3</span> Cleaning data</a></li>
+  <li><a href="#creating-a-plot" id="toc-creating-a-plot" class="nav-link" data-scroll-target="#creating-a-plot"><span class="header-section-number">7.4</span> Creating a plot</a></li>
+  <li>
+<a href="#other-chart-types" id="toc-other-chart-types" class="nav-link" data-scroll-target="#other-chart-types"><span class="header-section-number">7.5</span> Other chart types</a>
+  <ul class="collapse">
+<li><a href="#bar-charts" id="toc-bar-charts" class="nav-link" data-scroll-target="#bar-charts"><span class="header-section-number">7.5.1</span> Bar charts</a></li>
+  <li><a href="#population-pyramid" id="toc-population-pyramid" class="nav-link" data-scroll-target="#population-pyramid"><span class="header-section-number">7.5.2</span> Population pyramid</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tech-acs/r4vs/edit/main/charts.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tech-acs/r4vs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Charts</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><section id="introduction" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">7.1</span> Introduction</h2>
+<p>The <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> R package <span class="citation" data-cites="ggplot2">(<a href="resources.html#ref-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> is one of the most popular tools for creating static publication-ready graphics. In this chapter we will run through the process of building a chart in ggplot2 using aggregated civil registration data. We will recreate <a href="#fig-completeness">Figure&nbsp;<span>7.1</span></a> that was published in Rwanda’s <a href="https://www.statistics.gov.rw/publication/2131">2023 Vital Statistics Report</a>.</p>
+<div id="fig-completeness" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure"><p><img src="images/completeness.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;7.1: Birth and death registration completeness rates in Rwanda, 2019 to 2023</figcaption></figure>
+</div>
+<p>We’ll then present the code for a couple of common plots: a bar chart and population pyramid.</p>
+</section><section id="ggplot2" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="ggplot2">
+<span class="header-section-number">7.2</span> ggplot2</h2>
+<p>The <a href="https://ggplot2.tidyverse.org">ggplot2</a> package is underpinned by the ‘<strong>g</strong>rammar of <strong>g</strong>raphics’ <span class="citation" data-cites="wilkinson_grammar_2005">(<a href="resources.html#ref-wilkinson_grammar_2005" role="doc-biblioref">Wilkinson and Wills 2005</a>)</span>. Essentially, every data visualisation has a formal structure with three principle layers: data, aesthetics, and geometry. Variables in your <strong>data</strong> are mapped to the <strong>aes</strong>thetic properties (e.g.&nbsp;position, size and colour) of <strong>geom</strong>etric objects like scatter plots or line charts. You can see this in the arguments used by ggplot2:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="at">data =</span> df,                                          <span class="co"># data</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> var1, <span class="at">y =</span> var2, <span class="at">colour =</span> var3)    <span class="co"># aesthetics</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  ) <span class="sc">+</span>             </span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">geom_line</span>()                                         <span class="co"># geometry</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="cleaning-data" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="cleaning-data">
+<span class="header-section-number">7.3</span> Cleaning data</h2>
+<p>Rwanda’s 2023 Vital Statistics Report is accompanied by an Excel file containing data for all of the figures. <a href="#tbl-completeness">Table&nbsp;<span>7.1</span></a> contains all the values encoded in <a href="#fig-completeness">Figure&nbsp;<span>7.1</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-completeness" class="anchored">
+<table class="table table-sm table-striped small">
+<caption>Table&nbsp;7.1: Birth and death registration completeness rates in Rwanda, 2019 to 2023</caption>
+<thead><tr class="header">
+<th style="text-align: left;">Event</th>
+<th style="text-align: right;">2019</th>
+<th style="text-align: right;">2020</th>
+<th style="text-align: right;">2021</th>
+<th style="text-align: right;">2022</th>
+<th style="text-align: right;">2023</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Birth registration completeness rate</td>
+<td style="text-align: right;">87.0</td>
+<td style="text-align: right;">85.8</td>
+<td style="text-align: right;">84.2</td>
+<td style="text-align: right;">92.9</td>
+<td style="text-align: right;">90.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Death registration completeness rate</td>
+<td style="text-align: right;">31.4</td>
+<td style="text-align: right;">29.9</td>
+<td style="text-align: right;">26.2</td>
+<td style="text-align: right;">31.1</td>
+<td style="text-align: right;">41.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Before we can visualise the data in a line chart we need to transform it from a table into ‘tidy’ data <span class="citation" data-cites="wickham_tidy_2014">(<a href="resources.html#ref-wickham_tidy_2014" role="doc-biblioref">Wickham 2014</a>)</span>. To be tidy the data must satisfy three rules:</p>
+<ul>
+<li>Each variable must have its own column</li>
+<li>Each observation must have its own row</li>
+<li>Each value must have its own cell</li>
+</ul>
+<p>The key step to make this data ‘tidy’ is to reshape it into ‘long format’ using the <code>pivot_longer()</code> function from the <a href="https://dplyr.tidyverse.org"><code>dplyr</code></a> package <span class="citation" data-cites="dplyr">(<a href="resources.html#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>. This function converts some of the column names into values of a new variable. In this case, the year column names become the values of a new variable called ‘Year’.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>tidy_data <span class="ot">&lt;-</span> table <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Event, <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-long" class="anchored">
+<table class="table table-sm table-striped small">
+<caption>Table&nbsp;7.2: Data structured in long format</caption>
+<thead><tr class="header">
+<th style="text-align: left;">Event</th>
+<th style="text-align: left;">Year</th>
+<th style="text-align: right;">Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Birth registration completeness rate</td>
+<td style="text-align: left;">2019</td>
+<td style="text-align: right;">87.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Birth registration completeness rate</td>
+<td style="text-align: left;">2020</td>
+<td style="text-align: right;">85.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Birth registration completeness rate</td>
+<td style="text-align: left;">2021</td>
+<td style="text-align: right;">84.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Birth registration completeness rate</td>
+<td style="text-align: left;">2022</td>
+<td style="text-align: right;">92.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Birth registration completeness rate</td>
+<td style="text-align: left;">2023</td>
+<td style="text-align: right;">90.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Death registration completeness rate</td>
+<td style="text-align: left;">2019</td>
+<td style="text-align: right;">31.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Death registration completeness rate</td>
+<td style="text-align: left;">2020</td>
+<td style="text-align: right;">29.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Death registration completeness rate</td>
+<td style="text-align: left;">2021</td>
+<td style="text-align: right;">26.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Death registration completeness rate</td>
+<td style="text-align: left;">2022</td>
+<td style="text-align: right;">31.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Death registration completeness rate</td>
+<td style="text-align: left;">2023</td>
+<td style="text-align: right;">41.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Lastly, we need to check that the variables are in the correct format.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">glimpse</span>(tidy_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 10
+Columns: 3
+$ Event &lt;chr&gt; "Birth registration completeness rate", "Birth registration comp…
+$ Year  &lt;chr&gt; "2019", "2020", "2021", "2022", "2023", "2019", "2020", "2021", …
+$ Value &lt;dbl&gt; 87.00, 85.80, 84.20, 92.90, 90.04, 31.40, 29.90, 26.20, 31.10, 4…</code></pre>
+</div>
+</div>
+<p>We can see that the ‘Year’ variable has been stored as a character rather than as a numeric variable. This will cause us problems when we map this variable to the chart’s x-axis. To rectify this we can use the <code>mutate()</code> function to convert ‘Year’ to an integer.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>tidy_data <span class="ot">&lt;-</span> tidy_data <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.integer</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s check to see if that worked.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 10
+Columns: 3
+$ Event &lt;chr&gt; "Birth registration completeness rate", "Birth registration comp…
+$ Year  &lt;int&gt; 2019, 2020, 2021, 2022, 2023, 2019, 2020, 2021, 2022, 2023
+$ Value &lt;dbl&gt; 87.00, 85.80, 84.20, 92.90, 90.04, 31.40, 29.90, 26.20, 31.10, 4…</code></pre>
+</div>
+</div>
+<p>While we are formatting the data we might also abbreviate the values contained in the ‘Event’ variable from ‘Birth registration completeness rate’ to simply ‘Births’. We can do this using <code>mutate()</code> and the <code>str_detect()</code> function from the <a href="https://stringr.tidyverse.org/"><code>stringr</code></a> package which detects the presence of a pattern in a string. Here we overwrite the value in the ‘Event’ column with ‘Births’ if we <code>str_detect()</code> the pattern ‘Birth’ and with ‘Deaths’ if we don’t.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>tidy_data <span class="ot">&lt;-</span> tidy_data <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">mutate</span>(<span class="at">Event =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(Event, <span class="st">"Birth"</span>), <span class="st">"Births"</span>, <span class="st">"Deaths"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s look again at the data.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-abbrev" class="anchored">
+<table class="table table-sm table-striped small">
+<caption>Table&nbsp;7.3: Abbreviated ‘Event’ values</caption>
+<thead><tr class="header">
+<th style="text-align: left;">Event</th>
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Births</td>
+<td style="text-align: right;">2019</td>
+<td style="text-align: right;">87.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Births</td>
+<td style="text-align: right;">2020</td>
+<td style="text-align: right;">85.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Births</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">84.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Births</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: right;">92.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Births</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">90.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Deaths</td>
+<td style="text-align: right;">2019</td>
+<td style="text-align: right;">31.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Deaths</td>
+<td style="text-align: right;">2020</td>
+<td style="text-align: right;">29.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Deaths</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">26.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Deaths</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: right;">31.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Deaths</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">41.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>We are now ready to visualise the data in a line chart.</p>
+</section><section id="creating-a-plot" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="creating-a-plot">
+<span class="header-section-number">7.4</span> Creating a plot</h2>
+<p><strong>Load the data and map variables</strong><br>
+First we pass the data to a <code>ggplot()</code> object and map the ‘Year’ variable to the x-axis, ‘Value’ to the y-axis, and ‘Event’ to colour. Each argument is within the <a href="https://ggplot2.tidyverse.org/reference/aes.html"><code>aes()</code></a> function because the variables are mapped to the aesthetics or visual properties of the line chart. We can see that the values have been mapped to the axes because they have been scaled but there are no lines …</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">colour =</span> Event))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Add lines</strong><br>
+To add lines we need to specify a geom. In this case we simply add <a href="https://ggplot2.tidyverse.org/reference/geom_path.html"><code>geom_line()</code></a>.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">colour =</span> Event)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We are using <code>+</code> rather than the conventional <code>|&gt;</code> because ggplot2 <a href="https://www.reddit.com/r/dataisbeautiful/comments/3mp9r7/comment/cvi19ly">predates</a> the pipe operator.</p>
+</div>
+</div>
+<p><strong>Change the line width</strong><br>
+One of the arguments of <code>geom_line()</code> is <a href="https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html"><code>linewidth</code></a> which we can adjust to suit.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">colour =</span> Event)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Change the line colours</strong><br>
+We can specify which colours to map to the values of the ‘Event’ variable using the <a href="https://ggplot2.tidyverse.org/reference/scale_manual.html"><code>scale_colour_manual()</code></a> function. You could also choose a <a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">ColorBrewer</a> palette or even colours from a <a href="https://cran.r-project.org/web/packages/wesanderson/index.html">Wes Anderson</a> film. The <a href="https://github.com/clauswilke/colorblindr/blob/master/R/palettes.R">Okabe-Ito palette</a> is particularly recommended because they are colour-blind friendly.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">colour =</span> Event)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Births"</span> <span class="ot">=</span> <span class="st">"#fc6721"</span>, <span class="st">"Deaths"</span> <span class="ot">=</span> <span class="st">"#E7B800"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Format the scale</strong><br>
+We can modify the y-axis with arguments from the <a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html"><code>scale_y_continuous()</code></a> function. First we need to format the y-axis <code>labels</code> as percentages. There is a handy function from the <a href="https://scales.r-lib.org"><code>scales</code></a> package called <a href="https://scales.r-lib.org/reference/label_percent.html"><code>label_percent()</code></a> which we can use. Since the values of the ‘Value’ variable are already percentages we need to add the argument <code>scale = 1</code> to prevent the function from multiplying by 100.</p>
+<p>We can also set the <code>limits</code> of the y-axis to begin at zero and end at 100.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">colour =</span> Event)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Births"</span> <span class="ot">=</span> <span class="st">"#fc6721"</span>, <span class="st">"Deaths"</span> <span class="ot">=</span> <span class="st">"#E7B800"</span>)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>), <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">scale =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>::</code> syntax is a neat way of using a function from another package without needing to load it beforehand with <code><a href="https://scales.r-lib.org">library(scales)</a></code>.</p>
+</div>
+</div>
+<p><strong>Add labels</strong><br>
+Adding labels is very intuitive with the <code>labs()</code> function. You can specify <code>NULL</code> if you don’t want to label a particular part of the chart. Here we have dropped the axis and legend labels but specified a title, subtitle and caption.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">colour =</span> Event)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Births"</span> <span class="ot">=</span> <span class="st">"#fc6721"</span>, <span class="st">"Deaths"</span> <span class="ot">=</span> <span class="st">"#E7B800"</span>)) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>), <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">scale =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-6"><a href="#cb13-6"></a>       <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-7"><a href="#cb13-7"></a>       <span class="at">title =</span> <span class="st">"Birth and death registration completeness rates"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>       <span class="at">subtitle =</span> <span class="st">"Rwanda, 2019-2023"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9"></a>       <span class="at">caption =</span> <span class="st">"Source: CRVS system"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10"></a>       <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Add a theme</strong><br>
+A <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme</a> is an overall plot style. Here we use <code>theme_minimal()</code> which removes the grey background and axis ticks. The <code>base_size</code> argument allows us to resize the overall font size of the labels.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">colour =</span> Event)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Births"</span> <span class="ot">=</span> <span class="st">"#fc6721"</span>, <span class="st">"Deaths"</span> <span class="ot">=</span> <span class="st">"#E7B800"</span>)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>), <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">scale =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-6"><a href="#cb14-6"></a>       <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-7"><a href="#cb14-7"></a>       <span class="at">title =</span> <span class="st">"Birth and death registration completeness rates"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>       <span class="at">subtitle =</span> <span class="st">"Rwanda, 2019-2023"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>       <span class="at">caption =</span> <span class="st">"Source: CRVS system"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>       <span class="at">colour =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Final tweaks</strong><br>
+Next we’ll remove unnecessary grid lines and move the legend to the bottom of the plot. There are several other options available using the <a href="https://ggplot2.tidyverse.org/reference/theme.html"><code>theme()</code></a> function.</p>
+<p>We can also move the y-axis labels to the right side so that the latest values are easier to read. This is achieved by adding the argument <code>position = "right"</code> in the <code>scale_y_continuous()</code> function.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">colour =</span> Event)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Births"</span> <span class="ot">=</span> <span class="st">"#fc6721"</span>, <span class="st">"Deaths"</span> <span class="ot">=</span> <span class="st">"#E7B800"</span>)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>), <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">scale =</span> <span class="dv">1</span>), <span class="at">position =</span> <span class="st">"right"</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-6"><a href="#cb15-6"></a>       <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-7"><a href="#cb15-7"></a>       <span class="at">title =</span> <span class="st">"Birth and death registration completeness rates"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8"></a>       <span class="at">subtitle =</span> <span class="st">"Rwanda, 2019-2023"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9"></a>       <span class="at">caption =</span> <span class="st">"Source: CRVS system"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10"></a>       <span class="at">colour =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a>  <span class="fu">theme</span>(</span>
+<span id="cb15-13"><a href="#cb15-13"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-14"><a href="#cb15-14"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-15"><a href="#cb15-15"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb15-16"><a href="#cb15-16"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can add <code>expand = expansion()</code> in <code>scale_y_continuous</code> to reduce the gap between the x-axis labels and the axis line.</p>
+</div>
+</div>
+<p><strong>Save the plot</strong><br>
+Lastly we can export the plot as a PNG and set the resolution to 300 dpi which is perfect for printing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggsave</span>(<span class="st">"plot.png"</span>, <span class="at">scale =</span> <span class="dv">1</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="other-chart-types" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="other-chart-types">
+<span class="header-section-number">7.5</span> Other chart types</h2>
+<p>The ggplot2 package is extremely versatile and be used to create all sorts of data visualisations. A couple of examples are shown below using data published alongside Rwanda’s 2023 Vital Statistic report. Comments have been added to the code to help explain the additional steps involved.</p>
+<section id="bar-charts" class="level3" data-number="7.5.1"><h3 data-number="7.5.1" class="anchored" data-anchor-id="bar-charts">
+<span class="header-section-number">7.5.1</span> Bar charts</h3>
+<p>The bar chart ranks the districts of Rwanda by the count of recorded live births in 2023. It is a simple alternative to a choropleth map requiring little data transformation or additional code except the use of <a href="https://ggplot2.tidyverse.org/reference/geom_bar.html"><code>geom_col()</code></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-births-by-district" class="anchored">
+<table class="table table-sm table-striped small">
+<caption>Table&nbsp;7.4: Registered live births by mothers’ residence district in Rwanda, 2023</caption>
+<thead><tr class="header">
+<th style="text-align: left;">District</th>
+<th style="text-align: right;">Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bugesera</td>
+<td style="text-align: right;">7212</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Burera</td>
+<td style="text-align: right;">4651</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gakenke</td>
+<td style="text-align: right;">4086</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gasabo</td>
+<td style="text-align: right;">11837</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gatsibo</td>
+<td style="text-align: right;">6855</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gicumbi</td>
+<td style="text-align: right;">5699</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(births_by_district, <span class="fu">aes</span>(<span class="at">x =</span> Value, <span class="at">y =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(District, Value))) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"seagreen"</span>) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(), <span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>       <span class="at">title =</span> <span class="st">"Registered live births by mothers’ residence district"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6"></a>       <span class="at">subtitle =</span> <span class="st">"Rwanda, 2023"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7"></a>       <span class="at">caption =</span> <span class="st">"Source: CRVS system"</span>) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a>  <span class="fu">theme</span>(</span>
+<span id="cb17-10"><a href="#cb17-10"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb17-11"><a href="#cb17-11"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb17-12"><a href="#cb17-12"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="population-pyramid" class="level3" data-number="7.5.2"><h3 data-number="7.5.2" class="anchored" data-anchor-id="population-pyramid">
+<span class="header-section-number">7.5.2</span> Population pyramid</h3>
+<p>There is no specific geom for creating population pyramids in ggplot2. Here we create a back-to-back bar chart using <code>geom_col()</code>. You will notice that we change the values of ‘Male’ to negative so that they map to the x-axis in reverse.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-deaths" class="anchored">
+<table class="table table-sm table-striped small">
+<caption>Table&nbsp;7.5: Age-sex structure of all registered deaths in Rwanda, 2023</caption>
+<thead><tr class="header">
+<th style="text-align: left;">Age</th>
+<th style="text-align: left;">Sex</th>
+<th style="text-align: right;">Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0-4</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">18.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0-4</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">17.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5-9</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">1.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5-9</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">1.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10-14</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10-14</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">1.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(deaths, </span>
+<span id="cb18-2"><a href="#cb18-2"></a>       <span class="co"># change values of 'Male' to negative</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="st">"Male"</span>, <span class="sc">-</span>Value, Value), </span>
+<span id="cb18-4"><a href="#cb18-4"></a>           <span class="at">y =</span> Age, <span class="at">fill =</span> Sex)) <span class="sc">+</span> </span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="co"># adjust transparency</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb18-7"><a href="#cb18-7"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb18-8"><a href="#cb18-8"></a>    <span class="co"># set x-axis limits</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">30</span>, <span class="dv">30</span>),</span>
+<span id="cb18-10"><a href="#cb18-10"></a>    <span class="co"># set x-axis scale</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">10</span>),</span>
+<span id="cb18-12"><a href="#cb18-12"></a>    <span class="co"># add % sign to x-axis labels</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a>    <span class="at">labels =</span> <span class="cf">function</span>(x) {<span class="fu">paste0</span>(<span class="fu">abs</span>(x), <span class="st">'%'</span>)}</span>
+<span id="cb18-14"><a href="#cb18-14"></a>    ) <span class="sc">+</span> </span>
+<span id="cb18-15"><a href="#cb18-15"></a>  <span class="co"># choose appropriate colours</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Female"</span> <span class="ot">=</span> <span class="st">"#7E105E"</span>, <span class="st">"Male"</span> <span class="ot">=</span> <span class="st">"#009087"</span>)) <span class="sc">+</span> </span>
+<span id="cb18-17"><a href="#cb18-17"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb18-18"><a href="#cb18-18"></a>       <span class="at">title =</span> <span class="st">"Age-sex structure of all registered deaths"</span>,</span>
+<span id="cb18-19"><a href="#cb18-19"></a>       <span class="at">subtitle =</span> <span class="st">"Rwanda, 2023"</span>,</span>
+<span id="cb18-20"><a href="#cb18-20"></a>       <span class="at">caption =</span> <span class="st">"Source: CRVS systems"</span>,</span>
+<span id="cb18-21"><a href="#cb18-21"></a>       <span class="co"># drop legend title</span></span>
+<span id="cb18-22"><a href="#cb18-22"></a>       <span class="at">fill =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb18-23"><a href="#cb18-23"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb18-24"><a href="#cb18-24"></a>  <span class="fu">theme</span>(</span>
+<span id="cb18-25"><a href="#cb18-25"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb18-26"><a href="#cb18-26"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb18-27"><a href="#cb18-27"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="charts_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-wickham_tidy_2014" class="csl-entry" role="listitem">
+Wickham, Hadley. 2014. <span>“Tidy <span>Data</span>.”</span> <em>Journal of Statistical Software</em> 59 (10). <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+———. 2016. <span>“Ggplot2: Elegant Graphics for Data Analysis.”</span> <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <span>“Dplyr: A Grammar of Data Manipulation.”</span> <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-wilkinson_grammar_2005" class="csl-entry" role="listitem">
+Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd ed. Statistics and Computing. New York: Springer.
+</div>
+</div>
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./styling_tables.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Styling tables</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./choropleth_maps.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Choropleth maps</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Copyright 2024, Tesfaye Belay</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+</body></html>

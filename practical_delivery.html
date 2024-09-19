@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Vital Statistics - References</title>
+<title>R for Vital Statistics - 4&nbsp; Practical Delivery of CRVS table Generation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./resources.html" rel="prev">
+<link href="./data_cleaning.html" rel="next">
+<link href="./implementation_info.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -93,7 +75,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./practical_delivery.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical Delivery of CRVS table Generation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -147,7 +129,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./practical_delivery.html" class="sidebar-item-text sidebar-link">
+  <a href="./practical_delivery.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical Delivery of CRVS table Generation</span></span></a>
   </div>
 </li>
@@ -198,7 +180,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -210,14 +192,35 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#before-we-begin" id="toc-before-we-begin" class="nav-link active" data-scroll-target="#before-we-begin"><span class="header-section-number">4.1</span> Before we Begin</a></li>
+  <li><a href="#who-should-participate" id="toc-who-should-participate" class="nav-link" data-scroll-target="#who-should-participate"><span class="header-section-number">4.2</span> Who Should Participate?</a></li>
+  <li><a href="#what-should-the-agenda-look-like" id="toc-what-should-the-agenda-look-like" class="nav-link" data-scroll-target="#what-should-the-agenda-look-like"><span class="header-section-number">4.3</span> What Should the Agenda Look like?</a></li>
+  <li><a href="#requirements-before-starting" id="toc-requirements-before-starting" class="nav-link" data-scroll-target="#requirements-before-starting"><span class="header-section-number">4.4</span> Requirements Before Starting</a>
+  <ul class="collapse">
+  <li><a href="#requirements-for-the-nsonros" id="toc-requirements-for-the-nsonros" class="nav-link" data-scroll-target="#requirements-for-the-nsonros"><span class="header-section-number">4.4.1</span> Requirements for the NSO/NROs</a></li>
+  <li><a href="#requirements-for-the-delivery-team" id="toc-requirements-for-the-delivery-team" class="nav-link" data-scroll-target="#requirements-for-the-delivery-team"><span class="header-section-number">4.4.2</span> Requirements for the Delivery Team</a></li>
+  </ul></li>
+  <li><a href="#what-are-the-goals" id="toc-what-are-the-goals" class="nav-link" data-scroll-target="#what-are-the-goals"><span class="header-section-number">4.5</span> What are the Goals?</a></li>
+  <li><a href="#day-1" id="toc-day-1" class="nav-link" data-scroll-target="#day-1"><span class="header-section-number">4.6</span> Day 1</a></li>
+  <li><a href="#day-2" id="toc-day-2" class="nav-link" data-scroll-target="#day-2"><span class="header-section-number">4.7</span> Day 2</a></li>
+  <li><a href="#day-3" id="toc-day-3" class="nav-link" data-scroll-target="#day-3"><span class="header-section-number">4.8</span> Day 3</a></li>
+  <li><a href="#day-4" id="toc-day-4" class="nav-link" data-scroll-target="#day-4"><span class="header-section-number">4.9</span> Day 4</a></li>
+  <li><a href="#day-5" id="toc-day-5" class="nav-link" data-scroll-target="#day-5"><span class="header-section-number">4.10</span> Day 5</a></li>
+  <li><a href="#how-did-it-go" id="toc-how-did-it-go" class="nav-link" data-scroll-target="#how-did-it-go"><span class="header-section-number">4.11</span> How did it Go?</a></li>
+  <li><a href="#what-next" id="toc-what-next" class="nav-link" data-scroll-target="#what-next"><span class="header-section-number">4.12</span> What Next?</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tech-acs/r4vs/edit/main/practical_delivery.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tech-acs/r4vs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical Delivery of CRVS table Generation</span></h1>
 </div>
 
 
@@ -232,11 +235,52 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="list" style="display: none">
+<p>Throughout the summer of 2024, a team of UNECA delivered a one-week package in a variety of countries to implement R based systems to obtain civil registration vital statistics (CRVS) tables. These sessions targeted both National Statistics Offices (NSOs) and National Registration Offices (NROs). The ultimate goal was to set a delivery path to achieve a CRVS report.</p>
+<p>This chapter provides some guidance for future delivery sessions that have a similar goal. At the same time, it also provides some of the lessons learnt, so you don’t have to make the same mistakes we did.</p>
+<section id="before-we-begin" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="before-we-begin"><span class="header-section-number">4.1</span> Before we Begin</h2>
+</section>
+<section id="who-should-participate" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="who-should-participate"><span class="header-section-number">4.2</span> Who Should Participate?</h2>
+</section>
+<section id="what-should-the-agenda-look-like" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="what-should-the-agenda-look-like"><span class="header-section-number">4.3</span> What Should the Agenda Look like?</h2>
+</section>
+<section id="requirements-before-starting" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="requirements-before-starting"><span class="header-section-number">4.4</span> Requirements Before Starting</h2>
+<section id="requirements-for-the-nsonros" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="requirements-for-the-nsonros"><span class="header-section-number">4.4.1</span> Requirements for the NSO/NROs</h3>
+</section>
+<section id="requirements-for-the-delivery-team" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="requirements-for-the-delivery-team"><span class="header-section-number">4.4.2</span> Requirements for the Delivery Team</h3>
+</section>
+</section>
+<section id="what-are-the-goals" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="what-are-the-goals"><span class="header-section-number">4.5</span> What are the Goals?</h2>
+</section>
+<section id="day-1" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="day-1"><span class="header-section-number">4.6</span> Day 1</h2>
+</section>
+<section id="day-2" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="day-2"><span class="header-section-number">4.7</span> Day 2</h2>
+</section>
+<section id="day-3" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="day-3"><span class="header-section-number">4.8</span> Day 3</h2>
+</section>
+<section id="day-4" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="day-4"><span class="header-section-number">4.9</span> Day 4</h2>
+</section>
+<section id="day-5" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="day-5"><span class="header-section-number">4.10</span> Day 5</h2>
+</section>
+<section id="how-did-it-go" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="how-did-it-go"><span class="header-section-number">4.11</span> How did it Go?</h2>
+</section>
+<section id="what-next" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="what-next"><span class="header-section-number">4.12</span> What Next?</h2>
 
-</div>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -474,11 +518,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./resources.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="./implementation_info.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Implementing an R Vital Statistics pipeline</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./data_cleaning.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -487,7 +534,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024, Tesfaye Belay<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tech-acs/r4vs/edit/main/references.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tech-acs/r4vs/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="nav-footer-center">Copyright 2024, Tesfaye Belay</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
