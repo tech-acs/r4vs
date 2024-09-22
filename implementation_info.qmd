@@ -3,30 +3,94 @@
 This chapter will outline the necessary process to go from the raw civil registration records to a CRVS report.
 Not only that, but to establish a process that is sustainable and that can be improved on into the future.
 The topics here covered are a suggestion and we appreciate that your particular case might be different.
-Throughout this chapter we will highlight certain issues that are common as well as some of the approaches to mitigate them.
+
+A list of topics that you may want to consider as well as some related questions or issues:
 
 ## The Organisational Landscape
 
+What is the legislation around civil registration and the relevant statistics?
+Which organisation owns the data, which organisation produces demographic statistics?
+What are the data users and how does information get shared?
+
 ## The Data Collection and Handling Process
+
+How is the data generated?
+How is it collected and the data set built?
+Who has responsibility to make sure that the data is correct?
+Who should train the data collectors?
+Are there variable definitions?
+Is there a schedule in place of when data deliveries should happen?
 
 ## Variable Availability and Possible tables
 
+From the data available, what tables are possible to be generated?
+What is the relevant aggregation level from a spatial point of view?
+Are there any tables that are of high interest that may need extra data collection?
+
 ## Codebase Management and Collaboration Principles
+
+How is the code created and stored?
+Is there a version control mechanism? This can ensure the system is resilient to people moving.
+Is there a peer-review procedure in place?
+Is the code tested on sample data?
 
 ## Data Quality Analysis
 
+What are the issues with the data? Are there known delivery problems?
+Are there variables that have a high level of missingness? What can be done to solve this?
+
 ## Data Cleaning and Dataset Curation
+
+Once the data quality has been evaluated, some decisions need to be made on how the data can be cleaned.
+From this, a curated or clean dataset can be used to generate tables with a clear understanding of what the issues are.
+This curated dataset can build trust and automation on the latter part of the system.
 
 ## Table Generation with `crvsreportpackage`
 
+The implementation of the [crvsreportpackage](https://tech-acs.github.io/crvsreportpackage/) can be carried out from this point.
+The same principles applied to this can be applied to generate different tables that may be of interest.
+You can ask others that have an understanding of this system.
+
+
 ## Table Polishing and Visual Alternatives
+
+Tables with aggregated statistics are really useful. They form the backbone of any analysis and monitoring of demographic statistcs.
+However, they are sometimes hard to read or it can be hard to highlight the key trends or insights from the data.
+
+Once the tables are produced there is the potential to use more visual ways of displaying the data, such as the generation of
+choropleth maps to display geospatial statistics.
 
 ## CRVS Tables Quality Assurance
 
+Once the tables are produced: do they show what you would expect?
+Are there any obvious issues with the data being shown?
+Do the numbers produced at the aggregate level match other surveys/estimates?
+
 ## Putting the Tables into Context
+
+Not everyone is a CRVS expert and may not be fully aware of what the tables or graphs show.
+In order to give a fuller picture, statisticians and analysts should take the time to add accompanying text to the tables.
+This accompanying text will be a useful tool to "tell the story" and can help in increasing awareness across government and media.
 
 ## Achieving a CRVS report
 
+Once these tables and accompanying text has been validated, a report can be put together with the information.
+However some issues still need to be addressed:
+Who is going to be responsible to publish?
+Is the publication in a physical form needed or can it be .pdf online?
+What are the timescales involved in getting the publication ready?
+Does the publication date co-incide with other key publications?
+Is there some time set asside to the disseminate the results?
+
 ## It's not Only About the Report
 
+There are several levels of data, some may not make it into the report, but may still be useful across government.
+Are there data users that could access more granular or more timely data?
+
+
 ## Learning Lessons
+
+No process is ever perfect, the key will be on how feedback loops are set so that every part of it get better the more they do it.
+Writing documents on how things work is useful to ensure a common understanding.
+Documenting existing issues and sharing these up and downstream will help them make things better next time around.
+Holding semi-regular stakeholder meetings throughout the year is a good place to share insights and emerging issues.
