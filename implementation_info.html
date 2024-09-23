@@ -232,45 +232,60 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This chapter will outline the necessary process to go from the raw civil registration records to a CRVS report. Not only that, but to establish a process that is sustainable and that can be improved on into the future. The topics here covered are a suggestion and we appreciate that your particular case might be different. Throughout this chapter we will highlight certain issues that are common as well as some of the approaches to mitigate them.</p>
+<p>This chapter will outline the necessary process to go from the raw civil registration records to a CRVS report. Not only that, but to establish a process that is sustainable and that can be improved on into the future. The topics here covered are a suggestion and we appreciate that your particular case might be different.</p>
+<p>A list of topics that you may want to consider as well as some related questions or issues:</p>
 <section id="the-organisational-landscape" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="the-organisational-landscape"><span class="header-section-number">3.1</span> The Organisational Landscape</h2>
+<p>What is the legislation around civil registration and the relevant statistics? Which organisation owns the data, which organisation produces demographic statistics? What are the data users and how does information get shared?</p>
 </section>
 <section id="the-data-collection-and-handling-process" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="the-data-collection-and-handling-process"><span class="header-section-number">3.2</span> The Data Collection and Handling Process</h2>
+<p>How is the data generated? How is it collected and the data set built? Who has responsibility to make sure that the data is correct? Who should train the data collectors? Are there variable definitions? Is there a schedule in place of when data deliveries should happen?</p>
 </section>
 <section id="variable-availability-and-possible-tables" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="variable-availability-and-possible-tables"><span class="header-section-number">3.3</span> Variable Availability and Possible tables</h2>
+<p>From the data available, what tables are possible to be generated? What is the relevant aggregation level from a spatial point of view? Are there any tables that are of high interest that may need extra data collection?</p>
 </section>
 <section id="codebase-management-and-collaboration-principles" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="codebase-management-and-collaboration-principles"><span class="header-section-number">3.4</span> Codebase Management and Collaboration Principles</h2>
+<p>How is the code created and stored? Is there a version control mechanism? This can ensure the system is resilient to people moving. Is there a peer-review procedure in place? Is the code tested on sample data?</p>
 </section>
 <section id="data-quality-analysis" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="data-quality-analysis"><span class="header-section-number">3.5</span> Data Quality Analysis</h2>
+<p>What are the issues with the data? Are there known delivery problems? Are there variables that have a high level of missingness? What can be done to solve this?</p>
 </section>
 <section id="data-cleaning-and-dataset-curation" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="data-cleaning-and-dataset-curation"><span class="header-section-number">3.6</span> Data Cleaning and Dataset Curation</h2>
+<p>Once the data quality has been evaluated, some decisions need to be made on how the data can be cleaned. From this, a curated or clean dataset can be used to generate tables with a clear understanding of what the issues are. This curated dataset can build trust and automation on the latter part of the system.</p>
 </section>
 <section id="table-generation-with-crvsreportpackage" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="table-generation-with-crvsreportpackage"><span class="header-section-number">3.7</span> Table Generation with <code>crvsreportpackage</code></h2>
+<p>The implementation of the <a href="https://tech-acs.github.io/crvsreportpackage/">crvsreportpackage</a> can be carried out from this point. The same principles applied to this can be applied to generate different tables that may be of interest. You can ask others that have an understanding of this system.</p>
 </section>
 <section id="table-polishing-and-visual-alternatives" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="table-polishing-and-visual-alternatives"><span class="header-section-number">3.8</span> Table Polishing and Visual Alternatives</h2>
+<p>Tables with aggregated statistics are really useful. They form the backbone of any analysis and monitoring of demographic statistcs. However, they are sometimes hard to read or it can be hard to highlight the key trends or insights from the data.</p>
+<p>Once the tables are produced there is the potential to use more visual ways of displaying the data, such as the generation of choropleth maps to display geospatial statistics.</p>
 </section>
 <section id="crvs-tables-quality-assurance" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="crvs-tables-quality-assurance"><span class="header-section-number">3.9</span> CRVS Tables Quality Assurance</h2>
+<p>Once the tables are produced: do they show what you would expect? Are there any obvious issues with the data being shown? Do the numbers produced at the aggregate level match other surveys/estimates?</p>
 </section>
 <section id="putting-the-tables-into-context" class="level2" data-number="3.10">
 <h2 data-number="3.10" class="anchored" data-anchor-id="putting-the-tables-into-context"><span class="header-section-number">3.10</span> Putting the Tables into Context</h2>
+<p>Not everyone is a CRVS expert and may not be fully aware of what the tables or graphs show. In order to give a fuller picture, statisticians and analysts should take the time to add accompanying text to the tables. This accompanying text will be a useful tool to “tell the story” and can help in increasing awareness across government and media.</p>
 </section>
 <section id="achieving-a-crvs-report" class="level2" data-number="3.11">
 <h2 data-number="3.11" class="anchored" data-anchor-id="achieving-a-crvs-report"><span class="header-section-number">3.11</span> Achieving a CRVS report</h2>
+<p>Once these tables and accompanying text has been validated, a report can be put together with the information. However some issues still need to be addressed: Who is going to be responsible to publish? Is the publication in a physical form needed or can it be .pdf online? What are the timescales involved in getting the publication ready? Does the publication date co-incide with other key publications? Is there some time set asside to the disseminate the results?</p>
 </section>
 <section id="its-not-only-about-the-report" class="level2" data-number="3.12">
 <h2 data-number="3.12" class="anchored" data-anchor-id="its-not-only-about-the-report"><span class="header-section-number">3.12</span> It’s not Only About the Report</h2>
+<p>There are several levels of data, some may not make it into the report, but may still be useful across government. Are there data users that could access more granular or more timely data?</p>
 </section>
 <section id="learning-lessons" class="level2" data-number="3.13">
 <h2 data-number="3.13" class="anchored" data-anchor-id="learning-lessons"><span class="header-section-number">3.13</span> Learning Lessons</h2>
+<p>No process is ever perfect, the key will be on how feedback loops are set so that every part of it get better the more they do it. Writing documents on how things work is useful to ensure a common understanding. Documenting existing issues and sharing these up and downstream will help them make things better next time around. Holding semi-regular stakeholder meetings throughout the year is a good place to share insights and emerging issues.</p>
 
 
 </section>

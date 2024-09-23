@@ -53,91 +53,91 @@
     "href": "implementation_info.html#the-organisational-landscape",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.1 The Organisational Landscape",
-    "text": "3.1 The Organisational Landscape"
+    "text": "3.1 The Organisational Landscape\nWhat is the legislation around civil registration and the relevant statistics? Which organisation owns the data, which organisation produces demographic statistics? What are the data users and how does information get shared?"
   },
   {
     "objectID": "implementation_info.html#the-data-collection-and-handling-process",
     "href": "implementation_info.html#the-data-collection-and-handling-process",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.2 The Data Collection and Handling Process",
-    "text": "3.2 The Data Collection and Handling Process"
+    "text": "3.2 The Data Collection and Handling Process\nHow is the data generated? How is it collected and the data set built? Who has responsibility to make sure that the data is correct? Who should train the data collectors? Are there variable definitions? Is there a schedule in place of when data deliveries should happen?"
   },
   {
     "objectID": "implementation_info.html#variable-availability-and-possible-tables",
     "href": "implementation_info.html#variable-availability-and-possible-tables",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.3 Variable Availability and Possible tables",
-    "text": "3.3 Variable Availability and Possible tables"
+    "text": "3.3 Variable Availability and Possible tables\nFrom the data available, what tables are possible to be generated? What is the relevant aggregation level from a spatial point of view? Are there any tables that are of high interest that may need extra data collection?"
   },
   {
     "objectID": "implementation_info.html#codebase-management-and-collaboration-principles",
     "href": "implementation_info.html#codebase-management-and-collaboration-principles",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.4 Codebase Management and Collaboration Principles",
-    "text": "3.4 Codebase Management and Collaboration Principles"
+    "text": "3.4 Codebase Management and Collaboration Principles\nHow is the code created and stored? Is there a version control mechanism? This can ensure the system is resilient to people moving. Is there a peer-review procedure in place? Is the code tested on sample data?"
   },
   {
     "objectID": "implementation_info.html#data-quality-analysis",
     "href": "implementation_info.html#data-quality-analysis",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.5 Data Quality Analysis",
-    "text": "3.5 Data Quality Analysis"
+    "text": "3.5 Data Quality Analysis\nWhat are the issues with the data? Are there known delivery problems? Are there variables that have a high level of missingness? What can be done to solve this?"
   },
   {
     "objectID": "implementation_info.html#data-cleaning-and-dataset-curation",
     "href": "implementation_info.html#data-cleaning-and-dataset-curation",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.6 Data Cleaning and Dataset Curation",
-    "text": "3.6 Data Cleaning and Dataset Curation"
+    "text": "3.6 Data Cleaning and Dataset Curation\nOnce the data quality has been evaluated, some decisions need to be made on how the data can be cleaned. From this, a curated or clean dataset can be used to generate tables with a clear understanding of what the issues are. This curated dataset can build trust and automation on the latter part of the system."
   },
   {
     "objectID": "implementation_info.html#table-generation-with-crvsreportpackage",
     "href": "implementation_info.html#table-generation-with-crvsreportpackage",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.7 Table Generation with crvsreportpackage",
-    "text": "3.7 Table Generation with crvsreportpackage"
+    "text": "3.7 Table Generation with crvsreportpackage\nThe implementation of the crvsreportpackage can be carried out from this point. The same principles applied to this can be applied to generate different tables that may be of interest. You can ask others that have an understanding of this system."
   },
   {
     "objectID": "implementation_info.html#table-polishing-and-visual-alternatives",
     "href": "implementation_info.html#table-polishing-and-visual-alternatives",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.8 Table Polishing and Visual Alternatives",
-    "text": "3.8 Table Polishing and Visual Alternatives"
+    "text": "3.8 Table Polishing and Visual Alternatives\nTables with aggregated statistics are really useful. They form the backbone of any analysis and monitoring of demographic statistcs. However, they are sometimes hard to read or it can be hard to highlight the key trends or insights from the data.\nOnce the tables are produced there is the potential to use more visual ways of displaying the data, such as the generation of choropleth maps to display geospatial statistics."
   },
   {
     "objectID": "implementation_info.html#crvs-tables-quality-assurance",
     "href": "implementation_info.html#crvs-tables-quality-assurance",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.9 CRVS Tables Quality Assurance",
-    "text": "3.9 CRVS Tables Quality Assurance"
+    "text": "3.9 CRVS Tables Quality Assurance\nOnce the tables are produced: do they show what you would expect? Are there any obvious issues with the data being shown? Do the numbers produced at the aggregate level match other surveys/estimates?"
   },
   {
     "objectID": "implementation_info.html#putting-the-tables-into-context",
     "href": "implementation_info.html#putting-the-tables-into-context",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.10 Putting the Tables into Context",
-    "text": "3.10 Putting the Tables into Context"
+    "text": "3.10 Putting the Tables into Context\nNot everyone is a CRVS expert and may not be fully aware of what the tables or graphs show. In order to give a fuller picture, statisticians and analysts should take the time to add accompanying text to the tables. This accompanying text will be a useful tool to “tell the story” and can help in increasing awareness across government and media."
   },
   {
     "objectID": "implementation_info.html#achieving-a-crvs-report",
     "href": "implementation_info.html#achieving-a-crvs-report",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.11 Achieving a CRVS report",
-    "text": "3.11 Achieving a CRVS report"
+    "text": "3.11 Achieving a CRVS report\nOnce these tables and accompanying text has been validated, a report can be put together with the information. However some issues still need to be addressed: Who is going to be responsible to publish? Is the publication in a physical form needed or can it be .pdf online? What are the timescales involved in getting the publication ready? Does the publication date co-incide with other key publications? Is there some time set asside to the disseminate the results?"
   },
   {
     "objectID": "implementation_info.html#its-not-only-about-the-report",
     "href": "implementation_info.html#its-not-only-about-the-report",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.12 It’s not Only About the Report",
-    "text": "3.12 It’s not Only About the Report"
+    "text": "3.12 It’s not Only About the Report\nThere are several levels of data, some may not make it into the report, but may still be useful across government. Are there data users that could access more granular or more timely data?"
   },
   {
     "objectID": "implementation_info.html#learning-lessons",
     "href": "implementation_info.html#learning-lessons",
     "title": "3  Implementing an R Vital Statistics pipeline",
     "section": "3.13 Learning Lessons",
-    "text": "3.13 Learning Lessons"
+    "text": "3.13 Learning Lessons\nNo process is ever perfect, the key will be on how feedback loops are set so that every part of it get better the more they do it. Writing documents on how things work is useful to ensure a common understanding. Documenting existing issues and sharing these up and downstream will help them make things better next time around. Holding semi-regular stakeholder meetings throughout the year is a good place to share insights and emerging issues."
   },
   {
     "objectID": "practical_delivery.html#before-we-begin",
@@ -235,14 +235,14 @@
     "href": "data_cleaning.html#dates-out-of-sequence",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.2 Dates out of sequence",
-    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 380 2024-06-07 1900-01-01\n2 717 2024-07-15 1900-01-01\n3 889 2024-07-12 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
+    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 727 2024-05-26 1900-01-01\n2 789 2024-06-28 1900-01-01\n3 743 2024-07-13 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
   },
   {
     "objectID": "data_cleaning.html#duplicate-rows",
     "href": "data_cleaning.html#duplicate-rows",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.3 Duplicate rows",
-    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n2    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n3    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n4    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n5    14 2024-08-03 2024-08-09 Jigawa  Triplet Doctor  Clinic  M            11\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
+    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n2   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n3   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n4   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n5   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
   },
   {
     "objectID": "data_cleaning.html#characters-as-factors",
@@ -256,7 +256,7 @@
     "href": "data_cleaning.html#wrong-order-of-levels",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.5 Wrong order of levels",
-    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Triplet\"              \"Quadruplet or higher\" \"Twin\"                \n[4] \"Single\"              \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
+    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Single\"               \"Triplet\"              \"Quadruplet or higher\"\n[4] \"Twin\"                \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
   },
   {
     "objectID": "data_cleaning.html#unhelpfully-coded-values",
@@ -277,7 +277,7 @@
     "href": "data_cleaning.html#checking-missing-data",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.8 Checking missing data",
-    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      25       0       0       0       0      10 \n\n\nThere are 25 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
+    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      28       0       0       0       0      10 \n\n\nThere are 28 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
   },
   {
     "objectID": "data_cleaning.html#imputing-missing-data",
