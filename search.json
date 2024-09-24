@@ -4,14 +4,7 @@
     "href": "index.html",
     "title": "R for Vital Statistics",
     "section": "",
-    "text": "Welcome\nThis book is a companion to the vsreport package which automates the creation of vital statistics tables in R."
-  },
-  {
-    "objectID": "index.html#acknowledgments",
-    "href": "index.html#acknowledgments",
-    "title": "R for Vital Statistics",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nR4VS is a collaborative effort and we welcome fixes and improvements to the content."
+    "text": "Welcome\nThis book is a companion to the vsreport package which automates the creation of vital statistics tables in R.\nThis book was last rendered on 24 September 2024.\nLicense\nThis book is available free to read and is licensed under the CC BY-NC-ND 4.0 International License. This means that the book can be shared and redistributed as long as appropriate credit is given to the authors.\nAcknowledgments\nR4VS is a collaborative effort and we welcome fixes and improvements to the content."
   },
   {
     "objectID": "intro.html",
@@ -235,14 +228,14 @@
     "href": "data_cleaning.html#dates-out-of-sequence",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.2 Dates out of sequence",
-    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 727 2024-05-26 1900-01-01\n2 789 2024-06-28 1900-01-01\n3 743 2024-07-13 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
+    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1  51 2024-06-12 1900-01-01\n2 125 2024-05-06 1900-01-01\n3 372 2024-07-18 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
   },
   {
     "objectID": "data_cleaning.html#duplicate-rows",
     "href": "data_cleaning.html#duplicate-rows",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.3 Duplicate rows",
-    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n2   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n3   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n4   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n5   539 2024-06-17 2024-06-21 Gombe   Single  Other   Other   F            46\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
+    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g    birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n2    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n3    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n4    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n5    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
   },
   {
     "objectID": "data_cleaning.html#characters-as-factors",
@@ -256,7 +249,7 @@
     "href": "data_cleaning.html#wrong-order-of-levels",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.5 Wrong order of levels",
-    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Single\"               \"Triplet\"              \"Quadruplet or higher\"\n[4] \"Twin\"                \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
+    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Quadruplet or higher\" \"Triplet\"              \"Single\"              \n[4] \"Twin\"                \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
   },
   {
     "objectID": "data_cleaning.html#unhelpfully-coded-values",
@@ -277,7 +270,7 @@
     "href": "data_cleaning.html#checking-missing-data",
     "title": "\n5  Data cleaning\n",
     "section": "\n5.8 Checking missing data",
-    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      28       0       0       0       0      10 \n\n\nThere are 28 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
+    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      26       0       0       0       0      10 \n\n\nThere are 26 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
   },
   {
     "objectID": "data_cleaning.html#imputing-missing-data",
