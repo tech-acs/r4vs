@@ -8,9 +8,14 @@ book:
   repo-url: https://github.com/tech-acs/r4vs
   repo-branch: main
   repo-actions: [edit, issue]
-  page-footer: "Copyright 2024, Tesfaye Belay" 
   page-navigation: true
   search: true
+    
+  page-footer:
+    border: true
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>. This work is licensed under a [CC-BY-NC-ND 4.0 Int License](https://creativecommons.org/licenses/by-nc-nd/4.0/)  
+    
   chapters:
     - index.qmd
     - intro.qmd
@@ -36,5 +41,4 @@ format:
     code-copy: hover
     highlight-style: a11y
 
-
-
+editor: source
