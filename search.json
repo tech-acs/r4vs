@@ -217,67 +217,95 @@
     "text": "4.12 What Next?"
   },
   {
+    "objectID": "data_cleaning.html#sensitive-data",
+    "href": "data_cleaning.html#sensitive-data",
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.1 Sensitive data",
+    "text": "5.1 Sensitive data\nSometimes personal information can be left in a dataset. We can easily drop identifying variables with select(). We don’t have any sensitive data in our synthetic dataset but if we did we’d just remove the variables like this.\n\ndf |&gt; \n  select(-c(first_name, -last_name))"
+  },
+  {
+    "objectID": "data_cleaning.html#remove-white-space",
+    "href": "data_cleaning.html#remove-white-space",
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.2 Remove white space",
+    "text": "5.2 Remove white space\nBlank characters at the beginning, middle or end of a string can easily be coded in error with manual data entry. We can get rid of this white space with the str_squish() function from the stringr package.\n\nstr_squish(\" Federal    Capital Territory\")\n\n[1] \"Federal Capital Territory\""
+  },
+  {
     "objectID": "data_cleaning.html#characters-as-dates",
     "href": "data_cleaning.html#characters-as-dates",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.1 Characters as dates",
-    "text": "5.1 Characters as dates\nDates can be inputted in a variety of formats such as “1 August 24”, Aug 1, 2024”, and “2024-08-01”. Sometimes R will not be able to parse a date and will read it as a character.\nThe variable birth1a (Date of occurrence, Event) is a character but it should be a date. We can coerce it to a date by passing it to the as.Date() function and choosing the corresponding date format. birth1a follows the ISO 8601 standard for dates or ‘YYYY-MM-DD’ so we need to format the data with “%Y-%m-%d”.\n\ndf &lt;- mutate(df, birth1a = as.Date(birth1a, format = \"%Y-%m-%d\"))\nclass(df$birth1a)\n\n[1] \"Date\"\n\n\nDate formats in R\n\n\n\n\n\n\n\nYou can also use the ymd() function which more intuitively transforms the date into year, month, and day.\n\nmutate(df, birth1a = ymd(birth1a))"
+    "section": "\n5.3 Characters as dates",
+    "text": "5.3 Characters as dates\nDates can be inputted in a variety of formats such as “1 August 24”, Aug 1, 2024”, and “2024-08-01”. Sometimes R will not be able to parse a date and will read it as a character.\nThe variable birth1a (Date of occurrence, Event) is a character but it should be a date. We can coerce it to a date by passing it to the as.Date() function and choosing the corresponding date format. birth1a follows the ISO 8601 standard for dates or ‘YYYY-MM-DD’ so we need to format the data with “%Y-%m-%d”.\n\ndf &lt;- mutate(df, birth1a = as.Date(birth1a, format = \"%Y-%m-%d\"))\nclass(df$birth1a)\n\n[1] \"Date\"\n\n\n\n\n\n\nTable 5.2: Date formats in R\n\nSymbol\nDescription\nExample\n\n\n\n%d\nDay as a number\n01-31\n\n\n%a\nAbbreviated weekday\nWed\n\n\n%A\nUnabbreviated weekday\nWednesday\n\n\n%m\nMonth as a number\n1-12\n\n\n%b\nAbbreviated month\nFeb\n\n\n%B\nUnabbreviated month\nFebruary\n\n\n%y\n2-digit year\n24\n\n\n%Y\n4-digit year\n2024\n\n\n\n\n\n\nYou can also use the ymd() function which more intuitively transforms the date into year, month, and day.\n\nmutate(df, birth1a = ymd(birth1a))"
+  },
+  {
+    "objectID": "data_cleaning.html#outliers",
+    "href": "data_cleaning.html#outliers",
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.4 Outliers",
+    "text": "5.4 Outliers\nSometimes there can be rogue values in a dataset that have been entered in error. We can check for these by calculating some summary statistics. The skim() function from the skimr package prints the average, quartiles and a neat histogram.\n\nlibrary(skimr)\nskim(df, \"birth3b\")\n\n\n\n\n── Variable type: numeric ──────────────────────────────────────────────────────\n  skim_variable n_missing complete_rate mean   sd p0 p25 p50 p75 p100 hist \n1 birth3b              10         0.990 46.1 26.6  0  23  45  70   90 ▇▇▇▇▇"
   },
   {
     "objectID": "data_cleaning.html#dates-out-of-sequence",
     "href": "data_cleaning.html#dates-out-of-sequence",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.2 Dates out of sequence",
-    "text": "5.2 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1  51 2024-06-12 1900-01-01\n2 125 2024-05-06 1900-01-01\n3 372 2024-07-18 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
+    "section": "\n5.5 Dates out of sequence",
+    "text": "5.5 Dates out of sequence\nThere may be inputting errors in the civil registration data such as birth1a (Date of occurrence, Event) being recorded after birth1b (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where birth1a (Date of occurrence, Event) is after birth1b (Date of registration, Event) and prints out selected columns.\n\nfilter(df, birth1a &gt; birth1b) |&gt; \n  select(id, birth1a, birth1b)\n\n   id    birth1a    birth1b\n1 654 2024-06-24 1900-01-01\n2 499 2024-06-11 1900-01-01\n3 121 2024-06-13 1900-01-01\n\n\nWe can see that some registration dates have been entered as “1900-01-01”."
   },
   {
     "objectID": "data_cleaning.html#duplicate-rows",
     "href": "data_cleaning.html#duplicate-rows",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.3 Duplicate rows",
-    "text": "5.3 Duplicate rows\nWe can identify duplicate rows by using the id variable which should be unique. The code below groups the data by id and then filters those with more than one row.\n\ndf |&gt; \n  group_by(id) |&gt; \n  filter(n()&gt;1)\n\n# A tibble: 5 × 9\n# Groups:   id [1]\n     id birth1a    birth1b    birth1c birth1g    birth1h birth1i birth2a birth3b\n  &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;\n1    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n2    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n3    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n4    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n5    80 2024-06-18 2024-07-13 Taraba  Quadruple… Doctor  Other   F            70\n\n\nWhen no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the join() function."
+    "section": "\n5.6 Duplicate rows",
+    "text": "5.6 Duplicate rows\nWe can identify duplicate rows by using the get_dupes() function from the janitor package. The function will return any duplicate records and add a dupe_count column containing the number of duplicates. You just need to supply a unique identifier e.g. ‘id’ or a unique combination of columns.\n\nlibrary(janitor)\n\n\nAttaching package: 'janitor'\n\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\ndf |&gt; \n  get_dupes(id)\n\n   id dupe_count    birth1a    birth1b birth1c birth1g birth1h birth1i birth2a\n1 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F\n2 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F\n3 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F\n4 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F\n5 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F\n  birth3b\n1      19\n2      19\n3      19\n4      19\n5      19"
+  },
+  {
+    "objectID": "data_cleaning.html#removing-duplicates",
+    "href": "data_cleaning.html#removing-duplicates",
+    "title": "\n5  Data cleaning\n",
+    "section": "\n5.7 Removing duplicates",
+    "text": "5.7 Removing duplicates\nTo drop duplicate rows whilst retaining the first row we can use the distinct() function. Remember to pass the argument .keep_all = TRUE to keep all the variables not just the unique identifier.\n\ndf |&gt;\n  distinct(id, .keep_all = TRUE)"
   },
   {
     "objectID": "data_cleaning.html#characters-as-factors",
     "href": "data_cleaning.html#characters-as-factors",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.4 Characters as factors",
-    "text": "5.4 Characters as factors\nIt is common practice to read known values of a variable as characters, hence stringsAsFactors = FALSE. However, once you have read in the data you may wish to convert a character variable into a factor. Here we are converting birth1g (Type of birth, Event) into a factor.\n\nclass(df$birth1g)\n\n[1] \"character\"\n\ndf$birth1g &lt;- as_factor(df$birth1g)\nclass(df$birth1g)\n\n[1] \"factor\""
+    "section": "\n5.8 Characters as factors",
+    "text": "5.8 Characters as factors\nIt is common practice to read known values of a variable as characters, hence stringsAsFactors = FALSE. However, once you have read in the data you may wish to convert a character variable into a factor. Here we are converting birth1g (Type of birth, Event) into a factor.\n\nclass(df$birth1g)\n\n[1] \"character\"\n\ndf$birth1g &lt;- as_factor(df$birth1g)\nclass(df$birth1g)\n\n[1] \"factor\""
   },
   {
     "objectID": "data_cleaning.html#wrong-order-of-levels",
     "href": "data_cleaning.html#wrong-order-of-levels",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.5 Wrong order of levels",
-    "text": "5.5 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Quadruplet or higher\" \"Triplet\"              \"Single\"              \n[4] \"Twin\"                \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
+    "section": "\n5.9 Wrong order of levels",
+    "text": "5.9 Wrong order of levels\nSometimes the order of levels in a factor variable is not very helpful. The fct_relevel() function allows you to customise the order of levels. Here we reorder the values of birth1g (Type of birth, Event) so that “Single” comes first, then “Twin” etc.\n\ndf$birth1g |&gt; levels()\n\n[1] \"Triplet\"              \"Quadruplet or higher\" \"Single\"              \n[4] \"Twin\"                \n\ndf$birth1g |&gt; fct_relevel(\"Single\", \"Twin\", \"Triplet\", \"Quadruplet or higher\") |&gt; levels()\n\n[1] \"Single\"               \"Twin\"                 \"Triplet\"             \n[4] \"Quadruplet or higher\""
   },
   {
-    "objectID": "data_cleaning.html#unhelpfully-coded-values",
-    "href": "data_cleaning.html#unhelpfully-coded-values",
+    "objectID": "data_cleaning.html#recode-values",
+    "href": "data_cleaning.html#recode-values",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.6 Unhelpfully coded values",
-    "text": "5.6 Unhelpfully coded values\nOften values of a variable are coded unhelpfully. For example, in birth2a (Sex, Newborn) the sex of the newborn baby has been recorded as “M” and “F”. We can easily recode these so that they are more readable. The fct_recode() function enables you to change factor levels by hand.\n\ndf$birth2a |&gt; \n  fct_recode(Female = \"F\", Male = \"M\") |&gt; \n  levels()\n\n[1] \"Female\" \"Male\""
+    "section": "\n5.10 Recode values",
+    "text": "5.10 Recode values\nOften values of a variable are coded unhelpfully. For example, in birth2a (Sex, Newborn) the sex of the newborn baby has been recorded as “M” and “F”. We can easily recode these so that they are more readable. The fct_recode() function enables you to change factor levels by hand.\n\ndf$birth2a |&gt; \n  fct_recode(Female = \"F\", Male = \"M\") |&gt; \n  levels()\n\n[1] \"Female\" \"Male\"  \n\n\nYou can also use the case_match() function within mutate().\n\ndf |&gt;\n  mutate(birth2a = case_match(birth2a, \"F\" ~ \"Female\", \"M\" ~ \"Male\"))"
   },
   {
     "objectID": "data_cleaning.html#convert-values-to-na",
     "href": "data_cleaning.html#convert-values-to-na",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.7 Convert values to NA",
-    "text": "5.7 Convert values to NA\nMissing values are recorded in a variety of ways e.g. 999999, NULL, or even ” “. We can recode these missing values to a more explicit NA using the na_if() function. The variable birth1c (Place of occurrence, Event) includes a number of missing values that have been recorded as” “. We can replace these with NA using the code below.\n\ndf &lt;- mutate(df, birth1c = na_if(birth1c, \"\"))"
+    "section": "\n5.11 Convert values to NA",
+    "text": "5.11 Convert values to NA\nMissing values are recorded in a variety of ways e.g. 999999, NULL, or even ” “. We can recode these missing values to a more explicit NA using the na_if() function. The variable birth1c (Place of occurrence, Event) includes a number of missing values that have been recorded as” “. We can replace these with NA using the code below.\n\ndf &lt;- mutate(df, birth1c = na_if(birth1c, \"\"))\n\nYou can also use the case_match() function as an alternative.\n\ndf &lt;- mutate(df, birth1c = case_match(birth1c, NA ~ \"\", .default = birth1c))"
   },
   {
     "objectID": "data_cleaning.html#checking-missing-data",
     "href": "data_cleaning.html#checking-missing-data",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.8 Checking missing data",
-    "text": "5.8 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0      26       0       0       0       0      10 \n\n\nThere are 26 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
+    "section": "\n5.12 Checking missing data",
+    "text": "5.12 Checking missing data\nTo identify how many missing values there are in the whole dataset we can run:\n\ndf |&gt; map_dbl(~sum(is.na(.)))\n\n     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b \n      0       0       0       0       0       0       0       0      10 \n\n\nThere are 0 NA values in birth1c (Place of occurrence, Event) and 10 in birth3b (Age, Mother)."
   },
   {
     "objectID": "data_cleaning.html#imputing-missing-data",
     "href": "data_cleaning.html#imputing-missing-data",
     "title": "\n5  Data cleaning\n",
-    "section": "\n5.9 Imputing missing data",
-    "text": "5.9 Imputing missing data\nIn cases where there are missing values in an integer variable we can impute them as an average. For example, there are 10 missing values in birth3b (Age, Mother). We can impute the mean age with the following code.\n\ndf &lt;- df |&gt; \n  mutate(birth3b = case_when(\n    is.na(birth3b) ~ as.integer(mean(birth3b, na.rm = TRUE)),\n    TRUE ~ birth3b)\n    )"
+    "section": "\n5.13 Imputing missing data",
+    "text": "5.13 Imputing missing data\nIn cases where there are missing values in an integer variable we can impute them as an average. For example, there are 10 missing values in birth3b (Age, Mother). We can impute the mean age with the following code.\n\ndf &lt;- df |&gt; \n  mutate(birth3b = case_when(\n    is.na(birth3b) ~ as.integer(mean(birth3b, na.rm = TRUE)),\n    TRUE ~ birth3b)\n    )"
   },
   {
     "objectID": "styling_tables.html#gt-tables",
