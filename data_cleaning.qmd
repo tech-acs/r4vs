@@ -1,15 +1,22 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Data cleaning
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse) ; library(reactable)
+library(tidyverse) ; library(knitr)
 ```
 
-There are several simple routines that can help make the preparation of civil registration data for tabulation less time consuming. This vignette uses the [tidyverse](https://www.tidyverse.org/) suite of R packages to deal with common problems such as incorrect data types, duplicate rows, and missing values.
+There are several simple routines that can help make the preparation of civil registration data for tabulation less time consuming. This chapter uses the [tidyverse](https://www.tidyverse.org/) suite of R packages to deal with common problems such as incorrect data types, duplicate rows, and missing values.
 
-We will use a synthetic dataset that has the appearance of civil registration data to experiment with. The states of Nigeria are used but otherwise the data are completely fictional.
+We will use a synthetic dataset (@tbl-synthetic) that has the appearance of civil registration data to experiment with. The states of Nigeria are used but otherwise the data are completely fictional.
 
-*Our synthetic dataset*
 ```{r, echo=FALSE}
+#| label: tbl-synthetic
+#| tbl-cap: "Synthetic dataset, first 5 rows"
+
 n <- 1000
 id <- sample(1:n)
 birth1a <- sample(seq(as.Date("2024/05/01"), as.Date("2024/08/05"), by = "day"), n, replace = TRUE)
@@ -35,7 +42,7 @@ df <- raw |>
   
 df <- df |> bind_rows(slice(df, rep(1, 4))) # duplicate rows
 
-reactable(df, defaultPageSize = 5)
+kable(head(df, 5))
 ```
 
 Before we start we need to load the [tidyverse](https://www.tidyverse.org/) package.
@@ -62,6 +69,20 @@ There are `r ncol(df)` variables in our data:
 
 The variable `birth1b` (Date of registration, Event) is of type date, `id` and `birth3b` (Age, Mother) integer, and the others are all character.
 
+## Sensitive data
+Sometimes personal information can be left in a dataset. We can easily drop identifying variables with [`select()`](https://dplyr.tidyverse.org/reference/select.html). We don't have any sensitive data in our synthetic dataset but if we did we'd just remove the variables like this.
+
+```{r, eval=FALSE}
+df |> 
+  select(-c(first_name, -last_name))
+```
+
+## Remove white space
+Blank characters at the beginning, middle or end of a string can easily be coded in error with manual data entry. We can get rid of this white space with the [`str_squish()`](https://stringr.tidyverse.org/reference/str_trim.html) function from the [`stringr`](https://stringr.tidyverse.org) package.
+```{r}
+str_squish(" Federal    Capital Territory")
+```
+
 ## Characters as dates
 Dates can be inputted in a variety of formats such as "1 August 24", Aug 1, 2024", and "2024-08-01". Sometimes R will not be able to parse a date and will read it as a character. 
 
@@ -72,9 +93,10 @@ df <- mutate(df, birth1a = as.Date(birth1a, format = "%Y-%m-%d"))
 class(df$birth1a)
 ```
 
-*Date formats in R*
-
 ```{r, echo=FALSE}
+#| label: tbl-dates
+#| tbl-cap: "Date formats in R"
+#| 
 date_formats <- tribble(
   ~Symbol, ~Description, ~Example,
   "%d", "Day as a number", "01-31",
@@ -86,13 +108,26 @@ date_formats <- tribble(
   "%y", "2-digit year", "24",
   "%Y", "4-digit year", "2024"
 )
-reactable(date_formats)
+kable(date_formats)
 ```
 
 You can also use the [`ymd()`](https://lubridate.tidyverse.org/reference/ymd.html) function which more intuitively transforms the date into year, month, and day. 
 
 ```{r, eval=FALSE}
 mutate(df, birth1a = ymd(birth1a))
+```
+
+## Outliers
+Sometimes there can be rogue values in a dataset that have been entered in error. We can check for these by calculating some summary statistics. The [`skim()`](https://docs.ropensci.org/skimr/reference/skim.html) function from the [`skimr`](https://docs.ropensci.org/skimr/index.html) package prints the average, quartiles and a neat histogram.
+
+```{r, eval=FALSE}
+library(skimr)
+skim(df, "birth3b")
+```
+
+```{r, echo=FALSE}
+stats <- skimr::skim(df, "birth3b")
+print(stats, include_summary = FALSE)
 ```
 
 ## Dates out of sequence
@@ -106,14 +141,20 @@ filter(df, birth1a > birth1b) |>
 We can see that some registration dates have been entered as "1900-01-01".
 
 ## Duplicate rows
-We can identify duplicate rows by using the `id` variable which should be unique. The code below groups the data by `id` and then filters those with more than one row.
+We can identify duplicate rows by using the [`get_dupes()`](https://sfirke.github.io/janitor/reference/get_dupes.html) function from the [janitor](https://sfirke.github.io/janitor) package. The function will return any duplicate records and add a `dupe_count` column containing the number of duplicates. You just need to supply a unique identifier e.g. 'id' or a unique combination of columns. 
+
 ```{r}
+library(janitor)
 df |> 
-  group_by(id) |> 
-  filter(n()>1)
+  get_dupes(id)
 ```
 
-When no id variable is present in the data you could create a unique identifier by concatenating one or more values. This could be achieved with the [`join()`](https://tidyr.tidyverse.org/reference/unite.html) function.
+## Removing duplicates
+To drop duplicate rows whilst retaining the first row we can use the [`distinct()`](https://dplyr.tidyverse.org/reference/distinct.html) function. Remember to pass the argument `.keep_all = TRUE` to keep **all** the variables not just the unique identifier.
+```{r, eval=FALSE}
+df |>
+  distinct(id, .keep_all = TRUE)
+```
 
 ## Characters as factors
 It is common practice to read known values of a variable as characters, hence `stringsAsFactors = FALSE`. However, once you have read in the data you may wish to convert a character variable into a factor. Here we are converting `birth1g` (Type of birth, Event) into a factor.
@@ -130,7 +171,7 @@ df$birth1g |> levels()
 df$birth1g |> fct_relevel("Single", "Twin", "Triplet", "Quadruplet or higher") |> levels()
 ```
 
-## Unhelpfully coded values
+## Recode values
 Often values of a variable are coded unhelpfully. For example, in `birth2a` (Sex, Newborn) the sex of the newborn baby has been recorded as "M" and "F". We can easily recode these so that they are more readable. The [`fct_recode()`](https://forcats.tidyverse.org/reference/fct_recode.html) function enables you to change factor levels by hand.
 ```{r}
 df$birth2a |> 
@@ -138,11 +179,23 @@ df$birth2a |>
   levels()
 ```
 
+You can also use the [`case_match()`](https://dplyr.tidyverse.org/reference/case_match.html) function within [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html).
+```{r, eval=FALSE}
+df |>
+  mutate(birth2a = case_match(birth2a, "F" ~ "Female", "M" ~ "Male"))
+```
+
 ## Convert values to NA
 Missing values are recorded in a variety of ways e.g. 999999, NULL, or even " ". We can recode these missing values to a more explicit NA using the [`na_if()`](https://dplyr.tidyverse.org/reference/na_if.html) function. The variable `birth1c` (Place of occurrence, Event) includes a number of missing values that have been recorded as  " ". We can replace these with NA using the code below.
 ```{r}
 df <- mutate(df, birth1c = na_if(birth1c, ""))
 ```
+
+You can also use the `case_match()` function as an alternative.
+```{r}
+df <- mutate(df, birth1c = case_match(birth1c, NA ~ "", .default = birth1c))
+```
+
 
 ## Checking missing data
 To identify how many missing values there are in the whole dataset we can run:
