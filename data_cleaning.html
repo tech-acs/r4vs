@@ -214,19 +214,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#sensitive-data" id="toc-sensitive-data" class="nav-link active" data-scroll-target="#sensitive-data"><span class="header-section-number">5.1</span> Sensitive data</a></li>
-  <li><a href="#remove-white-space" id="toc-remove-white-space" class="nav-link" data-scroll-target="#remove-white-space"><span class="header-section-number">5.2</span> Remove white space</a></li>
-  <li><a href="#characters-as-dates" id="toc-characters-as-dates" class="nav-link" data-scroll-target="#characters-as-dates"><span class="header-section-number">5.3</span> Characters as dates</a></li>
-  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers"><span class="header-section-number">5.4</span> Outliers</a></li>
-  <li><a href="#dates-out-of-sequence" id="toc-dates-out-of-sequence" class="nav-link" data-scroll-target="#dates-out-of-sequence"><span class="header-section-number">5.5</span> Dates out of sequence</a></li>
-  <li><a href="#duplicate-rows" id="toc-duplicate-rows" class="nav-link" data-scroll-target="#duplicate-rows"><span class="header-section-number">5.6</span> Duplicate rows</a></li>
-  <li><a href="#removing-duplicates" id="toc-removing-duplicates" class="nav-link" data-scroll-target="#removing-duplicates"><span class="header-section-number">5.7</span> Removing duplicates</a></li>
-  <li><a href="#characters-as-factors" id="toc-characters-as-factors" class="nav-link" data-scroll-target="#characters-as-factors"><span class="header-section-number">5.8</span> Characters as factors</a></li>
-  <li><a href="#wrong-order-of-levels" id="toc-wrong-order-of-levels" class="nav-link" data-scroll-target="#wrong-order-of-levels"><span class="header-section-number">5.9</span> Wrong order of levels</a></li>
-  <li><a href="#recode-values" id="toc-recode-values" class="nav-link" data-scroll-target="#recode-values"><span class="header-section-number">5.10</span> Recode values</a></li>
-  <li><a href="#convert-values-to-na" id="toc-convert-values-to-na" class="nav-link" data-scroll-target="#convert-values-to-na"><span class="header-section-number">5.11</span> Convert values to NA</a></li>
-  <li><a href="#checking-missing-data" id="toc-checking-missing-data" class="nav-link" data-scroll-target="#checking-missing-data"><span class="header-section-number">5.12</span> Checking missing data</a></li>
-  <li><a href="#imputing-missing-data" id="toc-imputing-missing-data" class="nav-link" data-scroll-target="#imputing-missing-data"><span class="header-section-number">5.13</span> Imputing missing data</a></li>
+<li><a href="#practice-dataset" id="toc-practice-dataset" class="nav-link active" data-scroll-target="#practice-dataset"><span class="header-section-number">5.1</span> Practice dataset</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">5.2</span> Setup</a></li>
+  <li>
+<a href="#data-de-identification" id="toc-data-de-identification" class="nav-link" data-scroll-target="#data-de-identification"><span class="header-section-number">5.3</span> Data de-identification</a>
+  <ul class="collapse">
+<li><a href="#removing-columns" id="toc-removing-columns" class="nav-link" data-scroll-target="#removing-columns"><span class="header-section-number">5.3.1</span> Removing columns</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#valid" id="toc-valid" class="nav-link" data-scroll-target="#valid"><span class="header-section-number">5.4</span> Valid</a>
+  <ul class="collapse">
+<li><a href="#characters-as-dates" id="toc-characters-as-dates" class="nav-link" data-scroll-target="#characters-as-dates"><span class="header-section-number">5.4.1</span> Characters as dates</a></li>
+  <li><a href="#characters-as-factors" id="toc-characters-as-factors" class="nav-link" data-scroll-target="#characters-as-factors"><span class="header-section-number">5.4.2</span> Characters as factors</a></li>
+  <li><a href="#remove-white-space" id="toc-remove-white-space" class="nav-link" data-scroll-target="#remove-white-space"><span class="header-section-number">5.4.3</span> Remove white space</a></li>
+  <li><a href="#values-within-expected-range" id="toc-values-within-expected-range" class="nav-link" data-scroll-target="#values-within-expected-range"><span class="header-section-number">5.4.4</span> Values within expected range</a></li>
+  <li><a href="#wrong-order-of-levels" id="toc-wrong-order-of-levels" class="nav-link" data-scroll-target="#wrong-order-of-levels"><span class="header-section-number">5.4.5</span> Wrong order of levels</a></li>
+  <li><a href="#recode-values" id="toc-recode-values" class="nav-link" data-scroll-target="#recode-values"><span class="header-section-number">5.4.6</span> Recode values</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#accurate" id="toc-accurate" class="nav-link" data-scroll-target="#accurate"><span class="header-section-number">5.5</span> Accurate</a>
+  <ul class="collapse">
+<li><a href="#dates-out-of-sequence" id="toc-dates-out-of-sequence" class="nav-link" data-scroll-target="#dates-out-of-sequence"><span class="header-section-number">5.5.1</span> Dates out of sequence</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#complete" id="toc-complete" class="nav-link" data-scroll-target="#complete"><span class="header-section-number">5.6</span> Complete</a>
+  <ul class="collapse">
+<li><a href="#identifying-duplicate-rows" id="toc-identifying-duplicate-rows" class="nav-link" data-scroll-target="#identifying-duplicate-rows"><span class="header-section-number">5.6.1</span> Identifying duplicate rows</a></li>
+  <li><a href="#removing-duplicates" id="toc-removing-duplicates" class="nav-link" data-scroll-target="#removing-duplicates"><span class="header-section-number">5.6.2</span> Removing duplicates</a></li>
+  <li><a href="#convert-values-to-na" id="toc-convert-values-to-na" class="nav-link" data-scroll-target="#convert-values-to-na"><span class="header-section-number">5.6.3</span> Convert values to NA</a></li>
+  <li><a href="#checking-missing-data" id="toc-checking-missing-data" class="nav-link" data-scroll-target="#checking-missing-data"><span class="header-section-number">5.6.4</span> Checking missing data</a></li>
+  <li><a href="#fill-missing-value-with-previous-value" id="toc-fill-missing-value-with-previous-value" class="nav-link" data-scroll-target="#fill-missing-value-with-previous-value"><span class="header-section-number">5.6.5</span> Fill missing value with previous value</a></li>
+  <li><a href="#imputing-missing-data" id="toc-imputing-missing-data" class="nav-link" data-scroll-target="#imputing-missing-data"><span class="header-section-number">5.6.6</span> Imputing missing data</a></li>
+  </ul>
+</li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/tech-acs/r4vs/edit/main/data_cleaning.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/tech-acs/r4vs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -247,22 +270,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 </header><p>There are several simple routines that can help make the preparation of civil registration data for tabulation less time consuming. This chapter uses the <a href="https://www.tidyverse.org/">tidyverse</a> suite of R packages to deal with common problems such as incorrect data types, duplicate rows, and missing values.</p>
-<p>We will use a synthetic dataset (<a href="#tbl-synthetic">Table&nbsp;<span>5.1</span></a>) that has the appearance of civil registration data to experiment with. The states of Nigeria are used but otherwise the data are completely fictional.</p>
+<section id="practice-dataset" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="practice-dataset">
+<span class="header-section-number">5.1</span> Practice dataset</h2>
+<p>We will use a synthetic dataset (<a href="#tbl-synthetic">Table&nbsp;<span>5.1</span></a>) that has the appearance of civil registration data to practice with. The states of Nigeria are used but otherwise the data are completely fictional.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-synthetic" class="anchored">
 <table class="table table-sm table-striped small">
 <caption>Table&nbsp;5.1: Synthetic dataset, first 5 rows</caption>
 <colgroup>
-<col style="width: 4%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 9%">
-<col style="width: 23%">
-<col style="width: 9%">
+<col style="width: 5%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 15%">
 <col style="width: 10%">
-<col style="width: 9%">
-<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
 </colgroup>
 <thead><tr class="header">
 <th style="text-align: right;">id</th>
@@ -277,84 +302,112 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">917</td>
-<td style="text-align: left;">2024-06-10</td>
-<td style="text-align: left;">2024-07-03</td>
-<td style="text-align: left;">Enugu</td>
-<td style="text-align: left;">Triplet</td>
+<td style="text-align: right;">795</td>
+<td style="text-align: left;">2024-07-15</td>
+<td style="text-align: left;">2024-07-17</td>
+<td style="text-align: left;">Yobe</td>
+<td style="text-align: left;">Twin</td>
 <td style="text-align: left;">Doctor</td>
-<td style="text-align: left;">Other</td>
-<td style="text-align: left;">F</td>
-<td style="text-align: right;">19</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">943</td>
-<td style="text-align: left;">2024-06-30</td>
-<td style="text-align: left;">2024-07-06</td>
-<td style="text-align: left;">Oyo</td>
-<td style="text-align: left;">Triplet</td>
-<td style="text-align: left;">Doctor</td>
-<td style="text-align: left;">Hospital</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: right;">46</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">377</td>
-<td style="text-align: left;">2024-07-07</td>
-<td style="text-align: left;">2024-07-12</td>
-<td style="text-align: left;">Bayelsa</td>
-<td style="text-align: left;">Quadruplet or higher</td>
-<td style="text-align: left;">Nurse</td>
 <td style="text-align: left;">Unknown</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">81</td>
+<td style="text-align: right;">12</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">166</td>
-<td style="text-align: left;">2024-05-05</td>
-<td style="text-align: left;">2024-05-07</td>
-<td style="text-align: left;">Kano</td>
+<td style="text-align: right;">316</td>
+<td style="text-align: left;">2024-05-11</td>
+<td style="text-align: left;">2024-06-02</td>
+<td style="text-align: left;">Plateau</td>
 <td style="text-align: left;">Triplet</td>
+<td style="text-align: left;">Nurse</td>
+<td style="text-align: left;">Home</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">2024-07-17</td>
+<td style="text-align: left;">2024-07-21</td>
+<td style="text-align: left;">Cross River</td>
+<td style="text-align: left;">Twin</td>
+<td style="text-align: left;">Doctor</td>
+<td style="text-align: left;">Home</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">77</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">535</td>
+<td style="text-align: left;">2024-06-07</td>
+<td style="text-align: left;">2024-06-11</td>
+<td style="text-align: left;">Akwa Ibom</td>
+<td style="text-align: left;">Twin</td>
 <td style="text-align: left;">Midwife</td>
 <td style="text-align: left;">Clinic</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">17</td>
+<td style="text-align: right;">45</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">371</td>
-<td style="text-align: left;">2024-07-15</td>
-<td style="text-align: left;">2024-07-24</td>
-<td style="text-align: left;">Niger</td>
-<td style="text-align: left;">Quadruplet or higher</td>
-<td style="text-align: left;">Doctor</td>
-<td style="text-align: left;">Unknown</td>
-<td style="text-align: left;">M</td>
-<td style="text-align: right;">34</td>
+<td style="text-align: right;">277</td>
+<td style="text-align: left;">2024-06-30</td>
+<td style="text-align: left;">2024-07-25</td>
+<td style="text-align: left;">Anambra</td>
+<td style="text-align: left;">Twin</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">89</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<p>Before we start we need to load the <a href="https://www.tidyverse.org/">tidyverse</a> package.</p>
+</section><section id="setup" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="setup">
+<span class="header-section-number">5.2</span> Setup</h2>
+<p>Before we start we need to load the <a href="https://www.tidyverse.org/">tidyverse</a> package. This will make available a range of handy functions for data manipulation.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Then we need to load our dataset using the <a href="https://readr.tidyverse.org/reference/read_delim.html"><code>read_csv()</code></a> function. All you need to do is provide a path to your CSV file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/practice_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Parsing data types
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Variables are parsed automatically with the <code>read_csv()</code> function but you can set data types for specific columns manually. For example,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="st">"data/practice_data.csv"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="at">x =</span> <span class="fu">col_character</span>(),</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="at">y =</span> <span class="fu">col_logical</span>()</span>
+<span id="cb3-6"><a href="#cb3-6"></a>  )</span>
+<span id="cb3-7"><a href="#cb3-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>Then we can inspect our dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">glimpse</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">glimpse</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,004
 Columns: 9
-$ id      &lt;int&gt; 917, 943, 377, 166, 371, 754, 458, 692, 492, 248, 76, 395, 881…
-$ birth1a &lt;chr&gt; "2024-06-10", "2024-06-30", "2024-07-07", "2024-05-05", "2024-…
-$ birth1b &lt;date&gt; 2024-07-03, 2024-07-06, 2024-07-12, 2024-05-07, 2024-07-24, 2…
-$ birth1c &lt;chr&gt; "Enugu", "Oyo", "Bayelsa", "Kano", "Niger", "Delta", "Abia", "…
-$ birth1g &lt;chr&gt; "Triplet", "Triplet", "Quadruplet or higher", "Triplet", "Quad…
-$ birth1h &lt;chr&gt; "Doctor", "Doctor", "Nurse", "Midwife", "Doctor", "Nurse", "Ot…
-$ birth1i &lt;chr&gt; "Other", "Hospital", "Unknown", "Clinic", "Unknown", "Hospital…
-$ birth2a &lt;chr&gt; "F", "M", "M", "F", "M", "F", "F", "F", "M", "F", "F", "M", "F…
-$ birth3b &lt;int&gt; 19, 46, 81, 17, 34, 81, 20, 65, 51, 2, 51, 79, 90, 18, 66, 63,…</code></pre>
+$ id      &lt;int&gt; 795, 316, 27, 535, 277, 281, 695, 864, 931, 926, 771, 83, 650,…
+$ birth1a &lt;chr&gt; "2024-07-15", "2024-05-11", "2024-07-17", "2024-06-07", "2024-…
+$ birth1b &lt;date&gt; 2024-07-17, 2024-06-02, 2024-07-21, 2024-06-11, 2024-07-25, 2…
+$ birth1c &lt;chr&gt; "Yobe", "Plateau", "Cross River", "Akwa Ibom", "Anambra", "Ebo…
+$ birth1g &lt;chr&gt; "Twin", "Triplet", "Twin", "Twin", "Twin", "Single", "Single",…
+$ birth1h &lt;chr&gt; "Doctor", "Nurse", "Doctor", "Midwife", "Other", "Doctor", "Mi…
+$ birth1i &lt;chr&gt; "Unknown", "Home", "Home", "Clinic", "Other", "Home", "Unknown…
+$ birth2a &lt;chr&gt; "M", "M", "F", "F", "F", "M", "M", "M", "M", "M", "M", "F", "F…
+$ birth3b &lt;int&gt; 12, 1, 77, 45, 89, 28, 55, 60, 57, 5, 17, 26, 61, 67, 71, 81, …</code></pre>
 </div>
 </div>
 <p>There are 9 variables in our data:</p>
@@ -378,24 +431,21 @@ $ birth3b &lt;int&gt; 19, 46, 81, 17, 34, 81, 20, 65, 51, 2, 51, 79, 90, 18, 66,
 <code>birth3b</code> (Age, Mother)</li>
 </ul>
 <p>The variable <code>birth1b</code> (Date of registration, Event) is of type date, <code>id</code> and <code>birth3b</code> (Age, Mother) integer, and the others are all character.</p>
-<section id="sensitive-data" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="sensitive-data">
-<span class="header-section-number">5.1</span> Sensitive data</h2>
-<p>Sometimes personal information can be left in a dataset. We can easily drop identifying variables with <a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a>. We don’t have any sensitive data in our synthetic dataset but if we did we’d just remove the variables like this.</p>
+</section><section id="data-de-identification" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="data-de-identification">
+<span class="header-section-number">5.3</span> Data de-identification</h2>
+<p><em>Information that could identify individuals must be removed from the datatset.</em></p>
+<section id="removing-columns" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="removing-columns">
+<span class="header-section-number">5.3.1</span> Removing columns</h3>
+<p>Sometimes personal information can be left in a dataset. We can easily drop identifying variables with <a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a>. For example, if the <code>id</code> variable were actually a national identity number you could remove it with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(first_name, <span class="sc">-</span>last_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">select</span>(<span class="sc">-</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="remove-white-space" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="remove-white-space">
-<span class="header-section-number">5.2</span> Remove white space</h2>
-<p>Blank characters at the beginning, middle or end of a string can easily be coded in error with manual data entry. We can get rid of this white space with the <a href="https://stringr.tidyverse.org/reference/str_trim.html"><code>str_squish()</code></a> function from the <a href="https://stringr.tidyverse.org"><code>stringr</code></a> package.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">str_squish</span>(<span class="st">" Federal    Capital Territory"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Federal Capital Territory"</code></pre>
-</div>
-</div>
-</section><section id="characters-as-dates" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="characters-as-dates">
-<span class="header-section-number">5.3</span> Characters as dates</h2>
+</section></section><section id="valid" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="valid">
+<span class="header-section-number">5.4</span> Valid</h2>
+<p><em>Variables should conform to data types and values should fall within expected ranges.</em></p>
+<section id="characters-as-dates" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="characters-as-dates">
+<span class="header-section-number">5.4.1</span> Characters as dates</h3>
 <p>Dates can be inputted in a variety of formats such as “1 August 24”, Aug 1, 2024”, and “2024-08-01”. Sometimes R will not be able to parse a date and will read it as a character.</p>
 <p>The variable <code>birth1a</code> (Date of occurrence, Event) is a character but it should be a date. We can coerce it to a date by passing it to the <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code> function and choosing the corresponding date format. <code>birth1a</code> follows the <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> standard for dates or ‘YYYY-MM-DD’ so we need to format the data with “%Y-%m-%d”.</p>
 <div class="cell">
@@ -465,153 +515,271 @@ $ birth3b &lt;int&gt; 19, 46, 81, 17, 34, 81, 20, 65, 51, 2, 51, 79, 90, 18, 66,
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">mutate</span>(df, <span class="at">birth1a =</span> <span class="fu">ymd</span>(birth1a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="outliers" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="outliers">
-<span class="header-section-number">5.4</span> Outliers</h2>
+<p>We can see that some registration dates have been entered as “1900-01-01”.</p>
+</section><section id="characters-as-factors" class="level3" data-number="5.4.2"><h3 data-number="5.4.2" class="anchored" data-anchor-id="characters-as-factors">
+<span class="header-section-number">5.4.2</span> Characters as factors</h3>
+<p>It is common practice to read known values of a variable as characters, hence <code>stringsAsFactors = FALSE</code>. However, once you have read in the data you may wish to convert a character variable into a factor. Here we are converting <code>birth1g</code> (Type of birth, Event) into a factor.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">class</span>(df<span class="sc">$</span>birth1g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>df<span class="sc">$</span>birth1g <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df<span class="sc">$</span>birth1g)</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">class</span>(df<span class="sc">$</span>birth1g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+</div>
+</section><section id="remove-white-space" class="level3" data-number="5.4.3"><h3 data-number="5.4.3" class="anchored" data-anchor-id="remove-white-space">
+<span class="header-section-number">5.4.3</span> Remove white space</h3>
+<p>Leading and trailing white space can easily be coded in error with manual data entry. We can get rid of these blank characters with the <a href="https://stringr.tidyverse.org/reference/str_trim.html"><code>str_squish()</code></a> function from the <a href="https://stringr.tidyverse.org"><code>stringr</code></a> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">str_squish</span>(<span class="st">" Federal    Capital Territory"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Federal Capital Territory"</code></pre>
+</div>
+</div>
+</section><section id="values-within-expected-range" class="level3" data-number="5.4.4"><h3 data-number="5.4.4" class="anchored" data-anchor-id="values-within-expected-range">
+<span class="header-section-number">5.4.4</span> Values within expected range</h3>
 <p>Sometimes there can be rogue values in a dataset that have been entered in error. We can check for these by calculating some summary statistics. The <a href="https://docs.ropensci.org/skimr/reference/skim.html"><code>skim()</code></a> function from the <a href="https://docs.ropensci.org/skimr/index.html"><code>skimr</code></a> package prints the average, quartiles and a neat histogram.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">skim</span>(df, <span class="st">"birth3b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">skim</span>(df, <span class="st">"birth3b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 ── Variable type: numeric ──────────────────────────────────────────────────────
   skim_variable n_missing complete_rate mean   sd p0 p25 p50 p75 p100 hist 
-1 birth3b              10         0.990 46.1 26.6  0  23  45  70   90 ▇▇▇▇▇</code></pre>
+1 birth3b              10         0.990 45.0 27.3  0  20  46  70   90 ▇▇▆▇▇</code></pre>
 </div>
 </div>
-</section><section id="dates-out-of-sequence" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="dates-out-of-sequence">
-<span class="header-section-number">5.5</span> Dates out of sequence</h2>
-<p>There may be inputting errors in the civil registration data such as <code>birth1a</code> (Date of occurrence, Event) being recorded <em>after</em> <code>birth1b</code> (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where <code>birth1a</code> (Date of occurrence, Event) is <em>after</em> <code>birth1b</code> (Date of registration, Event) and prints out selected columns.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">filter</span>(df, birth1a <span class="sc">&gt;</span> birth1b) <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">select</span>(id, birth1a, birth1b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   id    birth1a    birth1b
-1 654 2024-06-24 1900-01-01
-2 499 2024-06-11 1900-01-01
-3 121 2024-06-13 1900-01-01</code></pre>
-</div>
-</div>
-<p>We can see that some registration dates have been entered as “1900-01-01”.</p>
-</section><section id="duplicate-rows" class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="duplicate-rows">
-<span class="header-section-number">5.6</span> Duplicate rows</h2>
-<p>We can identify duplicate rows by using the <a href="https://sfirke.github.io/janitor/reference/get_dupes.html"><code>get_dupes()</code></a> function from the <a href="https://sfirke.github.io/janitor">janitor</a> package. The function will return any duplicate records and add a <code>dupe_count</code> column containing the number of duplicates. You just need to supply a unique identifier e.g.&nbsp;‘id’ or a unique combination of columns.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'janitor'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    chisq.test, fisher.test</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">get_dupes</span>(id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   id dupe_count    birth1a    birth1b birth1c birth1g birth1h birth1i birth2a
-1 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F
-2 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F
-3 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F
-4 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F
-5 917          5 2024-06-10 2024-07-03   Enugu Triplet  Doctor   Other       F
-  birth3b
-1      19
-2      19
-3      19
-4      19
-5      19</code></pre>
-</div>
-</div>
-</section><section id="removing-duplicates" class="level2" data-number="5.7"><h2 data-number="5.7" class="anchored" data-anchor-id="removing-duplicates">
-<span class="header-section-number">5.7</span> Removing duplicates</h2>
-<p>To drop duplicate rows whilst retaining the first row we can use the <a href="https://dplyr.tidyverse.org/reference/distinct.html"><code>distinct()</code></a> function. Remember to pass the argument <code>.keep_all = TRUE</code> to keep <strong>all</strong> the variables not just the unique identifier.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">distinct</span>(id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="characters-as-factors" class="level2" data-number="5.8"><h2 data-number="5.8" class="anchored" data-anchor-id="characters-as-factors">
-<span class="header-section-number">5.8</span> Characters as factors</h2>
-<p>It is common practice to read known values of a variable as characters, hence <code>stringsAsFactors = FALSE</code>. However, once you have read in the data you may wish to convert a character variable into a factor. Here we are converting <code>birth1g</code> (Type of birth, Event) into a factor.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">class</span>(df<span class="sc">$</span>birth1g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>df<span class="sc">$</span>birth1g <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df<span class="sc">$</span>birth1g)</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">class</span>(df<span class="sc">$</span>birth1g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "factor"</code></pre>
-</div>
-</div>
-</section><section id="wrong-order-of-levels" class="level2" data-number="5.9"><h2 data-number="5.9" class="anchored" data-anchor-id="wrong-order-of-levels">
-<span class="header-section-number">5.9</span> Wrong order of levels</h2>
+</section><section id="wrong-order-of-levels" class="level3" data-number="5.4.5"><h3 data-number="5.4.5" class="anchored" data-anchor-id="wrong-order-of-levels">
+<span class="header-section-number">5.4.5</span> Wrong order of levels</h3>
 <p>Sometimes the order of levels in a factor variable is not very helpful. The <a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a> function allows you to customise the order of levels. Here we reorder the values of <code>birth1g</code> (Type of birth, Event) so that “Single” comes first, then “Twin” etc.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>df<span class="sc">$</span>birth1g <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>df<span class="sc">$</span>birth1g <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Triplet"              "Quadruplet or higher" "Single"              
-[4] "Twin"                </code></pre>
+<pre><code>[1] "Twin"                 "Triplet"              "Single"              
+[4] "Quadruplet or higher"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>df<span class="sc">$</span>birth1g <span class="sc">|&gt;</span> <span class="fu">fct_relevel</span>(<span class="st">"Single"</span>, <span class="st">"Twin"</span>, <span class="st">"Triplet"</span>, <span class="st">"Quadruplet or higher"</span>) <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>df<span class="sc">$</span>birth1g <span class="sc">|&gt;</span> <span class="fu">fct_relevel</span>(<span class="st">"Single"</span>, <span class="st">"Twin"</span>, <span class="st">"Triplet"</span>, <span class="st">"Quadruplet or higher"</span>) <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Single"               "Twin"                 "Triplet"             
 [4] "Quadruplet or higher"</code></pre>
 </div>
 </div>
-</section><section id="recode-values" class="level2" data-number="5.10"><h2 data-number="5.10" class="anchored" data-anchor-id="recode-values">
-<span class="header-section-number">5.10</span> Recode values</h2>
+</section><section id="recode-values" class="level3" data-number="5.4.6"><h3 data-number="5.4.6" class="anchored" data-anchor-id="recode-values">
+<span class="header-section-number">5.4.6</span> Recode values</h3>
 <p>Often values of a variable are coded unhelpfully. For example, in <code>birth2a</code> (Sex, Newborn) the sex of the newborn baby has been recorded as “M” and “F”. We can easily recode these so that they are more readable. The <a href="https://forcats.tidyverse.org/reference/fct_recode.html"><code>fct_recode()</code></a> function enables you to change factor levels by hand.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>df<span class="sc">$</span>birth2a <span class="sc">|&gt;</span> </span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">fct_recode</span>(<span class="at">Female =</span> <span class="st">"F"</span>, <span class="at">Male =</span> <span class="st">"M"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>df<span class="sc">$</span>birth2a <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">fct_recode</span>(<span class="at">Female =</span> <span class="st">"F"</span>, <span class="at">Male =</span> <span class="st">"M"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">levels</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Female" "Male"  </code></pre>
 </div>
 </div>
 <p>You can also use the <a href="https://dplyr.tidyverse.org/reference/case_match.html"><code>case_match()</code></a> function within <a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">mutate</span>(<span class="at">birth2a =</span> <span class="fu">case_match</span>(birth2a, <span class="st">"F"</span> <span class="sc">~</span> <span class="st">"Female"</span>, <span class="st">"M"</span> <span class="sc">~</span> <span class="st">"Male"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">mutate</span>(<span class="at">birth2a =</span> <span class="fu">case_match</span>(birth2a, <span class="st">"F"</span> <span class="sc">~</span> <span class="st">"Female"</span>, <span class="st">"M"</span> <span class="sc">~</span> <span class="st">"Male"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="convert-values-to-na" class="level2" data-number="5.11"><h2 data-number="5.11" class="anchored" data-anchor-id="convert-values-to-na">
-<span class="header-section-number">5.11</span> Convert values to NA</h2>
+</section></section><section id="accurate" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="accurate">
+<span class="header-section-number">5.5</span> Accurate</h2>
+<p><em>There should be no conflicting information in the dataset.</em></p>
+<section id="dates-out-of-sequence" class="level3" data-number="5.5.1"><h3 data-number="5.5.1" class="anchored" data-anchor-id="dates-out-of-sequence">
+<span class="header-section-number">5.5.1</span> Dates out of sequence</h3>
+<p>There may be inputting errors in the civil registration data such as <code>birth1a</code> (Date of occurrence, Event) being recorded <em>after</em> <code>birth1b</code> (Date of registration, Event). To identify those records that are out of sync we can use a simple filter. The code below selects all of the rows where <code>birth1a</code> (Date of occurrence, Event) is <em>after</em> <code>birth1b</code> (Date of registration, Event) and prints out selected columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">filter</span>(df, birth1a <span class="sc">&gt;</span> birth1b) <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">select</span>(id, birth1a, birth1b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   id    birth1a    birth1b
+1 390 2024-05-11 1900-01-01
+2  56 2024-05-06 1900-01-01
+3 603 2024-08-01 1900-01-01</code></pre>
+</div>
+</div>
+</section></section><section id="complete" class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="complete">
+<span class="header-section-number">5.6</span> Complete</h2>
+<p><em>There should be no missing or duplicate cases in the dataset.</em></p>
+<section id="identifying-duplicate-rows" class="level3" data-number="5.6.1"><h3 data-number="5.6.1" class="anchored" data-anchor-id="identifying-duplicate-rows">
+<span class="header-section-number">5.6.1</span> Identifying duplicate rows</h3>
+<p>We can identify duplicate rows by using the <a href="https://sfirke.github.io/janitor/reference/get_dupes.html"><code>get_dupes()</code></a> function from the <a href="https://sfirke.github.io/janitor">janitor</a> package. The function will return any duplicate records and add a <code>dupe_count</code> column containing the number of duplicates. You just need to supply a unique identifier e.g.&nbsp;`id`` or a unique combination of columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">get_dupes</span>(id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   id dupe_count    birth1a    birth1b birth1c birth1g birth1h birth1i birth2a
+1 795          5 2024-07-15 2024-07-17    Yobe    Twin  Doctor Unknown       M
+2 795          5 2024-07-15 2024-07-17    Yobe    Twin  Doctor Unknown       M
+3 795          5 2024-07-15 2024-07-17    Yobe    Twin  Doctor Unknown       M
+4 795          5 2024-07-15 2024-07-17    Yobe    Twin  Doctor Unknown       M
+5 795          5 2024-07-15 2024-07-17    Yobe    Twin  Doctor Unknown       M
+  birth3b
+1      12
+2      12
+3      12
+4      12
+5      12</code></pre>
+</div>
+</div>
+</section><section id="removing-duplicates" class="level3" data-number="5.6.2"><h3 data-number="5.6.2" class="anchored" data-anchor-id="removing-duplicates">
+<span class="header-section-number">5.6.2</span> Removing duplicates</h3>
+<p>To drop duplicate rows whilst retaining the first row we can use the <a href="https://dplyr.tidyverse.org/reference/distinct.html"><code>distinct()</code></a> function. Remember to pass the argument <code>.keep_all = TRUE</code> to keep <strong>all</strong> the variables not just the unique identifier.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">distinct</span>(id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="convert-values-to-na" class="level3" data-number="5.6.3"><h3 data-number="5.6.3" class="anchored" data-anchor-id="convert-values-to-na">
+<span class="header-section-number">5.6.3</span> Convert values to NA</h3>
 <p>Missing values are recorded in a variety of ways e.g.&nbsp;999999, NULL, or even ” “. We can recode these missing values to a more explicit NA using the <a href="https://dplyr.tidyverse.org/reference/na_if.html"><code>na_if()</code></a> function. The variable <code>birth1c</code> (Place of occurrence, Event) includes a number of missing values that have been recorded as” “. We can replace these with NA using the code below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">birth1c =</span> <span class="fu">na_if</span>(birth1c, <span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">birth1c =</span> <span class="fu">na_if</span>(birth1c, <span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also use the <code>case_match()</code> function as an alternative.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">birth1c =</span> <span class="fu">case_match</span>(birth1c, <span class="cn">NA</span> <span class="sc">~</span> <span class="st">""</span>, <span class="at">.default =</span> birth1c))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">birth1c =</span> <span class="fu">case_match</span>(birth1c, <span class="cn">NA</span> <span class="sc">~</span> <span class="st">""</span>, <span class="at">.default =</span> birth1c))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="checking-missing-data" class="level2" data-number="5.12"><h2 data-number="5.12" class="anchored" data-anchor-id="checking-missing-data">
-<span class="header-section-number">5.12</span> Checking missing data</h2>
+</section><section id="checking-missing-data" class="level3" data-number="5.6.4"><h3 data-number="5.6.4" class="anchored" data-anchor-id="checking-missing-data">
+<span class="header-section-number">5.6.4</span> Checking missing data</h3>
 <p>To identify how many missing values there are in the whole dataset we can run:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>df <span class="sc">|&gt;</span> <span class="fu">map_dbl</span>(<span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>df <span class="sc">|&gt;</span> <span class="fu">map_dbl</span>(<span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     id birth1a birth1b birth1c birth1g birth1h birth1i birth2a birth3b 
       0       0       0       0       0       0       0       0      10 </code></pre>
 </div>
 </div>
 <p>There are 0 NA values in <code>birth1c</code> (Place of occurrence, Event) and 10 in <code>birth3b</code> (Age, Mother).</p>
-</section><section id="imputing-missing-data" class="level2" data-number="5.13"><h2 data-number="5.13" class="anchored" data-anchor-id="imputing-missing-data">
-<span class="header-section-number">5.13</span> Imputing missing data</h2>
+</section><section id="fill-missing-value-with-previous-value" class="level3" data-number="5.6.5"><h3 data-number="5.6.5" class="anchored" data-anchor-id="fill-missing-value-with-previous-value">
+<span class="header-section-number">5.6.5</span> Fill missing value with previous value</h3>
+<p>Sometimes values are not explicit in a dataset. For example, you might have some population data and only the first value explicitly records the sex.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">kable</span>(pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">Age</th>
+<th style="text-align: left;">Sex</th>
+<th style="text-align: right;">Population</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0-4</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">9432700</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5-9</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">7875387</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10-14</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">7088327</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">15-19</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">6159773</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">20-24</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">5139436</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">25-29</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">4238963</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">30-34</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">3443384</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">35-39</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">2756472</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We can solve this problem with the <code>fill()</code> function which takes the previous value and uses it to fill subsequent missing values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>pop <span class="sc">|&gt;</span> <span class="fu">fill</span>(Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">Age</th>
+<th style="text-align: left;">Sex</th>
+<th style="text-align: right;">Population</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0-4</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">9432700</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5-9</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">7875387</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10-14</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">7088327</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">15-19</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">6159773</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">20-24</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">5139436</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">25-29</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">4238963</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">30-34</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">3443384</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">35-39</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">2756472</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section><section id="imputing-missing-data" class="level3" data-number="5.6.6"><h3 data-number="5.6.6" class="anchored" data-anchor-id="imputing-missing-data">
+<span class="header-section-number">5.6.6</span> Imputing missing data</h3>
 <p>In cases where there are missing values in an integer variable we can impute them as an average. For example, there are 10 missing values in <code>birth3b</code> (Age, Mother). We can impute the mean age with the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
-<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">mutate</span>(<span class="at">birth3b =</span> <span class="fu">case_when</span>(</span>
-<span id="cb35-3"><a href="#cb35-3"></a>    <span class="fu">is.na</span>(birth3b) <span class="sc">~</span> <span class="fu">as.integer</span>(<span class="fu">mean</span>(birth3b, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb35-4"><a href="#cb35-4"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> birth3b)</span>
-<span id="cb35-5"><a href="#cb35-5"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">mutate</span>(<span class="at">birth3b =</span> <span class="fu">case_when</span>(</span>
+<span id="cb36-3"><a href="#cb36-3"></a>    <span class="fu">is.na</span>(birth3b) <span class="sc">~</span> <span class="fu">as.integer</span>(<span class="fu">mean</span>(birth3b, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb36-4"><a href="#cb36-4"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> birth3b)</span>
+<span id="cb36-5"><a href="#cb36-5"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
