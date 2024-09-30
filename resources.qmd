@@ -2,24 +2,41 @@
 
 ## CRVS
 
+### Guidance
+- UNICEF. (2013). *Every Child's Birth Right: Inequities and trends in birth registration.* [https://data.unicef.org/resources/every-childs-birth-right-inequities-and-trends-in-birth-registration/](https://data.unicef.org/resources/every-childs-birth-right-inequities-and-trends-in-birth-registration/)
+- United Nations. (2014). *Principles and Recommendations for a Vital Statistics System - Revision 3*. Statistical Papers, Series M No. 19/Rev.3 (pp. 1–224). [https://unstats.un.org/unsd/demographic/standmeth/principles/m19rev3en.pdf](https://unstats.un.org/unsd/demographic/standmeth/principles/m19rev3en.pdf)
+- United Nations. (2021). *Handbook on Civil Registration and Vital Statistics Systems Management, Operation and Maintenance, Revision 1*. [https://doi.org/10.18356/9789210472173](https://doi.org/10.18356/9789210472173)
+- Vital Strategies, United Nations Economic Commission for Africa, United Nations Economic and Social Commission for Asia and the Pacific, and Statistics Norway. (2020). *Production of a Vital Statistics Report: Guide*. NY, Vital Strategies. [https://www.vitalstrategies.org/wp-content/uploads/Production-of-a-Vital-Statistics-Report-Guide.pdf](https://www.vitalstrategies.org/wp-content/uploads/Production-of-a-Vital-Statistics-Report-Guide.pdf)
+- World Health Organization. (2013). *Strengthening civil registration and vital statistics for births, deaths and causes of death.* [http://apps.who.int/iris/bitstream/10665/78917/1/9789241504591_eng.pdf](http://apps.who.int/iris/bitstream/10665/78917/1/9789241504591_eng.pdf).
+- World Bank and WHO. (2014). *Global Civil Registration and Vital Statistics: A Scaling Up Investment Plan 2015-2024*. Washington, DC: World Bank. [https://openknowledge.worldbank.org/handle/10986/18962](https://openknowledge.worldbank.org/handle/10986/18962)
+- World Bank Group. (2018). *Civil Registration and Vital Statistics Systems*. [eLearning course]. [https://olc.worldbank.org/content/civil-registration-and-vital-statistics-systems-basic-level-self-paced-format](https://olc.worldbank.org/content/civil-registration-and-vital-statistics-systems-basic-level-self-paced-format)
+
+### Academic papers
+- AbouZahr, C., De Savigny, D., Mikkelsen, L., Setel, P. W., Lozano, R., & Lopez, A. D. (2015). "Towards universal civil registration and vital statistics systems: the time is now". *The Lancet*, 386(10001), 1407–1418. [https://doi.org/10.1016/S0140-6736(15)60170-2](https://doi.org/10.1016/S0140-6736(15)60170-2)
+- Cobos Muñoz, D., Abouzahr, C., & De Savigny, D. (2018). "The ‘Ten CRVS Milestones’ framework for understanding Civil Registration and Vital Statistics systems". *BMJ Global Health*, 3(2), e000673. [https://doi.org/10.1136/bmjgh-2017-000673](https://doi.org/10.1136/bmjgh-2017-000673)
+- Mikkelsen, L., Richards, N., AbouZahr, C., Adair, T., Lopez, A. D., & deSavigny, D. (2018). "A framework for evaluating national CRVS systems at baseline." Melbourne: Bloomberg Philanthropies Data for Health Initiative, Civil Registration and Vital Statistics Improvement, University of Melbourne. [https://crvssystems.ca/framework-evaluating-national-crvs-systems-baseline](https://crvssystems.ca/framework-evaluating-national-crvs-systems-baseline)
+- Phillips, D. E., Adair, T., & Lopez, A. D. (2018). "How useful are registered birth statistics for health and social policy? A global systematic assessment of the availability and quality of birth registration data." *Population Health Metrics*, 16(1), 21. [https://doi.org/10.1186/s12963-018-0180-6](https://doi.org/10.1186/s12963-018-0180-6)
+- Suthar, A. B., Khalifa, A., Yin, S., Wenz, K., Ma Fat, D., Mills, S. L., Nichols, E., AbouZahr, C., & Mrkic, S. (2019). "Evaluation of approaches to strengthen civil registration and vital statistics systems: A systematic review and synthesis of policies in 25 countries." *PLOS Medicine*, 16(9), e1002929. [https://doi.org/10.1371/journal.pmed.1002929](https://doi.org/10.1371/journal.pmed.1002929)
+
+
 ## R
 
 ### General
-- Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2024). [R for Data Science](https://r4ds.hadley.nz). (2nd ed.). O’Reilly Media.
+- Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2024). *R for Data Science*. (2nd ed.). O’Reilly Media. [https://r4ds.hadley.nz](https://r4ds.hadley.nz)
 
 ### Data visualisation
 
 #### Charts
 - Wickham, H., Navarro, D. & and Lin Pedersen, T. (2024). *ggplot2: Elegant Graphics for Data Analysis*. (3rd ed.). [https://ggplot2-book.org](https://ggplot2-book.org)
 - Chang, W. (2024). *R Graphics Cookbook*. (2nd ed.). [https://r-graphics.org](https://r-graphics.org)
-- Krause, A,. Rennie, N., & Tarran, B. (2024, February 1). Best Practices for Data Visualisation. Royal Statistical Society. [https://royal-statistical-society.github.io/datavisguide/](https://royal-statistical-society.github.io/datavisguide/)
-- Wilke, C. (2024). SDS 375, Data Visualization in R [Online course]. University of Texas. [https://wilkelab.org/SDS375](https://wilkelab.org/SDS375)
-- Scherer, C. (2023, May 15). A ggplot2 Tutorial for Beautiful Plotting in R. [https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r)
-- BBC data team. (2019, January 24). BBC Visual and Data Journalism cookbook for R graphics. [https://bbc.github.io/rcookbook](https://bbc.github.io/rcookbook)
+- Krause, A,. Rennie, N., & Tarran, B. (2024, February 1). *Best Practices for Data Visualisation*. Royal Statistical Society. [https://royal-statistical-society.github.io/datavisguide/](https://royal-statistical-society.github.io/datavisguide/)
+- Wilke, C. (2024). SDS 375, *Data Visualization in R.* [Online course]. University of Texas. [https://wilkelab.org/SDS375](https://wilkelab.org/SDS375)
+- Scherer, C. (2023, May 15). "A ggplot2 Tutorial for Beautiful Plotting in R." [https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r)
+- BBC data team. (2019, January 24). "BBC Visual and Data Journalism cookbook for R graphics." [https://bbc.github.io/rcookbook](https://bbc.github.io/rcookbook)
 
 #### Maps
 - Anselin, L. (2016). Statistical Maps: Standard Deviation and Box Map. YouTube. [https://www.youtube.com/watch?v=6-weK5J6xRI](https://www.youtube.com/watch?v=6-weK5J6xRI)
-- Harris, R. (2022-2023). [Mapping and Modelling Geographic Data in R](https://profrichharris.github.io/MandM/). Online course.
-- Lovelace, R., Nowosad, J., & Muenchow, J. (2023). [Geocomputation with R](https://geocompr.robinlovelace.net/index.html). 2nd edition.
-- ONS Geography. (2021). [Introduction to GIS in R](https://onsgeo.github.io/geospatial-training/docs/intro_to_gis_in_r). Online course.
+- Harris, R. (2022-2023). Mapping and Modelling Geographic Data in R. [eLearning course]. [https://profrichharris.github.io/MandM](https://profrichharris.github.io/MandM)
+- Lovelace, R., Nowosad, J., & Muenchow, J. (2023). Geocomputation with R. 2nd edition. [https://geocompr.robinlovelace.net/index.html](https://geocompr.robinlovelace.net/index.html)
+- ONS Geography. (2021). Introduction to GIS in R. [eLearning course]. [https://onsgeo.github.io/geospatial-training/docs/intro_to_gis_in_r](https://onsgeo.github.io/geospatial-training/docs/intro_to_gis_in_r)
 
