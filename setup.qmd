@@ -37,7 +37,7 @@ ggplot(mtcars, aes(mpg, wt)) +
 
 
 ## Download and install Git
-First we'll check whether you already have Git on your computer. Open the Command Prompt (find the Search Bar and enter "cmd") and run: `git --version`. The Git version you're currently using will be returned. If `git: command not found` or similar is returned then you need to download and install Git.
+First we'll check whether you already have Git on your computer. Open the Command Prompt (find the Search Bar and enter "cmd") and run: `git --version`{.bash}. The Git version you're currently using will be returned. If `git: command not found`{.bash} or similar is returned then you need to download and install Git.
 
 If you are using Windows and have admin rights then go to [https://git-scm.com/download/win](https://git-scm.com/download/win/win) and download the *Standalone Installer* for 64-bit. 
 
@@ -46,6 +46,15 @@ Note that RStudio requires a 64-bit operating system.
 :::
 
 Run through the installation process and accept all of the default settings. Downloads for other operating systems are available at [https://git-scm.com/download](https://git-scm.com/download).
+
+Once Git has installed we need to set up our user name and email address. In the Command Prompt enter these commands replacing them with your details:
+
+```sh
+$ git config --global user.name "Joe Bloggs"
+$ git config --global user.email joebloggs@example.com
+```
+
+These options are written at the global level so will apply across all of your interactions with Git.
 
 ## Register for a free GitHub account
 [GitHub](https://github.com/join) accounts are free. All you need to do is provide an email address, password and a unique username. There are some tips on creating a GitHub username [here](https://happygitwithr.com/github-acct.html?q=username#username-advice). Once you have completed the sign up process you can visit your dashboard and update your profile.
