@@ -87,7 +87,7 @@ ggplot(df, aes(x = year, y = value)) +
 :::
 :::
 
-However, you've been told to compare Nigeria's fertility rate with Rwanda's. This is where git comes in. Rather than creating a new file or overwriting it you can just track your file changes with git.
+However, you've been told to compare Nigeria's fertility rate with Rwanda's. This is where git comes in. Rather than creating a new file or overwriting it you can just track your file changes with Git.
 
 1. Navigate to the Terminal tab in the Console pane of RStudio. You can also use the Command Prompt or PowerShell in Windows or the Terminal on a Mac.
 2. Go to the folder containing your code and data: `cd /path/to/your/folder`{.bash}
@@ -115,7 +115,7 @@ We have two empty folders and one file (`script.R`) that are currently untracked
 ::: {.callout-tip}
 ## Git commit messages
 
-It is good practice to add a descriptive message to each commit. For example, we might add `git commit -m "Nigeria fertility rate"`{.bash} When we look back through the history of our commits we can then see at a glance what changes we made to the code.
+It is good practice to add a descriptive message to each commit. For example, we might add `git commit -m "Nigeria fertility rate"`{.bash}. When we look back through the history of our commits we can then see at a glance what changes we made to the code.
 :::
 
 Then we can update our R code so that we can compare the historic and projected trend in fertility rates between Nigeria and Rwanda.
@@ -231,7 +231,7 @@ We have updated our dataset with values for Rwanda (`fertility_rate.csv`), creat
 A `.gitignore` is a text file that lists all of the files and folders that you don't want tracked by Git. For example, this list could include datasets that contain sensitive data. Listing files to `.gitignore` is especially important if you intend to host files on GitHub. To create a `.gitignore` file just enter `touch .gitignore`{.bash} into the terminal. You can either edit the file in the terminal or in a text editor. If you want to add a file using the terminal you can enter `echo FILENAME >> .gitignore`{.bash}.
 :::
 
-Rather than overwriting your file with different file names you now have a linear history of commits for the same file. To visualise the history of your commits you can type `git log --reverse --pretty=format:'| %H | %s |'` into the Terminal. This prints out the **commit hash**, a unique identifier for each commit, alongside the commit messages.
+Rather than overwriting your file with different file names you now have a linear history of commits for the same file. To visualise the history of your commits you can type `git log --reverse --pretty=format:'| %H | %s |'` into the Terminal. This prints out the commit **hash**, a unique identifier for each commit, alongside the commit messages.
 
 ```sh
 $ git log --reverse --pretty=format:'| %H | %s |'
@@ -239,7 +239,7 @@ $ git log --reverse --pretty=format:'| %H | %s |'
 | d2faa1a7784fad0524dc33a8585f8cf7c8340b9c | Compare with Rwanda |
 ```
 
-The glossary below lists some of the most common Git commands and their function.
+The glossary below lists some of the most common terms and Git commands.
 
 |                    |                                         |
 |--------------------|:----------------------------------------|
