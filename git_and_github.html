@@ -293,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>However, you’ve been told to compare Nigeria’s fertility rate with Rwanda’s. This is where git comes in. Rather than creating a new file or overwriting it you can just track your file changes with git.</p>
+<p>However, you’ve been told to compare Nigeria’s fertility rate with Rwanda’s. This is where git comes in. Rather than creating a new file or overwriting it you can just track your file changes with Git.</p>
 <ol type="1">
 <li>Navigate to the Terminal tab in the Console pane of RStudio. You can also use the Command Prompt or PowerShell in Windows or the Terminal on a Mac.</li>
 <li>Go to the folder containing your code and data: <code class="sourceCode bash"><span class="bu">cd</span> /path/to/your/folder</code>
@@ -329,7 +329,7 @@ Git commit messages
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It is good practice to add a descriptive message to each commit. For example, we might add <code class="sourceCode bash"><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Nigeria fertility rate"</span></code> When we look back through the history of our commits we can then see at a glance what changes we made to the code.</p>
+<p>It is good practice to add a descriptive message to each commit. For example, we might add <code class="sourceCode bash"><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Nigeria fertility rate"</span></code>. When we look back through the history of our commits we can then see at a glance what changes we made to the code.</p>
 </div>
 </div>
 <p>Then we can update our R code so that we can compare the historic and projected trend in fertility rates between Nigeria and Rwanda.</p>
@@ -419,11 +419,11 @@ Git commit messages
 <p>A <code>.gitignore</code> is a text file that lists all of the files and folders that you don’t want tracked by Git. For example, this list could include datasets that contain sensitive data. Listing files to <code>.gitignore</code> is especially important if you intend to host files on GitHub. To create a <code>.gitignore</code> file just enter <code class="sourceCode bash"><span class="fu">touch</span> .gitignore</code> into the terminal. You can either edit the file in the terminal or in a text editor. If you want to add a file using the terminal you can enter <code class="sourceCode bash"><span class="bu">echo</span> FILENAME <span class="op">&gt;&gt;</span> .gitignore</code>.</p>
 </div>
 </div>
-<p>Rather than overwriting your file with different file names you now have a linear history of commits for the same file. To visualise the history of your commits you can type <code>git log --reverse --pretty=format:'| %H | %s |'</code> into the Terminal. This prints out the <strong>commit hash</strong>, a unique identifier for each commit, alongside the commit messages.</p>
+<p>Rather than overwriting your file with different file names you now have a linear history of commits for the same file. To visualise the history of your commits you can type <code>git log --reverse --pretty=format:'| %H | %s |'</code> into the Terminal. This prints out the commit <strong>hash</strong>, a unique identifier for each commit, alongside the commit messages.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">$</span> git log <span class="at">--reverse</span> <span class="at">--pretty</span><span class="op">=</span>format:<span class="st">'| %H | %s |'</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="kw">|</span> <span class="ex">b7ab60ae6fae9c6263ff36fd4fcda4f8be874683</span> <span class="kw">|</span> <span class="ex">Nigeria</span> fertility rate <span class="kw">|</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="kw">|</span> <span class="ex">d2faa1a7784fad0524dc33a8585f8cf7c8340b9c</span> <span class="kw">|</span> <span class="ex">Compare</span> with Rwanda <span class="kw">|</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The glossary below lists some of the most common Git commands and their function.</p>
+<p>The glossary below lists some of the most common terms and Git commands.</p>
 <table class="table-hover table">
 <caption>Common terms and Git commands</caption>
 <colgroup>
