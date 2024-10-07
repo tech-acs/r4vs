@@ -41,8 +41,8 @@
 - ONS Geography. (2021). Introduction to GIS in R. [eLearning course]. [https://onsgeo.github.io/geospatial-training/docs/intro_to_gis_in_r](https://onsgeo.github.io/geospatial-training/docs/intro_to_gis_in_r)
 
 ## Git and GitHub
-- Bryan, J. (2018b), *Happy Git and GitHub for the useR*, GitHub. [https://happygitwithr.com](https://happygitwithr.com)
-- Chacon, S., & Straub. B., (2014). *Pro Git*. Apress. [https://git-scm.com/book/en/v2(https://git-scm.com/book/en/v2)]
+- Bryan, J. (2018b), *Happy Git and GitHub for the useR*. GitHub. [https://happygitwithr.com](https://happygitwithr.com)
+- Chacon, S., & Straub. B., (2014). *Pro Git*. Apress. [https://git-scm.com/book/en/v2](https://git-scm.com/book/en/v2)
 - Perez-Riverol, Y., Gatto, L., Wang, R., Sachsenberg, T., Uszkoreit, J., Leprevost, F. da V., Fufezan, C., Ternent, T., Eglen, S. J., Katz, D. S., Pollard, T. J., Konovalov, A., Flight, R. M., Blin, K., & Vizcaíno, J. A. (2016). "Ten Simple Rules for Taking Advantage of Git and GitHub". *PLOS Computational Biology*, 12(7), e1004947. [https://doi.org/10.1371/journal.pcbi.1004947](https://doi.org/10.1371/journal.pcbi.1004947)
 
 
