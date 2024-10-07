@@ -268,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section><section id="download-and-install-git" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="download-and-install-git">
 <span class="header-section-number">2.3</span> Download and install Git</h2>
-<p>First we’ll check whether you already have Git on your computer. Open the Command Prompt (find the Search Bar and enter “cmd”) and run: <code>git --version</code>. The Git version you’re currently using will be returned. If <code>git: command not found</code> or similar is returned then you need to download and install Git.</p>
+<p>First we’ll check whether you already have Git on your computer. Open the Command Prompt (find the Search Bar and enter “cmd”) and run: <code class="sourceCode bash"><span class="fu">git</span> <span class="at">--version</span></code>. The Git version you’re currently using will be returned. If <code class="sourceCode bash"><span class="ex">git:</span> command not found</code> or similar is returned then you need to download and install Git.</p>
 <p>If you are using Windows and have admin rights then go to <a href="https://git-scm.com/download/win/win">https://git-scm.com/download/win</a> and download the <em>Standalone Installer</em> for 64-bit.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -284,6 +284,10 @@ Note
 </div>
 </div>
 <p>Run through the installation process and accept all of the default settings. Downloads for other operating systems are available at <a href="https://git-scm.com/download">https://git-scm.com/download</a>.</p>
+<p>Once Git has installed we need to set up our user name and email address. In the Command Prompt enter these commands replacing them with your details:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.name <span class="st">"Joe Bloggs"</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email joebloggs@example.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These options are written at the global level so will apply across all of your interactions with Git.</p>
 </section><section id="register-for-a-free-github-account" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="register-for-a-free-github-account">
 <span class="header-section-number">2.4</span> Register for a free GitHub account</h2>
 <p><a href="https://github.com/join">GitHub</a> accounts are free. All you need to do is provide an email address, password and a unique username. There are some tips on creating a GitHub username <a href="https://happygitwithr.com/github-acct.html?q=username#username-advice">here</a>. Once you have completed the sign up process you can visit your dashboard and update your profile.</p>
