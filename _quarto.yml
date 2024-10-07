@@ -26,6 +26,7 @@ book:
     - styling_tables.qmd
     - charts.qmd
     - choropleth_maps.qmd
+    - git_and_github.qmd
   appendices:
     - glossary.qmd
     - resources.qmd
