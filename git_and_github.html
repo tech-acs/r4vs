@@ -226,9 +226,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
+<div class="quarto-title-block"><div><h1 class="title">
 <span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Git and GitHub</span>
-</h1>
+</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -251,10 +251,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     ├── data
     │   ├── fertility_rate.csv
     ├── outputs</code></pre>
-<div class="grid">
-<div class="g-col-6">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse) ; <span class="fu">library</span>(ggtext)</span>
+<details><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse) ; <span class="fu">library</span>(ggtext)</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fertility_rate.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">ymd</span>(year, <span class="at">truncated =</span> 2L))</span>
@@ -283,14 +281,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-27"><a href="#cb2-27"></a>  ) </span>
 <span id="cb2-28"><a href="#cb2-28"></a></span>
 <span id="cb2-29"><a href="#cb2-29"></a><span class="fu">ggsave</span>(<span class="st">"outputs/plot.jpeg"</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">scale =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</div>
-<div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="git_and_github_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<p><img src="git_and_github_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" style="width:70.0%"></p>
 </div>
 </div>
 <p>However, you’ve been told to compare Nigeria’s fertility rate with Rwanda’s. This is where git comes in. Rather than creating a new file or overwriting it you can just track your file changes with Git.</p>
@@ -314,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-10"><a href="#cb3-10"></a><span class="ex">nothing</span> added to commit but untracked files present <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> to track<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We have two empty folders and one file (<code>script.R</code>) that are currently untracked.</p>
 <ol start="5" type="1">
-<li>Put the files in the staging area: <code class="sourceCode bash"><span class="fu">git</span> add <span class="at">-A</span></code>
+<li>Put the files in the staging area: <code class="sourceCode bash"><span class="fu">git</span> add <span class="at">-A</span></code>. This tracks all of the files in the repo. You can also track individual files by specifying them within the Git command: <code class="sourceCode bash"><span class="fu">git</span> add script.R</code>
 </li>
 <li>Then take a snapshot with <code class="sourceCode bash"><span class="fu">git</span> commit</code>
 </li>
@@ -329,14 +324,12 @@ Git commit messages
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It is good practice to add a descriptive message to each commit. For example, we might add <code class="sourceCode bash"><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Nigeria fertility rate"</span></code>. When we look back through the history of our commits we can then see at a glance what changes we made to the code.</p>
+<p>It is good practice to add a descriptive message to each commit. For example, we might add <code class="sourceCode bash"><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Line chart showing Nigeria's total fertility rate"</span></code>. When we look back through the history of our commits we can then see at a glance what changes we made to the code. There are various dos and don’ts about good commit messages but the ONS Data Science Campus has some useful advice in their <a href="https://datasciencecampus.github.io/coding-standards/version-control.html#commit-message">style guide for version control</a>.</p>
 </div>
 </div>
 <p>Then we can update our R code so that we can compare the historic and projected trend in fertility rates between Nigeria and Rwanda.</p>
-<div class="grid">
-<div class="g-col-6">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(tidyverse) ; <span class="fu">library</span>(ggtext)</span>
+<details><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(tidyverse) ; <span class="fu">library</span>(ggtext)</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fertility_rate.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">ymd</span>(year, <span class="at">truncated =</span> 2L),</span>
@@ -372,14 +365,11 @@ Git commit messages
 <span id="cb4-34"><a href="#cb4-34"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span>
 <span id="cb4-35"><a href="#cb4-35"></a></span>
 <span id="cb4-36"><a href="#cb4-36"></a><span class="fu">ggsave</span>(<span class="st">"outputs/plot.jpeg"</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">scale =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</div>
-<div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="git_and_github_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<p><img src="git_and_github_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" style="width:70.0%"></p>
 </div>
 </div>
 <p>To track these changes we’d follow these steps.</p>
@@ -401,12 +391,12 @@ Git commit messages
 <ol start="2" type="1">
 <li>Put the changes in the staging area: <code class="sourceCode bash"><span class="fu">git</span> add <span class="at">-A</span></code>
 </li>
-<li>Commit the changes: <code class="sourceCode bash"><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Compare with Rwanda"</span></code>
+<li>Commit the changes: <code class="sourceCode bash"><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Multiple line chart of total fertility rate in Nigeria and Rwanda"</span></code>
 </li>
 <li>Check that everything has been committed: <code class="sourceCode bash"><span class="fu">git</span> status</code>
 </li>
 </ol>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -490,6 +480,21 @@ Git commit messages
 <p>Before you can add your local <strong>repo</strong> to GitHub you need to create a <strong>remote</strong> repo on GitHub.</p>
 <ol type="1">
 <li>Create a new <a href="https://github.com/new"><strong>repo</strong></a> called <code>vital_statistics</code>. There is no need to add a README file, licence or a <code>.gitignore</code> file at this stage. Click through to ‘Create repository’.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+README
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A README provides information about the purpose and contents of a GitHub repo. For example, the README for the <a href="https://github.com/tech-acs/vsreport">vsreport</a> package provides an overview, guidance on installation, some example code, and a list of contributors. Each README file is written using <a href="https://daringfireball.net/projects/markdown/">Markdown</a>, a simple formatting syntax for plain text documents that can be easily converted into HTML. A good <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">tutorial</a> on writing in Markdown can be found on the GitHub website.</p>
+</div>
+</div>
+<ol start="2" type="1">
 <li>Navigate to ‘<strong>Quick setup — if you’ve done this kind of thing before</strong>’ on the subsequent page and copy the remote repository URL. It will something look like <code>https://github.com/USERNAME/vital_statistics.git</code>
 </li>
 <li>Next, open the terminal and ensure that it is pointing to the current folder. To print the name of the current folder just enter <code class="sourceCode bash"><span class="bu">pwd</span></code>
@@ -529,6 +534,8 @@ Branches
 <strong>Clone</strong> the remote repo in the current directory by entering <code class="sourceCode bash"><span class="fu">git</span> clone https://github.com/USERNAME/vital_statistics.git</code> This is the same remote repository URL that we used earlier.</li>
 </ol>
 
+
+<!-- -->
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -609,6 +616,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -772,7 +830,302 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary of Terms</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> Git and GitHub</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="an">format:</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">  html:</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">    code-fold: true</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="an">editor:</span><span class="co"> source</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">---</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>, <span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>, <span class="at">fig.width =</span> <span class="dv">6</span>, <span class="at">fig.asp =</span> <span class="fl">0.8</span>, <span class="at">out.width =</span> <span class="st">"70%"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="in">```</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="fu">## Git</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">[</span><span class="ot">Git</span><span class="co">](https://git-scm.com/)</span> is a piece of version control software written by Linus Torvalds, the creator of Linux. It essentially tracks changes to local files.</span>
+<span id="cb7-16"><a href="#cb7-16"></a></span>
+<span id="cb7-17"><a href="#cb7-17"></a>Let's say that you've written some R code that visualises the total fertility rate in Nigeria. You've saved the R script (<span class="in">`script.R`</span>) in a folder called 'vital_statistics' and the dataset (<span class="in">`fertility_rate.csv`</span>) in a new subfolder called 'data'. The resulting plot is stored in the 'outputs' folder.</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="in">```</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="in">.</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="in">└── vital_statistics</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="in">    ├── script.R</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="in">    ├── data</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="in">    │   ├── fertility_rate.csv</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="in">    ├── outputs</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="in">```</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a></span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="in">```{r, echo=TRUE, eval=FALSE}</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a><span class="fu">library</span>(tidyverse) ; <span class="fu">library</span>(ggtext)</span>
+<span id="cb7-30"><a href="#cb7-30"></a></span>
+<span id="cb7-31"><a href="#cb7-31"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fertility_rate.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-32"><a href="#cb7-32"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">ymd</span>(year, <span class="at">truncated =</span> 2L))</span>
+<span id="cb7-33"><a href="#cb7-33"></a></span>
+<span id="cb7-34"><a href="#cb7-34"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span> </span>
+<span id="cb7-35"><a href="#cb7-35"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#CC79A7"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb7-36"><a href="#cb7-36"></a>  <span class="fu">scale_x_date</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(),</span>
+<span id="cb7-37"><a href="#cb7-37"></a>               <span class="at">breaks =</span> <span class="fu">seq.Date</span>(<span class="fu">as.Date</span>(<span class="st">"1960-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2100-01-01"</span>), <span class="at">by =</span> <span class="st">"20 years"</span>),</span>
+<span id="cb7-38"><a href="#cb7-38"></a>               <span class="at">date_labels =</span> <span class="st">"%Y"</span>) <span class="sc">+</span> </span>
+<span id="cb7-39"><a href="#cb7-39"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb7-40"><a href="#cb7-40"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">accuracy =</span> <span class="dv">1</span>, <span class="at">scale_cut =</span> scales<span class="sc">::</span><span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
+<span id="cb7-41"><a href="#cb7-41"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Births per woman"</span>,</span>
+<span id="cb7-42"><a href="#cb7-42"></a>       <span class="at">title =</span> <span class="st">"Total fertility rate"</span>,</span>
+<span id="cb7-43"><a href="#cb7-43"></a>       <span class="at">subtitle =</span> <span class="st">"&lt;span style = 'color:#757575;'&gt;Nigeria, 1953 to 2100&lt;/span&gt;"</span>,</span>
+<span id="cb7-44"><a href="#cb7-44"></a>       <span class="at">caption =</span> <span class="st">"Source: U.S. Census Bureau, International Database"</span>) <span class="sc">+</span></span>
+<span id="cb7-45"><a href="#cb7-45"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb7-46"><a href="#cb7-46"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-47"><a href="#cb7-47"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="st">"cm"</span>),</span>
+<span id="cb7-48"><a href="#cb7-48"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-49"><a href="#cb7-49"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-50"><a href="#cb7-50"></a>    <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"#000000"</span>),</span>
+<span id="cb7-51"><a href="#cb7-51"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.2</span>), <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb7-52"><a href="#cb7-52"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>)),</span>
+<span id="cb7-53"><a href="#cb7-53"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">colour =</span> <span class="st">"#707071"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb7-54"><a href="#cb7-54"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">10</span>))</span>
+<span id="cb7-55"><a href="#cb7-55"></a>  ) </span>
+<span id="cb7-56"><a href="#cb7-56"></a></span>
+<span id="cb7-57"><a href="#cb7-57"></a><span class="fu">ggsave</span>(<span class="st">"outputs/plot.jpeg"</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">scale =</span> <span class="dv">1</span>)</span>
+<span id="cb7-58"><a href="#cb7-58"></a><span class="in">```</span></span>
+<span id="cb7-59"><a href="#cb7-59"></a></span>
+<span id="cb7-62"><a href="#cb7-62"></a><span class="in">```{r}</span></span>
+<span id="cb7-63"><a href="#cb7-63"></a><span class="fu">library</span>(tidyverse) ; <span class="fu">library</span>(ggtext)</span>
+<span id="cb7-64"><a href="#cb7-64"></a></span>
+<span id="cb7-65"><a href="#cb7-65"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fertility_rate.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-66"><a href="#cb7-66"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Nigeria"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-67"><a href="#cb7-67"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">ymd</span>(year, <span class="at">truncated =</span> 2L))</span>
+<span id="cb7-68"><a href="#cb7-68"></a></span>
+<span id="cb7-69"><a href="#cb7-69"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span> </span>
+<span id="cb7-70"><a href="#cb7-70"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#CC79A7"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb7-71"><a href="#cb7-71"></a>  <span class="fu">scale_x_date</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(),</span>
+<span id="cb7-72"><a href="#cb7-72"></a>               <span class="at">breaks =</span> <span class="fu">seq.Date</span>(<span class="fu">as.Date</span>(<span class="st">"1960-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2100-01-01"</span>), <span class="at">by =</span> <span class="st">"20 years"</span>),</span>
+<span id="cb7-73"><a href="#cb7-73"></a>               <span class="at">date_labels =</span> <span class="st">"%Y"</span>) <span class="sc">+</span> </span>
+<span id="cb7-74"><a href="#cb7-74"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb7-75"><a href="#cb7-75"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">accuracy =</span> <span class="dv">1</span>, <span class="at">scale_cut =</span> scales<span class="sc">::</span><span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
+<span id="cb7-76"><a href="#cb7-76"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Births per woman"</span>,</span>
+<span id="cb7-77"><a href="#cb7-77"></a>       <span class="at">title =</span> <span class="st">"Total fertility rate"</span>,</span>
+<span id="cb7-78"><a href="#cb7-78"></a>       <span class="at">subtitle =</span> <span class="st">"&lt;span style = 'color:#757575;'&gt;Nigeria, 1953 to 2100&lt;/span&gt;"</span>,</span>
+<span id="cb7-79"><a href="#cb7-79"></a>       <span class="at">caption =</span> <span class="st">"Source: U.S. Census Bureau, International Database"</span>) <span class="sc">+</span></span>
+<span id="cb7-80"><a href="#cb7-80"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb7-81"><a href="#cb7-81"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-82"><a href="#cb7-82"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="st">"cm"</span>),</span>
+<span id="cb7-83"><a href="#cb7-83"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-84"><a href="#cb7-84"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-85"><a href="#cb7-85"></a>    <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"#000000"</span>),</span>
+<span id="cb7-86"><a href="#cb7-86"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.2</span>), <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb7-87"><a href="#cb7-87"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>)),</span>
+<span id="cb7-88"><a href="#cb7-88"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">colour =</span> <span class="st">"#707071"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb7-89"><a href="#cb7-89"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">10</span>))</span>
+<span id="cb7-90"><a href="#cb7-90"></a>  )</span>
+<span id="cb7-91"><a href="#cb7-91"></a><span class="in">```</span></span>
+<span id="cb7-92"><a href="#cb7-92"></a></span>
+<span id="cb7-93"><a href="#cb7-93"></a>However, you've been told to compare Nigeria's fertility rate with Rwanda's. This is where git comes in. Rather than creating a new file or overwriting it you can just track your file changes with Git.</span>
+<span id="cb7-94"><a href="#cb7-94"></a></span>
+<span id="cb7-95"><a href="#cb7-95"></a><span class="ss">1. </span>Navigate to the Terminal tab in the Console pane of RStudio. You can also use the Command Prompt or PowerShell in Windows or the Terminal on a Mac.</span>
+<span id="cb7-96"><a href="#cb7-96"></a><span class="ss">2. </span>Go to the folder containing your code and data: <span class="in">`cd /path/to/your/folder`</span>{.bash}</span>
+<span id="cb7-97"><a href="#cb7-97"></a><span class="ss">3. </span>Initialise the folder as a git repository or **repo**: <span class="in">`git init`</span>{.bash}.</span>
+<span id="cb7-98"><a href="#cb7-98"></a><span class="ss">4. </span>Check which files are currently untracked: <span class="in">`git status`</span>{.bash}</span>
+<span id="cb7-99"><a href="#cb7-99"></a></span>
+<span id="cb7-100"><a href="#cb7-100"></a><span class="in">```sh</span></span>
+<span id="cb7-101"><a href="#cb7-101"></a><span class="ex">$</span> git status</span>
+<span id="cb7-102"><a href="#cb7-102"></a><span class="ex">No</span> commits yet</span>
+<span id="cb7-103"><a href="#cb7-103"></a></span>
+<span id="cb7-104"><a href="#cb7-104"></a><span class="ex">Untracked</span> files:</span>
+<span id="cb7-105"><a href="#cb7-105"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git add &lt;file&gt;..."</span> to include in what will be committed<span class="kw">)</span></span>
+<span id="cb7-106"><a href="#cb7-106"></a>        <span class="ex">data/</span></span>
+<span id="cb7-107"><a href="#cb7-107"></a>        <span class="ex">outputs/</span></span>
+<span id="cb7-108"><a href="#cb7-108"></a>        <span class="ex">script.R</span></span>
+<span id="cb7-109"><a href="#cb7-109"></a></span>
+<span id="cb7-110"><a href="#cb7-110"></a><span class="ex">nothing</span> added to commit but untracked files present <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> to track<span class="kw">)</span></span>
+<span id="cb7-111"><a href="#cb7-111"></a><span class="in">```</span></span>
+<span id="cb7-112"><a href="#cb7-112"></a></span>
+<span id="cb7-113"><a href="#cb7-113"></a>We have two empty folders and one file (<span class="in">`script.R`</span>) that are currently untracked.</span>
+<span id="cb7-114"><a href="#cb7-114"></a></span>
+<span id="cb7-115"><a href="#cb7-115"></a><span class="ss">5. </span>Put the files in the staging area: <span class="in">`git add -A`</span>{.bash}. This tracks all of the files in the repo. You can also track individual files by specifying them within the Git command: <span class="in">`git add script.R`</span>{.bash}</span>
+<span id="cb7-116"><a href="#cb7-116"></a><span class="ss">6. </span>Then take a snapshot with <span class="in">`git commit`</span>{.bash}</span>
+<span id="cb7-117"><a href="#cb7-117"></a></span>
+<span id="cb7-118"><a href="#cb7-118"></a>::: {.callout-tip}</span>
+<span id="cb7-119"><a href="#cb7-119"></a><span class="fu">## Git commit messages</span></span>
+<span id="cb7-120"><a href="#cb7-120"></a></span>
+<span id="cb7-121"><a href="#cb7-121"></a>It is good practice to add a descriptive message to each commit. For example, we might add <span class="in">`git commit -m "Line chart showing Nigeria's total fertility rate"`</span>{.bash}. When we look back through the history of our commits we can then see at a glance what changes we made to the code. There are various dos and don'ts about good commit messages but the ONS Data Science Campus has some useful advice in their <span class="co">[</span><span class="ot">style guide for version control</span><span class="co">](https://datasciencecampus.github.io/coding-standards/version-control.html#commit-message)</span>.</span>
+<span id="cb7-122"><a href="#cb7-122"></a>:::</span>
+<span id="cb7-123"><a href="#cb7-123"></a></span>
+<span id="cb7-124"><a href="#cb7-124"></a>Then we can update our R code so that we can compare the historic and projected trend in fertility rates between Nigeria and Rwanda.</span>
+<span id="cb7-125"><a href="#cb7-125"></a></span>
+<span id="cb7-126"><a href="#cb7-126"></a><span class="in">```{r, echo=TRUE, eval=FALSE}</span></span>
+<span id="cb7-127"><a href="#cb7-127"></a><span class="fu">library</span>(tidyverse) ; <span class="fu">library</span>(ggtext)</span>
+<span id="cb7-128"><a href="#cb7-128"></a></span>
+<span id="cb7-129"><a href="#cb7-129"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fertility_rate.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-130"><a href="#cb7-130"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">ymd</span>(year, <span class="at">truncated =</span> 2L),</span>
+<span id="cb7-131"><a href="#cb7-131"></a>         <span class="at">position =</span> <span class="fu">if_else</span>(name <span class="sc">==</span> <span class="st">"Nigeria"</span>, <span class="dv">0</span>, <span class="fl">0.4</span>))</span>
+<span id="cb7-132"><a href="#cb7-132"></a></span>
+<span id="cb7-133"><a href="#cb7-133"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span> </span>
+<span id="cb7-134"><a href="#cb7-134"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">colour =</span> name), <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb7-135"><a href="#cb7-135"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">filter</span>(df, year <span class="sc">==</span> <span class="fu">max</span>(year)),</span>
+<span id="cb7-136"><a href="#cb7-136"></a>            <span class="fu">aes</span>(<span class="at">label =</span> name, <span class="at">colour =</span> name, <span class="at">vjust =</span> position),</span>
+<span id="cb7-137"><a href="#cb7-137"></a>            <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.1</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>,</span>
+<span id="cb7-138"><a href="#cb7-138"></a>            <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-139"><a href="#cb7-139"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Nigeria"</span> <span class="ot">=</span> <span class="st">"#CC79A7"</span>, <span class="st">"Rwanda"</span> <span class="ot">=</span> <span class="st">"#009E73"</span>)) <span class="sc">+</span></span>
+<span id="cb7-140"><a href="#cb7-140"></a>  <span class="fu">scale_x_date</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(),</span>
+<span id="cb7-141"><a href="#cb7-141"></a>               <span class="at">breaks =</span> <span class="fu">seq.Date</span>(<span class="fu">as.Date</span>(<span class="st">"1960-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2100-01-01"</span>), <span class="at">by =</span> <span class="st">"20 years"</span>),</span>
+<span id="cb7-142"><a href="#cb7-142"></a>               <span class="at">date_labels =</span> <span class="st">"%Y"</span>) <span class="sc">+</span> </span>
+<span id="cb7-143"><a href="#cb7-143"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb7-144"><a href="#cb7-144"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">accuracy =</span> <span class="dv">1</span>, <span class="at">scale_cut =</span> scales<span class="sc">::</span><span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
+<span id="cb7-145"><a href="#cb7-145"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Births per woman"</span>,</span>
+<span id="cb7-146"><a href="#cb7-146"></a>       <span class="at">title =</span> <span class="st">"Total fertility rate"</span>,</span>
+<span id="cb7-147"><a href="#cb7-147"></a>       <span class="at">subtitle =</span> <span class="st">"&lt;span style = 'color:#757575;'&gt;Nigeria and Rwanda, 1953 to 2100 (projected)&lt;/span&gt;"</span>,</span>
+<span id="cb7-148"><a href="#cb7-148"></a>       <span class="at">caption =</span> <span class="st">"Source: U.S. Census Bureau, International Database"</span>) <span class="sc">+</span></span>
+<span id="cb7-149"><a href="#cb7-149"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb7-150"><a href="#cb7-150"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-151"><a href="#cb7-151"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="st">"cm"</span>),</span>
+<span id="cb7-152"><a href="#cb7-152"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-153"><a href="#cb7-153"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-154"><a href="#cb7-154"></a>    <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"#000000"</span>),</span>
+<span id="cb7-155"><a href="#cb7-155"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.2</span>), <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb7-156"><a href="#cb7-156"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>)),</span>
+<span id="cb7-157"><a href="#cb7-157"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">colour =</span> <span class="st">"#707071"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb7-158"><a href="#cb7-158"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">10</span>))</span>
+<span id="cb7-159"><a href="#cb7-159"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-160"><a href="#cb7-160"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span>
+<span id="cb7-161"><a href="#cb7-161"></a></span>
+<span id="cb7-162"><a href="#cb7-162"></a><span class="fu">ggsave</span>(<span class="st">"outputs/plot.jpeg"</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">scale =</span> <span class="dv">1</span>)</span>
+<span id="cb7-163"><a href="#cb7-163"></a><span class="in">```</span></span>
+<span id="cb7-164"><a href="#cb7-164"></a></span>
+<span id="cb7-167"><a href="#cb7-167"></a><span class="in">```{r}</span></span>
+<span id="cb7-168"><a href="#cb7-168"></a><span class="fu">library</span>(tidyverse) ; <span class="fu">library</span>(ggtext)</span>
+<span id="cb7-169"><a href="#cb7-169"></a></span>
+<span id="cb7-170"><a href="#cb7-170"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fertility_rate.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-171"><a href="#cb7-171"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">ymd</span>(year, <span class="at">truncated =</span> 2L),</span>
+<span id="cb7-172"><a href="#cb7-172"></a>         <span class="at">position =</span> <span class="fu">if_else</span>(name <span class="sc">==</span> <span class="st">"Nigeria"</span>, <span class="dv">0</span>, <span class="fl">0.4</span>))</span>
+<span id="cb7-173"><a href="#cb7-173"></a></span>
+<span id="cb7-174"><a href="#cb7-174"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span> </span>
+<span id="cb7-175"><a href="#cb7-175"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">colour =</span> name), <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb7-176"><a href="#cb7-176"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">filter</span>(df, year <span class="sc">==</span> <span class="fu">max</span>(year)),</span>
+<span id="cb7-177"><a href="#cb7-177"></a>            <span class="fu">aes</span>(<span class="at">label =</span> name, <span class="at">colour =</span> name, <span class="at">vjust =</span> position),</span>
+<span id="cb7-178"><a href="#cb7-178"></a>            <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.1</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>,</span>
+<span id="cb7-179"><a href="#cb7-179"></a>            <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb7-180"><a href="#cb7-180"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Nigeria"</span> <span class="ot">=</span> <span class="st">"#CC79A7"</span>, <span class="st">"Rwanda"</span> <span class="ot">=</span> <span class="st">"#009E73"</span>)) <span class="sc">+</span></span>
+<span id="cb7-181"><a href="#cb7-181"></a>  <span class="fu">scale_x_date</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(),</span>
+<span id="cb7-182"><a href="#cb7-182"></a>               <span class="at">breaks =</span> <span class="fu">seq.Date</span>(<span class="fu">as.Date</span>(<span class="st">"1960-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2100-01-01"</span>), <span class="at">by =</span> <span class="st">"20 years"</span>),</span>
+<span id="cb7-183"><a href="#cb7-183"></a>               <span class="at">date_labels =</span> <span class="st">"%Y"</span>) <span class="sc">+</span> </span>
+<span id="cb7-184"><a href="#cb7-184"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb7-185"><a href="#cb7-185"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">accuracy =</span> <span class="dv">1</span>, <span class="at">scale_cut =</span> scales<span class="sc">::</span><span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
+<span id="cb7-186"><a href="#cb7-186"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Births per woman"</span>,</span>
+<span id="cb7-187"><a href="#cb7-187"></a>       <span class="at">title =</span> <span class="st">"Total fertility rate"</span>,</span>
+<span id="cb7-188"><a href="#cb7-188"></a>       <span class="at">subtitle =</span> <span class="st">"&lt;span style = 'color:#757575;'&gt;Nigeria and Rwanda, 1953 to 2100 (projected)&lt;/span&gt;"</span>,</span>
+<span id="cb7-189"><a href="#cb7-189"></a>       <span class="at">caption =</span> <span class="st">"Source: U.S. Census Bureau, International Database"</span>) <span class="sc">+</span></span>
+<span id="cb7-190"><a href="#cb7-190"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb7-191"><a href="#cb7-191"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-192"><a href="#cb7-192"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="st">"cm"</span>),</span>
+<span id="cb7-193"><a href="#cb7-193"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-194"><a href="#cb7-194"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-195"><a href="#cb7-195"></a>    <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"#000000"</span>),</span>
+<span id="cb7-196"><a href="#cb7-196"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.2</span>), <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb7-197"><a href="#cb7-197"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>)),</span>
+<span id="cb7-198"><a href="#cb7-198"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">colour =</span> <span class="st">"#707071"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb7-199"><a href="#cb7-199"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">10</span>))</span>
+<span id="cb7-200"><a href="#cb7-200"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-201"><a href="#cb7-201"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span>
+<span id="cb7-202"><a href="#cb7-202"></a><span class="in">```</span></span>
+<span id="cb7-203"><a href="#cb7-203"></a></span>
+<span id="cb7-204"><a href="#cb7-204"></a>To track these changes we'd follow these steps.</span>
+<span id="cb7-205"><a href="#cb7-205"></a></span>
+<span id="cb7-206"><a href="#cb7-206"></a><span class="ss">1. </span>Check that you have file changes: <span class="in">`git status`</span>{.bash}</span>
+<span id="cb7-207"><a href="#cb7-207"></a></span>
+<span id="cb7-208"><a href="#cb7-208"></a><span class="in">```sh</span></span>
+<span id="cb7-209"><a href="#cb7-209"></a><span class="ex">$</span> git status</span>
+<span id="cb7-210"><a href="#cb7-210"></a><span class="ex">On</span> branch master</span>
+<span id="cb7-211"><a href="#cb7-211"></a><span class="ex">Changes</span> not staged for commit:</span>
+<span id="cb7-212"><a href="#cb7-212"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git add &lt;file&gt;..."</span> to update what will be committed<span class="kw">)</span></span>
+<span id="cb7-213"><a href="#cb7-213"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git restore &lt;file&gt;..."</span> to discard changes in working directory<span class="kw">)</span></span>
+<span id="cb7-214"><a href="#cb7-214"></a>        <span class="ex">modified:</span>   data/fertility_rate.csv</span>
+<span id="cb7-215"><a href="#cb7-215"></a>        <span class="ex">modified:</span>   outputs/plot.jpeg</span>
+<span id="cb7-216"><a href="#cb7-216"></a>        <span class="ex">modified:</span>   script.R</span>
+<span id="cb7-217"><a href="#cb7-217"></a></span>
+<span id="cb7-218"><a href="#cb7-218"></a><span class="ex">no</span> changes added to commit <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> and/or <span class="st">"git commit -a"</span><span class="kw">)</span></span>
+<span id="cb7-219"><a href="#cb7-219"></a><span class="in">```</span></span>
+<span id="cb7-220"><a href="#cb7-220"></a></span>
+<span id="cb7-221"><a href="#cb7-221"></a>We have updated our dataset with values for Rwanda (<span class="in">`fertility_rate.csv`</span>), created a new plot (<span class="in">`plot.jpeg`</span>) and revised our R script (<span class="in">`script.R`</span>).</span>
+<span id="cb7-222"><a href="#cb7-222"></a></span>
+<span id="cb7-223"><a href="#cb7-223"></a><span class="ss">2. </span>Put the changes in the staging area: <span class="in">`git add -A`</span>{.bash}</span>
+<span id="cb7-224"><a href="#cb7-224"></a><span class="ss">3. </span>Commit the changes: <span class="in">`git commit -m "Multiple line chart of total fertility rate in Nigeria and Rwanda"`</span>{.bash}</span>
+<span id="cb7-225"><a href="#cb7-225"></a><span class="ss">4. </span>Check that everything has been committed: <span class="in">`git status`</span>{.bash}</span>
+<span id="cb7-226"><a href="#cb7-226"></a></span>
+<span id="cb7-227"><a href="#cb7-227"></a>::: {.callout-note}</span>
+<span id="cb7-228"><a href="#cb7-228"></a><span class="fu">## `.gitignore`</span></span>
+<span id="cb7-229"><a href="#cb7-229"></a></span>
+<span id="cb7-230"><a href="#cb7-230"></a>A <span class="in">`.gitignore`</span> is a text file that lists all of the files and folders that you don't want tracked by Git. For example, this list could include datasets that contain sensitive data. Listing files to <span class="in">`.gitignore`</span> is especially important if you intend to host files on GitHub. To create a <span class="in">`.gitignore`</span> file just enter <span class="in">`touch .gitignore`</span>{.bash} into the terminal. You can either edit the file in the terminal or in a text editor. If you want to add a file using the terminal you can enter <span class="in">`echo FILENAME &gt;&gt; .gitignore`</span>{.bash}.</span>
+<span id="cb7-231"><a href="#cb7-231"></a>:::</span>
+<span id="cb7-232"><a href="#cb7-232"></a></span>
+<span id="cb7-233"><a href="#cb7-233"></a>Rather than overwriting your file with different file names you now have a linear history of commits for the same file. To visualise the history of your commits you can type <span class="in">`git log --reverse --pretty=format:'| %H | %s |'`</span> into the Terminal. This prints out the commit **hash**, a unique identifier for each commit, alongside the commit messages.</span>
+<span id="cb7-234"><a href="#cb7-234"></a></span>
+<span id="cb7-235"><a href="#cb7-235"></a><span class="in">```sh</span></span>
+<span id="cb7-236"><a href="#cb7-236"></a><span class="ex">$</span> git log <span class="at">--reverse</span> <span class="at">--pretty</span><span class="op">=</span>format:<span class="st">'| %H | %s |'</span></span>
+<span id="cb7-237"><a href="#cb7-237"></a><span class="kw">|</span> <span class="ex">b7ab60ae6fae9c6263ff36fd4fcda4f8be874683</span> <span class="kw">|</span> <span class="ex">Nigeria</span> fertility rate <span class="kw">|</span></span>
+<span id="cb7-238"><a href="#cb7-238"></a><span class="kw">|</span> <span class="ex">d2faa1a7784fad0524dc33a8585f8cf7c8340b9c</span> <span class="kw">|</span> <span class="ex">Compare</span> with Rwanda <span class="kw">|</span></span>
+<span id="cb7-239"><a href="#cb7-239"></a><span class="in">```</span></span>
+<span id="cb7-240"><a href="#cb7-240"></a></span>
+<span id="cb7-241"><a href="#cb7-241"></a>The glossary below lists some of the most common terms and Git commands.</span>
+<span id="cb7-242"><a href="#cb7-242"></a></span>
+<span id="cb7-243"><a href="#cb7-243"></a>|                    |                                         |</span>
+<span id="cb7-244"><a href="#cb7-244"></a>|--------------------|:----------------------------------------|</span>
+<span id="cb7-245"><a href="#cb7-245"></a>| **repo**           | project folder                          |</span>
+<span id="cb7-246"><a href="#cb7-246"></a>| **remote**         | a repo available to all team members    |</span>
+<span id="cb7-247"><a href="#cb7-247"></a>| **clone**          | get repo from remote                    |</span>
+<span id="cb7-248"><a href="#cb7-248"></a>| **stage**          | prepare files for commit                |</span>
+<span id="cb7-249"><a href="#cb7-249"></a>| **commit**         |  take a snapshot of a file or files     |</span>
+<span id="cb7-250"><a href="#cb7-250"></a>| **hash**           | commit id                               |</span>
+<span id="cb7-251"><a href="#cb7-251"></a>| **pull**           | get commits from a repo                 |</span>
+<span id="cb7-252"><a href="#cb7-252"></a>| **push**           | send commits to a repo                  |</span>
+<span id="cb7-253"><a href="#cb7-253"></a>| **branch**         | sandbox in a repo                       |</span>
+<span id="cb7-254"><a href="#cb7-254"></a>| **main**           | default branch where live code sits     |</span>
+<span id="cb7-255"><a href="#cb7-255"></a>| **merge**          | combine all commits on branches         |</span>
+<span id="cb7-256"><a href="#cb7-256"></a>| **merge conflict** | conflict contradictory file changes     |</span>
+<span id="cb7-257"><a href="#cb7-257"></a>| **pull**           | request propose changes to remote repo  |</span>
+<span id="cb7-258"><a href="#cb7-258"></a></span>
+<span id="cb7-259"><a href="#cb7-259"></a>: Common terms and Git commands {.hover tbl-colwidths="<span class="co">[</span><span class="ot">20,80</span><span class="co">]</span>"}</span>
+<span id="cb7-260"><a href="#cb7-260"></a></span>
+<span id="cb7-261"><a href="#cb7-261"></a><span class="fu">## GitHub</span></span>
+<span id="cb7-262"><a href="#cb7-262"></a><span class="co">[</span><span class="ot">GitHub</span><span class="co">](https://github.com/)</span> is a website and service that hosts Git repositories, where developers can store, share, and collaborate on their projects.</span>
+<span id="cb7-263"><a href="#cb7-263"></a></span>
+<span id="cb7-264"><a href="#cb7-264"></a>Before you can add your local **repo** to GitHub you need to create a **remote** repo on GitHub.</span>
+<span id="cb7-265"><a href="#cb7-265"></a></span>
+<span id="cb7-266"><a href="#cb7-266"></a><span class="ss">1. </span>Create a new <span class="co">[</span><span class="ot">**repo**</span><span class="co">](https://github.com/new)</span> called <span class="in">`vital_statistics`</span>. There is no need to add a README file, licence or a <span class="in">`.gitignore`</span> file at this stage. Click through to 'Create repository'.</span>
+<span id="cb7-267"><a href="#cb7-267"></a></span>
+<span id="cb7-268"><a href="#cb7-268"></a>::: {.callout-note}</span>
+<span id="cb7-269"><a href="#cb7-269"></a><span class="fu">## README</span></span>
+<span id="cb7-270"><a href="#cb7-270"></a></span>
+<span id="cb7-271"><a href="#cb7-271"></a>A README provides information about the purpose and contents of a GitHub repo. For example, the README for the <span class="co">[</span><span class="ot">vsreport</span><span class="co">](https://github.com/tech-acs/vsreport)</span> package provides an overview, guidance on installation, some example code, and a list of contributors. Each README file is written using <span class="co">[</span><span class="ot">Markdown</span><span class="co">](https://daringfireball.net/projects/markdown/)</span>, a simple formatting syntax for plain text documents that can be easily converted into HTML. A good <span class="co">[</span><span class="ot">tutorial</span><span class="co">](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)</span> on writing in Markdown can be found on the GitHub website.</span>
+<span id="cb7-272"><a href="#cb7-272"></a>:::</span>
+<span id="cb7-273"><a href="#cb7-273"></a></span>
+<span id="cb7-274"><a href="#cb7-274"></a><span class="ss">2. </span>Navigate to '**Quick setup — if you’ve done this kind of thing before**' on the subsequent page and copy the remote repository URL. It will something look like <span class="in">`https://github.com/USERNAME/vital_statistics.git`</span></span>
+<span id="cb7-275"><a href="#cb7-275"></a><span class="ss">3. </span>Next, open the terminal and ensure that it is pointing to the current folder. To print the name of the current folder just enter <span class="in">`pwd`</span>{.bash}</span>
+<span id="cb7-276"><a href="#cb7-276"></a><span class="ss">4. </span>Now enter <span class="in">`git remote add origin REMOTE-URL`</span>{.bash} into the terminal replacing <span class="in">`REMOTE-URL`</span> with the remote repository URL from step 2.</span>
+<span id="cb7-277"><a href="#cb7-277"></a><span class="ss">5. </span>To check that the correct URL has been set enter <span class="in">`git remote -v`</span>{.bash}</span>
+<span id="cb7-278"><a href="#cb7-278"></a><span class="ss">6. </span>Then push the changes you have made to your local repo to GitHub enter <span class="in">`git push origin master`</span>{.bash} You should now see all your code and subfolders on GitHub.</span>
+<span id="cb7-279"><a href="#cb7-279"></a></span>
+<span id="cb7-280"><a href="#cb7-280"></a>::: {.callout-tip}</span>
+<span id="cb7-281"><a href="#cb7-281"></a><span class="fu">## Branches</span></span>
+<span id="cb7-282"><a href="#cb7-282"></a></span>
+<span id="cb7-283"><a href="#cb7-283"></a>If you are collaborating with others it is generally a good idea to create what's called a **branch**. This is essentially a sandbox for rough workings out. The working code is on the 'main' branch but the draft, experimental code is held on a separate branch.</span>
+<span id="cb7-284"><a href="#cb7-284"></a></span>
+<span id="cb7-285"><a href="#cb7-285"></a>These are the steps that you might follow:</span>
+<span id="cb7-286"><a href="#cb7-286"></a></span>
+<span id="cb7-287"><a href="#cb7-287"></a><span class="ss">1. </span>Create a branch: <span class="in">`git branch development`</span>{.bash}</span>
+<span id="cb7-288"><a href="#cb7-288"></a><span class="ss">2. </span>Switch to the development branch: <span class="in">`git checkout development`</span>{.bash}</span>
+<span id="cb7-289"><a href="#cb7-289"></a><span class="ss">3. </span>Push changes to the remote branch: <span class="in">`git push origin development`</span>{.bash}</span>
+<span id="cb7-290"><a href="#cb7-290"></a>:::</span>
+<span id="cb7-291"><a href="#cb7-291"></a></span>
+<span id="cb7-292"><a href="#cb7-292"></a>If you are collaborator on this project and want to copy or **fork** the GitHub repository for you to work on locally you can follow these steps.</span>
+<span id="cb7-293"><a href="#cb7-293"></a></span>
+<span id="cb7-294"><a href="#cb7-294"></a><span class="ss">1. </span>Set you working folder e.g. <span class="in">`cd /path/to/your/folder`</span>{.bash}</span>
+<span id="cb7-295"><a href="#cb7-295"></a><span class="ss">2. </span>**Clone** the remote repo in the current directory by entering <span class="in">`git clone https://github.com/USERNAME/vital_statistics.git`</span>{.bash} This is the same remote repository URL that we used earlier.</span>
+<span id="cb7-296"><a href="#cb7-296"></a></span>
+<span id="cb7-297"><a href="#cb7-297"></a></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
