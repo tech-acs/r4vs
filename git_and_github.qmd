@@ -1,7 +1,14 @@
-# Git and GitHub
+---
+title: Git and GitHub
+format:
+  html:
+    code-fold: true
+    code-tools: true
+editor: source
+---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.asp = 0.8, out.width = "70%")
 ```
 
 ## Git
@@ -18,8 +25,6 @@ Let's say that you've written some R code that visualises the total fertility ra
     ├── outputs
 ```
 
-::: grid
-::: g-col-6
 ```{r, echo=TRUE, eval=FALSE}
 library(tidyverse) ; library(ggtext)
 
@@ -51,9 +56,7 @@ ggplot(df, aes(x = year, y = value)) +
 
 ggsave("outputs/plot.jpeg", dpi = 300, scale = 1)
 ```
-:::
 
-::: g-col-6
 ```{r}
 library(tidyverse) ; library(ggtext)
 
@@ -84,8 +87,6 @@ ggplot(df, aes(x = year, y = value)) +
     axis.title.y = element_text(size = rel(0.8), hjust = 0, margin = margin(r = 10))
   )
 ```
-:::
-:::
 
 However, you've been told to compare Nigeria's fertility rate with Rwanda's. This is where git comes in. Rather than creating a new file or overwriting it you can just track your file changes with Git.
 
@@ -109,19 +110,17 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 We have two empty folders and one file (`script.R`) that are currently untracked.
 
-5. Put the files in the staging area: `git add -A`{.bash}
+5. Put the files in the staging area: `git add -A`{.bash}. This tracks all of the files in the repo. You can also track individual files by specifying them within the Git command: `git add script.R`{.bash}
 6. Then take a snapshot with `git commit`{.bash}
 
 ::: {.callout-tip}
 ## Git commit messages
 
-It is good practice to add a descriptive message to each commit. For example, we might add `git commit -m "Nigeria fertility rate"`{.bash}. When we look back through the history of our commits we can then see at a glance what changes we made to the code.
+It is good practice to add a descriptive message to each commit. For example, we might add `git commit -m "Line chart showing Nigeria's total fertility rate"`{.bash}. When we look back through the history of our commits we can then see at a glance what changes we made to the code. There are various dos and don'ts about good commit messages but the ONS Data Science Campus has some useful advice in their [style guide for version control](https://datasciencecampus.github.io/coding-standards/version-control.html#commit-message).
 :::
 
 Then we can update our R code so that we can compare the historic and projected trend in fertility rates between Nigeria and Rwanda.
 
-::: grid
-::: g-col-6
 ```{r, echo=TRUE, eval=FALSE}
 library(tidyverse) ; library(ggtext)
 
@@ -160,9 +159,7 @@ ggplot(df, aes(x = year, y = value)) +
 
 ggsave("outputs/plot.jpeg", dpi = 300, scale = 1)
 ```
-:::
 
-::: g-col-6
 ```{r}
 library(tidyverse) ; library(ggtext)
 
@@ -199,8 +196,6 @@ ggplot(df, aes(x = year, y = value)) +
   ) +
   coord_cartesian(clip = "off")
 ```
-:::
-:::
 
 To track these changes we'd follow these steps.
 
@@ -222,10 +217,10 @@ no changes added to commit (use "git add" and/or "git commit -a")
 We have updated our dataset with values for Rwanda (`fertility_rate.csv`), created a new plot (`plot.jpeg`) and revised our R script (`script.R`).
 
 2. Put the changes in the staging area: `git add -A`{.bash}
-3. Commit the changes: `git commit -m "Compare with Rwanda"`{.bash}
+3. Commit the changes: `git commit -m "Multiple line chart of total fertility rate in Nigeria and Rwanda"`{.bash}
 4. Check that everything has been committed: `git status`{.bash}
 
-::: {.callout-tip}
+::: {.callout-note}
 ## `.gitignore`
 
 A `.gitignore` is a text file that lists all of the files and folders that you don't want tracked by Git. For example, this list could include datasets that contain sensitive data. Listing files to `.gitignore` is especially important if you intend to host files on GitHub. To create a `.gitignore` file just enter `touch .gitignore`{.bash} into the terminal. You can either edit the file in the terminal or in a text editor. If you want to add a file using the terminal you can enter `echo FILENAME >> .gitignore`{.bash}.
@@ -265,6 +260,13 @@ The glossary below lists some of the most common terms and Git commands.
 Before you can add your local **repo** to GitHub you need to create a **remote** repo on GitHub.
 
 1. Create a new [**repo**](https://github.com/new) called `vital_statistics`. There is no need to add a README file, licence or a `.gitignore` file at this stage. Click through to 'Create repository'.
+
+::: {.callout-note}
+## README
+
+A README provides information about the purpose and contents of a GitHub repo. For example, the README for the [vsreport](https://github.com/tech-acs/vsreport) package provides an overview, guidance on installation, some example code, and a list of contributors. Each README file is written using [Markdown](https://daringfireball.net/projects/markdown/), a simple formatting syntax for plain text documents that can be easily converted into HTML. A good [tutorial](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) on writing in Markdown can be found on the GitHub website.
+:::
+
 2. Navigate to '**Quick setup — if you’ve done this kind of thing before**' on the subsequent page and copy the remote repository URL. It will something look like `https://github.com/USERNAME/vital_statistics.git`
 3. Next, open the terminal and ensure that it is pointing to the current folder. To print the name of the current folder just enter `pwd`{.bash}
 4. Now enter `git remote add origin REMOTE-URL`{.bash} into the terminal replacing `REMOTE-URL` with the remote repository URL from step 2.
